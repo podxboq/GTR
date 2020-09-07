@@ -1,0 +1,137 @@
+\chapter{Notaci\'on}\label{ch:notacion}
+\begin{itemize}
+  \item Diremos que $V$ es un e-vectorial para indicar que es un espacio vectorial
+  de dimensión finita y con un producto escalar $\pescalar{}{}$ sobre un cuerpo $K$.
+  \item Si $V$ es un espacio vectorial, llamamos $V^*$ a su espacio dual.
+  \item Diremos que una función de $\R^n$ en $\R^m$ es $(n,m)$-suave si se puede diferencial indefinidamente.
+  \item Diremos que $M$ es una variedad diferenciable de dimensión $n$ con una métrica.
+  \item La cuaterna $(M, p, U, \phi)$ es carta local si $M$ es un variedad diferenciable, $p\in U\subset M$ con $U$ abierto en $M$ y $\maps{\phi}{U}{\R^n}$.
+  \item Usaremos la función delta de kronecker con los índices en sus variantes
+  $\delta_{\alpha\beta}=\delta_\alpha^\beta=\delta^{\alpha\beta}$.
+  \item Dada una matriz $A$ describiremos a sus entradas con los índices en sus variantes
+  $A=(A_{\alpha\beta})_{\alpha\beta}=(A_\alpha^\beta)_\alpha^\beta=(A^{\alpha\beta})^{\alpha\beta}$.
+  \item Si $V$ es un espacio vectorial, denotaremos
+  $V^{\otimes r}=V\otimes\overbrace{\cdots}^\text{r\ veces}\otimes V$.
+\end{itemize}
+
+
+\section{\'Indices}\label{sec:indices}
+Principalmente para simplificar la notación al trabajar con índices, vamos
+a introducir algunos conceptos y establecer una notación que haga más cómodo
+trabajar con variables multi-indexadas.
+
+\begin{notation}
+  Denotaremos por:
+  \begin{itemize}
+    \item $I_n$ al conjunto de los naturales menores o iguales a $n$.
+    \item $I_n^m$ al producto cartesiano $m$-veces de $I_n$.
+    \item $P_n^m=\{(i_1,\cdots,i_m)\in I_n^m\ \mid \ i_k\neq 0\ \forall\ \indexdots{k}{1}{m}\}$
+    \item $H_{kn}^m(l)=\{(i_1,\cdots,i_m)\in I_n^m\ \mid \ i_k=l\}$
+  \end{itemize}
+\end{notation}
+
+\begin{notation}
+  Si $\sigma=(1,\ldots,n)$, con la expresión $x^{(\sigma)}$, estaremos escribiendo la $n$-tupla $(x^1,\ldots,x^n)$.
+  Sin embargo con la expresión $x^\sigma$, estaremos escribiendo $x^{1,\ldots,n}$.
+\end{notation}
+
+\subsection{Criterio de índices}\label{subsec:criterio-de-indices}
+
+Emplearemos continuamente el \textbf{convenio de sumas de Einstein}\index{convenio de sumas de Einstein} según el cual
+índices repetidos arriba y abajo en una expresión se supone sumado en todos sus posibles valores,
+así la expresión $y=\sum_{\alpha=1}^3 c_\alpha x^\alpha=c_1 x^1 + c_2 x^2 + c_3 x^3$
+se simplifica por la convención a $y = c_\alpha x^\alpha$.
+
+
+\chapter{Álgebra lineal}\label{ch:algebra-lineal}
+
+
+\section{Base dual}\label{sec:base-dual}\index{Base dual}
+
+Sea $V$ un e-vectorial con $\{e^\alpha\}$ una base de $V$.
+Definamos las aplicaciones lineales $e_\alpha: V \longrightarrow K$ actuando sobre la base
+como $e_\alpha(e^\beta)=\delta_\alpha^\beta$, con esta definición, dado $v=v_\alpha e^\alpha\in V$ tenemos
+que $e_\alpha(v)=v_\alpha$.
+
+\begin{exercise}
+  Las aplicaciones lineales $\{e_\alpha\}$ definidas anteriormente forman una base de $V^*$.
+\end{exercise}
+
+\begin{definition}
+  Las aplicaciones lineales $\{e_\alpha\}$ definidas anteriormente las llamamos base dual de $\{e^\alpha\}$.
+\end{definition}
+
+Sea $f\in V^*$, en la base dual $f=f^\alpha e_\alpha$.
+Dado $v=v_\beta e^\beta\in V$ tenemos los siguientes resultados:
+
+\begin{equation*}
+  f(v)=v_\beta f(e^\beta)=v_\beta f^\alpha e_\alpha(e^\beta)=
+  v_\beta f^\alpha \delta_\alpha^\beta=v_\alpha f^\alpha
+\end{equation*}
+
+\begin{equation*}
+  f(v)=v_\beta f(e^\beta)=e_\beta(v)f(e^\beta)=(f(e^\beta) e_\beta)(v)\so f=f(e^\beta) e_\beta\so f^\beta=f(e^\beta)
+\end{equation*}
+
+\begin{proposition}
+  \label{res:coordenadas_duales}
+  Sea $V$ un e-vectorial con $\{e^\alpha\}$ una base de $V$ y $\{e_\alpha\}$ su base dual.
+  $\forall v\in V, \forall f\in V^*$ se cumple que:
+  \begin{itemize}
+    \item $v=e_\alpha(v)e^\alpha$.
+    \item $f=f(e^\alpha)e_\alpha$.
+    \item $f(v)=e_\alpha(v)f(e^\alpha)$.
+  \end{itemize}
+\end{proposition}
+
+
+\section{Dual del cambio de base}\label{sec:dual-del-cambio-de-base}
+Sea $V$ un e-vectorial con $\{e^\alpha\}$ y $\{e'^\alpha\}$ bases de $V$ y $A$ la matriz cambio de base.
+Sea $\{f_\alpha\}$ y $\{f'_\alpha\}$ sus bases duales y $B$ la matriz cambio de base, entonces:
+\[
+  \delta_\alpha^\beta=f_\alpha(e^\beta)=B_\alpha^\mu f'_\mu(e^\beta)=B_\alpha^\mu A^\beta_\nu f'_\mu(e'^\nu)=B_\alpha^\mu A^\beta_\nu\delta^\nu_\mu=B_\alpha^\mu A^\beta_\mu=(BA)^\beta_\alpha.
+\]
+De forma análoga vemos que $\delta^\beta_\alpha=(AB)^\beta_\alpha$, y por tanto que $BA=AB=I_n$, obteniendo así el siguiente resultado.
+
+\begin{proposition}
+  \label{res:dual_cambio_base}
+  Sea $V$ un e-vectorial con $\{e^\alpha\}$ y $\{e'^\alpha\}$ bases de $V$ y $A$ la matriz cambio de base.
+  La matriz cambio de base de las bases duales $\{f_\alpha\}$ en $\{f'_\alpha\}$ es $A^{-1}$.
+
+\end{proposition}
+
+
+\chapter{Tensores}\label{ch:tensores}
+\input{tensores}
+
+\chapter{An\'alisis}\label{ch:analisis}
+
+\section{Gradiente}\label{sec:gradiente}
+\begin{definition}
+  Dado un campo escalar $f$, se llama \textbf{gradiente}\label{def:gradiente} de $f$ y se escribe $\nabla
+  f$, a la función $(n,n)$-suave que a cada punto $p$ le asigna el vector cuyas
+  coordenadas cartesianas son las derivadas parciales de $f$ en $p$, $\nabla f(p)=\left({\frac
+  {\partial f}{\partial x^\alpha}}(p)\right)_\alpha$.
+\end{definition}
+
+Considerando $\nabla$ como un operador, es lineal y cumple la regla del producto.
+
+\begin{theorem}[Regla de la cadena]\label{th:regla-cadena}
+  Si $f$ es un campo escalar en $\R^n$ y $\gamma$ una curva en $\R^n$, la derivada de la composición
+es $(f\circ\gamma)^{'}(t)=\nabla f(\gamma(t))\gamma^{'}(t)$.
+\end{theorem}
+
+\section{Matriz Jacobiana}\label{sec:matriz-jacobiana}
+\begin{definition}
+  Sea $f$ una función $(n,m)$-suave, se llama \textbf{matriz
+  Jacobiana}\label{def:matriz-jacobiana} de $f$ y se escribe $\mathbf{J}_f$ a la matriz
+  definida por
+  $\mathbf{J}_f=\left({\frac {\partial f^\beta}{\partial x^\alpha}}\right)_\alpha^\beta$.
+  Llamamos \textbf{Jacobiano}\label{def:jacobiano} de $f$ al determinante de la matriz Jacobiana.
+\end{definition}
+Cuando $f$ es un campo escalar en $\R^n$, la matriz jacobiana es el gradiente.
+Además, cuando esté definida $f^{-1}$, se cumple que $\mathbf{J}_{f^{-1}}=\mathbf{J}_f^{-1}$.
+
+
+\chapter{Geometría diferencial}\label{ch:geometria-diferencial}
+\input{manifolds}

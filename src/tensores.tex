@@ -1,0 +1,64 @@
+\section{Tensores como vectores}\label{sec:tensores-como-vectores}
+Sean $V_1,\ldots,V_n$ espacios vectoriales de dimensión $\dim(V_i)=n_i$ y
+$\{x_i^\alpha\}_{\indexdots{\alpha}{1}{n_i}}$ base de $V_i$.
+Si consideramos el producto tensorial, tenemos un nuevo espacio vectorial $V=V_1\otimes\cdots\otimes V_n$
+de dimensión $\sum_{\indexdots{\alpha}{1}{n}} n_\alpha$ y con base
+$\{x_1^{\alpha_1}\otimes\cdots\otimes x_n^{\alpha_n}\}_{\indexdots{\alpha_i}{1}{n_i}}$.
+
+\begin{definition}
+  Llamamos \define{tensor}{tensor} a los vectores del producto tensorial de espacios vectoriales.
+\end{definition}
+
+\begin{remark}
+  Hay que comprobar que $\forall v\in V, \exists v_1\in V_1, \cdots v_n\in V_n\ |\ v=v_1\otimes\cdots\otimes v_n$.
+\end{remark}
+
+Por tanto un tensor se expresa en la base $B$ como $v=v_{\alpha_1,\cdots,\alpha_n} x_1^{\alpha_1}\otimes\cdots\otimes x_n^{\alpha_n}$.
+
+\section{Cambio de base en tensores}\label{sec:cambio-de-base-en-tensores}
+Sean $V=V_1\otimes\cdots\otimes V_n$ espacio tensorial y $\{x_i^\alpha\}$, $\{y_i^\alpha\}$ bases de $V_i$, llamemos $A_i$
+la matriz cambio de base de $\{x_i^\alpha\}$, $\{y_i^\alpha\}$.
+Sea $v=v_1\otimes\cdots\otimes v_n \in V$ que con respecto a la base
+$B=\{x_1^{\alpha_1}\otimes\cdots\otimes x_n^{\alpha_n},\ \alpha_i=1,\cdots,n_\alpha \}$
+se expresa como $v=v_{\alpha_1,\cdots,\alpha_n} x_1^{\alpha_1}\otimes\cdots\otimes x_n^{\alpha_n}$ y
+que con respecto a la base $C=\{y_1^{\alpha_1}\otimes\cdots\otimes y_n^{\alpha_n},\ \alpha_i=1,\cdots,n_\alpha \}$
+se expresa como $v=w_{\alpha_1,\cdots,\alpha_n} y_1^{\alpha_1}\otimes\cdots\otimes y_n^{\alpha_n}$.
+
+La relación entre las coordenadas $v_{\alpha_1,\cdots,\alpha_n}$ y $w_{\alpha_1,\cdots,\alpha_n}$
+vienen expresadas por la propiedad multilineal del producto tensorial, puesto
+que $x_i^{\alpha_i}=(A_i)^{\alpha_i}_\beta y_i^{\beta}$ se tiene que
+
+\begin{multline*}
+  v=v_{\alpha_1,\cdots,\alpha_n} x_1^{\alpha_1}\otimes\cdots\otimes x_n^{\alpha_n}=
+  v_{\alpha_1,\cdots,\alpha_n} ((A_1)^{\alpha_1}_{\beta_1}y_1^{\beta_1})\otimes\cdots\otimes ((A_n)^{\alpha_n}_{\beta_n}y_n^{\beta_n})=\\
+  =v_{\alpha_1,\cdots,\alpha_n}(A_1)^{\alpha_1}_{\beta_1}\cdots (A_n)^{\alpha_n}_{\beta_n} y_1^{\beta_1}\otimes\cdots\otimes y_n^{\beta_n}
+\end{multline*}
+
+Por tanto se tiene la igualdad
+\begin{equation}
+  \label{eq:tensores_cambio_base}
+  w_{\beta_1,\cdots,\beta_n}=v_{\alpha_1,\cdots,\alpha_n}(A_1)^{\alpha_1}_{\beta_1}\cdots (A_n)^{\alpha_n}_{\beta_n}
+\end{equation}
+
+\subsection{Tensores sobre un único espacio vectorial y su dual}\label{subsec:tensores-sobre-un-único-espacio-vectorial-y-su-dual}
+Como caso especial, vamos a considerar la situación en la que tomamos el e-vectorial
+$V^{\otimes r}\otimes (V^*)^{\otimes s}$, llamamos a este espacio vectorial el \textbf{$(r,s)$-espacio tensorial sobre $V$}
+y llamaremos a los vectores de este espacio vectorial un \textbf{$(r,s)$-tensor}.
+
+Si tenemos $\{x^\alpha\}$ base de $V$ y $\{f_\beta\}$ base de $V^*$, un $(r,s)$-tensor se expresa en la base
+\begin{equation}
+  \label{eq:r-s-tensor-componentes}
+  v=v_{\alpha_1,\cdots,\alpha_r}^{\beta_1,\cdots, \beta_s} x^{\alpha_1}\otimes\cdots\otimes x^{\alpha_r}\otimes f_{\beta_1}\otimes\cdots\otimes f_{\beta_s}
+\end{equation}
+Y si $\{y^\alpha\}$ base de $V$ y $\{g_\beta\}$ base de $V^*$, con $A$ y $B$ las matrices de cambio de base, la expresión \ref{eq:tensores_cambio_base}
+queda
+\begin{equation}
+  \label{eq:r-s-tensores_cambio_base}
+  w_{\mu_1,\cdots,\mu_r}^{\nu_1,\cdots, \nu_s}=v_{\alpha_1,\cdots,\alpha_r}^{\beta_1,\cdots, \beta_s}A^{\alpha_1}_{\nu_1}\cdots A^{\alpha_r}_{\nu_r}B_{\beta_1}^{\mu_1}\cdots A_{\beta_s}^{\mu_s}
+\end{equation}
+Si además, tomamos en $V^*$ las respectivas base duales de $V$, por \ref{res:dual_cambio_base} la expresión \ref{eq:r-s-tensores_cambio_base}
+queda
+\begin{equation}
+  \label{eq:r-s-tensores_cambio_base_dual}
+  w_{\mu_1,\cdots,\mu_r}^{\nu_1,\cdots, \nu_s}=v_{\alpha_1,\cdots,\alpha_r}^{\beta_1,\cdots, \beta_s}A^{\alpha_1}_{\nu_1}\cdots A^{\alpha_r}_{\nu_r}(A^{-1})_{\beta_1}^{\mu_1}\cdots (A^{-1})_{\beta_s}^{\mu_s}
+\end{equation}
