@@ -38,22 +38,75 @@
   Sea $\cartalocal$, diremos que $\gamma$ es una \define{curva centrada en
   $p$}{Curva centrada} si $\exists\ \epsilon\in\R \ \mid \maps{\gamma}{(-\epsilon,\epsilon)}{U}\land
   \gamma(0)=p$.
-  Se llama \define{vector tangente a $\gamma$ en $p$} a al vector $\left.\frac{d(\varphi\circ\gamma)
-  }{dt}\right|_{t=0}=((\varphi^\alpha\circ\gamma)^{'}(0))_\alpha$.
+  Se llama \define{derivada de $\gamma$ en $p$} al vector
+  \begin{equation}
+    \label{eq:derivada-curva}
+    \left.\frac{d(\varphi\circ\gamma)
+    }{dt}\right|_{t=0}=((\varphi^\alpha\circ\gamma)^{'}(0))_\alpha.
+  \end{equation}
 \end{definition}
 \begin{notation}
   En un abuso de notación escribimos $\gamma^{'}(0)$ al vector tangente a $\gamma$ en $p$.
 \end{notation}
 
-La definición de espacio tangente en un punto $p$ de una variedad, se construye usando la noción de
-vector tangente (velocidad) de una curva $\gamma$ en el punto $p$.
+Considerando una función real definida en $M$ vamos a definir el espacio tangente en un
+punto $p$ usando la noción de derivada direccional del vector tangente (velocidad) de una curva
+$\gamma$ en el punto $p$.
 
 \begin{definition}
-  Sea $\cartalocal$ y $\sim$ la relación de equivalencia descrita en~\ref{ex:relacion-equivalencia}.
-  Llamamos \define{espacio tangente de $p$ en $M$}{Espacio tangente de una variedad}, $T_p(M)$ al
-  conjunto cociente.
-  Si $\gamma$ es una curva en $M$ que pasa por $p$, denotaremos por $\mathring{\gamma_p}$ a la
-  clase de equivalencia de $\gamma$.
+  Sea $\cartalocal$ y $\phi$ una función diferenciable en un entorno de $p$, llamamos
+  \define{derivada direccional}{Derivada direccional} de $f$ en la dirección $v\in\R^n$ a
+  \begin{equation}
+    \label{eq:derivada-direccional}
+    \left.\frac{d(f\circ\gamma)}{dt}\right|_{t=0}
+  \end{equation}
+  donde $\gamma$ es una curva centrada en $p$ con $\gamma^{'}(0)=v$.
+\end{definition}
+
+Al desarrollar la expresión \ref{eq:derivada-direccional} como
+$f\circ\gamma=f\circ\varphi^{-1}\circ\varphi\circ\gamma$, tenemos por un lado
+$\maps{f\circ\varphi^{-1}}{\R^n}{\R}$
+y por otro
+$\maps{\varphi\circ\gamma}{\R}{\R^n}$, $(\varphi\circ\gamma)(t)=
+(x^\alpha=\varphi^\alpha\circ\gamma)_{\alpha}$,
+por la regla de la cadena \ref{th:regla-cadena} se tiene
+\begin{multline*}
+  \left.\frac{d(f\circ\gamma)}{dt}\right|_{t=0}=
+  \left.\frac{d(f\circ\varphi^{-1}\circ\varphi\circ\gamma)}{d\varphi^\alpha}\right|_{t=0}=
+  \left.\frac{\partial(f\circ\varphi^{-1})}{\partial x^\alpha}\right|_{\varphi(p)}\left.\frac{d
+  x^\alpha  }{dt}\right|_{t=0}=\\
+  =\left.\frac{\partial(f\circ\varphi^{-1})}{\partial x^\alpha}\right|_{\varphi(p)}\left.
+  (\varphi^\alpha\circ\gamma)^{'}(0)=\left.\frac{\partial(f\circ\varphi^{-1})}{\partial x^\alpha}\right|_{\varphi(p)}\left.
+  v_\alpha.
+\end{multline*}
+
+Como se ha comprobado, la definición de \ref{def:Derivada direccional} no depende de $\gamma$
+sino sólo de $v$ y por tanto está bien definida y se puede hacer la siguiente construcción.
+
+Sea $\cartalocal$ y $\gamma_1$ y $\gamma_2$ dos curvas centradas en $p$, se define la relación
+$\gamma_1\sim\gamma_2$ cuando $\gamma_1^{'}(0)=\gamma_2^{'}(0)$.
+
+\begin{exercise}
+  \label{ex:relacion-equivalencia}
+  La relación anterior es una relación de equivalencia.
+\end{exercise}
+
+Escribimos $\mathring{\gamma}$ a la clase de equivalencia de $\gamma$ en el conjunto cociente
+$\cinfinity{p}/\sim$.
+
+\begin{definition}
+  Sea $\cartalocal$, $\gamma$ una función diferenciable y $\sim$ la relación de equivalencia
+  descrita en~\ref{ex:relacion-equivalencia}.
+  Se llama \define{vector tangente a la curva $\gamma$ en p}{Vector tangente a la curva} a la
+  función
+  \begin{equation}
+    \label{eq:vector-tangente-curva}
+    \begin{alignat*}{2}
+      \mapsdef{\mathring{\gamma}}{\cinfinity{p}}{\R}{f}{\left.\frac{d(f\circ\gamma)}{dt}\right|_{t=0}}.
+    \end{alignat*}
+  \end{equation}
+  Se llama \define{espacio tangente de $p$ en $M$}{Espacio tangente de una variedad}, $T_pM$ al
+  conjunto de todas los vectores tangentes a todas las curvas centradas en $p$.
 \end{definition}
 
 \begin{exercise}
@@ -79,8 +132,8 @@ más que considerar la composición de aplicaciones de la siguiente manera:
   un isomorfismo de espacios vectoriales y su inversa es $(d_pf)^{-1}=d_{f(p)}f^{-1}$.
 \end{exercise}
 
-Como caso especial, si $N=\R$, entonces $\maps{d_pf}{T_p(M)}{\R}$, es decir $d_p f$ es un
-elemento del dual del espacio tangente, $d_p f\in T_p(M)^*$
+Como caso especial, si $N=\R$, entonces $\maps{d_pf}{T_pM}{\R}$, es decir $d_p f$ es un
+elemento del dual del espacio tangente, $d_p f\in T_pM^*$
 
 
 \section{Bases del espacio tangente}\label{sec:bases-del-espacio-tangente}
@@ -90,7 +143,7 @@ x^\alpha}{(-\epsilon, \epsilon)
 \subset\R}{U\subset M}$ definido por $x^\alpha(t)=\varphi^{-1}(\varphi(p)+te^\alpha)$, las curvas en
 $M$
 definidas por las coordenadas canónicas $e^\alpha$,
-vamos a comprobar que $\{\mathring{x_p^\alpha}\}$ es una base de $T_p(M)$.
+vamos a comprobar que $\{\mathring{x_p^\alpha}\}$ es una base de $T_pM$.
 
 \begin{proposition}
   Sea $\cartalocal$ y $\maps{
@@ -149,7 +202,7 @@ vamos a comprobar que $\{\mathring{x_p^\alpha}\}$ es una base de $T_p(M)$.
   solo es necesario definir $\lambda_\alpha=f_\alpha$.
 \end{proof}
 
-Con estos tres resultados, hemos comprobado que $T_p(M)$ es un espacio vectorial de dimensión $n$
+Con estos tres resultados, hemos comprobado que $T_pM$ es un espacio vectorial de dimensión $n$
 y además hemos definido una base que usa las coordenadas canónicas de $\R^n$.
 Por eso dejamos de usar la notación de la clase de equivalencia para referirnos a un elemento del
 espacio tangente y lo denotaremos como vectores.
@@ -163,7 +216,7 @@ Esto es lo que vamos a ver más adelante.
 \section{Fibrado tangente}\label{sec:fibrado-tangente}
 \begin{definition}
   Sea $M$ una variedad, llamamos \define{fibrado tangente}{Fibrado tangente} al
-  conjunto $TM=\{(p,v)\ \mid\ p\in M\ \land\ v\in T_p(M)\}$
+  conjunto $TM=\{(p,v)\ \mid\ p\in M\ \land\ v\in T_pM\}$
 \end{definition}
 
 \begin{proposition}
@@ -171,7 +224,7 @@ Esto es lo que vamos a ver más adelante.
 \end{proposition}
 
 Si consideramos la proyección canónica de $\maps{\pi}{T(M)}{M}$, tenemos que para cada punto $p$ de
-$M$ el espacio tangente es $T_p(M)=\pi^{-1}(p)$, vamos a generalizar este concepto.
+$M$ el espacio tangente es $T_pM=\pi^{-1}(p)$, vamos a generalizar este concepto.
 
 \begin{definition}
   Un \define{paquete de vectores}{Paquete de vectores} de rango $m$ sobre una variedad $M$
