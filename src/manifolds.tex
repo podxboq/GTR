@@ -73,11 +73,11 @@ por la regla de la cadena \ref{th:regla-cadena} se tiene
 \begin{multline*}
   \left.\frac{d(f\circ\gamma)}{dt}\right|_{t=0}=
   \left.\frac{d(f\circ\varphi^{-1}\circ\varphi\circ\gamma)}{d\varphi^\alpha}\right|_{t=0}=
-  \left.\frac{\partial(f\circ\varphi^{-1})}{\partial x^\alpha}\right|_{\varphi(p)}\left.\frac{d
-  x^\alpha  }{dt}\right|_{t=0}=\\
-  =\left.\frac{\partial(f\circ\varphi^{-1})}{\partial x^\alpha}\right|_{\varphi(p)}\left.
-  (\varphi^\alpha\circ\gamma)^{'}(0)=\left.\frac{\partial(f\circ\varphi^{-1})}{\partial x^\alpha}\right|_{\varphi(p)}\left.
-  v_\alpha.
+  \left.\frac{\partial(f\circ\varphi^{-1})}{\partial x^\alpha}\right|_{\varphi(p)}
+  \left.\frac{dx^\alpha}{dt}\right|_{t=0}=\\
+  =\left.\frac{\partial(f\circ\varphi^{-1})}{\partial x^\alpha}\right|_{\varphi(p)}
+  (\varphi^\alpha\circ\gamma)^{'}(0)=
+  \left.\frac{\partial(f\circ\varphi^{-1})}{\partial x^\alpha}\right|_{\varphi(p)}v_\alpha.
 \end{multline*}
 
 Como se ha comprobado, la definición de \ref{def:Derivada direccional} no depende de $\gamma$
@@ -101,9 +101,7 @@ $\cinfinity{p}/\sim$.
   función
   \begin{equation}
     \label{eq:vector-tangente-curva}
-    \begin{alignat*}{2}
       \mapsdef{\mathring{\gamma}}{\cinfinity{p}}{\R}{f}{\left.\frac{d(f\circ\gamma)}{dt}\right|_{t=0}}.
-    \end{alignat*}
   \end{equation}
   Se llama \define{espacio tangente de $p$ en $M$}{Espacio tangente de una variedad}, $T_pM$ al
   conjunto de todas los vectores tangentes a todas las curvas centradas en $p$.
@@ -120,11 +118,9 @@ podemos definir una aplicación entre espacios tangentes a ambas variedades de f
 más que considerar la composición de aplicaciones de la siguiente manera:
 \begin{equation}
   \label{eq:diferencial-aplicacion}
-  \begin{alignat*}{2}
     \mapsdef{d_pf}{Tp(M)}{T_{\varphi(p)}(N)}{\mathring{\gamma_p}}{\mathring{(f\circ\gamma)
     }_{\varphi
     (p)}}
-  \end{alignat*}
 \end{equation}
 
 \begin{exercise}
@@ -138,10 +134,7 @@ elemento del dual del espacio tangente, $d_p f\in T_pM^*$
 
 \section{Bases del espacio tangente}\label{sec:bases-del-espacio-tangente}
 De forma natural tenemos una base del espacio tangente, usando las curvas definidas por las
-coordenadas canónicas de $\R^n$, es decir, que si consideramos $\cartalocal$ y $\maps{
-x^\alpha}{(-\epsilon, \epsilon)
-\subset\R}{U\subset M}$ definido por $x^\alpha(t)=\varphi^{-1}(\varphi(p)+te^\alpha)$, las curvas en
-$M$
+coordenadas canónicas de $\R^n$, es decir, que si consideramos $\cartalocal$ y $\maps{x^\alpha}{(-\epsilon, \epsilon)\subset\R}{U\subset M}$ definido por $x^\alpha(t)=\varphi^{-1}(\varphi(p)+te^\alpha)$, las curvas en $M$
 definidas por las coordenadas canónicas $e^\alpha$,
 vamos a comprobar que $\{\mathring{x_p^\alpha}\}$ es una base de $T_pM$.
 
@@ -234,16 +227,15 @@ $M$ el espacio tangente es $T_pM=\pi^{-1}(p)$, vamos a generalizar este concepto
   de que:
   \begin{itemize}
     \item $pr_1\circ\phi=\pi$.
-    \item $\forall\ p\in M, pr_2\circ\phi\mid_E_p$ es un isomorfismo lineal.
+    \item $\forall\ p\in M, pr_2\circ\phi\mid_{E_p}$ es un isomorfismo lineal.
   \end{itemize}
 \end{definition}
 
 
 \section{Campo de vectores}\label{sec:campo-de-vectores}
 \begin{definition}
-  Llamamos \define{campo de vectores}\label{def:campo-vectores} $X$ en $M$ al subconjunto de $T(M)$ formado por
-  $X=\cup_{p\in M}(p,
-  v)$.
+  Llamamos \define{campo de vectores}{Campo de vectores} $X$ en $M$ al subconjunto de $T(M)$ formado por
+  $X=\cup_{p\in M}(p,v)$.
 \end{definition}
 
 \begin{definition}
@@ -251,9 +243,7 @@ $M$ el espacio tangente es $T_pM=\pi^{-1}(p)$, vamos a generalizar este concepto
   f en X}{Derivada de Lie sobre una función} a:
   \begin{equation}
     \label{eq:derivada-lie-funcion-campo}
-    \begin{alignat*}{2}
       \mapsdef{\mathscr{L}_X f}{M}{\R}{p}{d_p f(X(p))}
-    \end{alignat*}
   \end{equation}
 \end{definition}
 
@@ -278,9 +268,7 @@ $M$ el espacio tangente es $T_pM=\pi^{-1}(p)$, vamos a generalizar este concepto
   el punto $p$ al operador
   \begin{equation}
     \label{eq:operador-parcial-funcion-punto}
-    \begin{alignat*}{2}
       \mapsdef{\left.\frac{\partial}{\partial x^\alpha}\right|_p}{\cinfinity{p}}{\R}{f}{\frac{\partial f}{\partial x^\alpha}(p)}
-    \end{alignat*}
   \end{equation}
 \end{definition}
 

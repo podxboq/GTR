@@ -1,3 +1,8 @@
+##Kile ide
+.kile/
+gtr.kilepr
+
+## IntelliJ ide
 .idea/
 src.iml
 
