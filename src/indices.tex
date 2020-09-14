@@ -1,0 +1,25 @@
+Principalmente para simplificar la notación al trabajar con índices, vamos
+a introducir algunos conceptos y establecer una notación que haga más cómodo
+trabajar con variables multi-indexadas.
+
+\begin{notation}
+  Denotaremos por:
+  \begin{itemize}
+    \item $I_n$ al conjunto de los naturales menores o iguales a $n$.
+    \item $I_n^m$ al producto cartesiano $m$-veces de $I_n$.
+    \item $P_n^m=\{(i_1,\cdots,i_m)\in I_n^m\ \mid \ i_k\neq 0\ \forall\ \indexdots{k}{1}{m}\}$
+    \item $H_{kn}^m(l)=\{(i_1,\cdots,i_m)\in I_n^m\ \mid \ i_k=l\}$
+  \end{itemize}
+\end{notation}
+
+\begin{notation}
+  Si $\sigma=(1,\ldots,n)$, con la expresión $x^{(\sigma)}$, estaremos escribiendo la $n$-tupla $(x^1,\ldots,x^n)$.
+  Sin embargo con la expresión $x^\sigma$, estaremos escribiendo $x^{1,\ldots,n}$.
+\end{notation}
+
+\subsection{Criterio de índices}\label{subsec:criterio-de-indices}
+
+Emplearemos continuamente el \textbf{convenio de sumas de Einstein}\index{convenio de sumas de Einstein} según el cual
+índices repetidos arriba y abajo en una expresión se supone sumado en todos sus posibles valores,
+así la expresión $y=\sum_{\alpha=1}^3 c_\alpha x^\alpha=c_1 x^1 + c_2 x^2 + c_3 x^3$
+se simplifica por la convención a $y = c_\alpha x^\alpha$.
