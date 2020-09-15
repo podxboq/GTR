@@ -59,88 +59,19 @@
 \end{notation}
 
 \section{Espacio tangente}\label{sec:espacio-tangente}
-\input{espacio-tangente1}
+\input{espacio-tangente}
 
 \section{Bases del espacio tangente}\label{sec:bases-del-espacio-tangente}
-De forma natural tenemos una base del espacio tangente, usando las curvas definidas por las
-coordenadas canónicas de $\R^n$, es decir, que si consideramos $\cartalocal$ y $\maps{x^\alpha}{(-\epsilon, \epsilon)\subset\R}{U\subset M}$ definido por $x^\alpha(t)=\varphi^{-1}(\varphi(p)+te^\alpha)$, las curvas en $M$
-definidas por las coordenadas canónicas $e^\alpha$,
-vamos a comprobar que $\{\mathring{x_p^\alpha}\}$ es una base de $T_pM$.
-
-\begin{proposition}
-  Sea $\cartalocal$ y $\maps{
-  x^\alpha}{(-\epsilon, \epsilon)
-  \subset\R}{U\subset M}$ definido por $x^\alpha(t)=\varphi^{-1}(\varphi(p)+te^\alpha)$, las
-  curvas en
-  $M$
-  definidas por las coordenadas canónicas $e^\alpha$, entonces
-  $\mathring{x_p^\alpha}=\mathring{x_p^\beta}\so\alpha=\beta$.
-\end{proposition}
-\begin{proof}
-  Que $\mathring{x_p^\alpha}=\mathring{x_p^\beta}$ significa que
-  $x^\alpha\sim x^\beta$, es decir, que las derivadas de
-  $\varphi\circ x^\alpha$ y $\varphi\circ x^\beta$ en 0 son iguales.
-  Las coordenadas de estas funciones en $\R^n$ se expresan como:
-  \begin{equation*}
-    (\pi^\gamma\circ\varphi\circ x^\alpha)(t)=\pi^\gamma(\varphi(\varphi^{-1}(\varphi(p)
-    +te^\alpha)))=\pi^\gamma(\varphi(p)
-    +te^\alpha)=\varphi^\gamma(p)+\delta^{\gamma\alpha} t
-  \end{equation*}
-  Por lo tanto, las coordenadas de la derivada de $\varphi\circ x^\alpha$ es
-  $(\pi^\gamma\circ\varphi\circ x^\alpha)^\prime(t)=\delta^{\gamma\alpha}$ y de la igualdad dada
-  por la relación de equivalencia, tenemos que
-  $\delta^{\gamma\alpha}=\delta^{\gamma\alpha}\so\alpha=\beta$.
-\end{proof}
-
-\begin{proposition}
-  Sea $\cartalocal$ y $\maps{
-  x^\alpha}{(-\epsilon, \epsilon)
-  \subset\R}{U\subset M}$ definido por $x^\alpha(t)=\varphi^{-1}(\varphi(p)+te^\alpha)$, las curvas en
-  $M$
-  definidas por las coordenadas canónicas $e^\alpha$, entonces, toda familia de
-  $\{\lambda_\alpha\}\subset\R$, tal que
-  $\lambda_\alpha\mathring{x_p^\alpha}=0\so\lambda_\alpha=0\ \forall\ \alpha$.
-\end{proposition}
-\begin{proof}
-  Como hemos visto anteriormente, la coordenada $\gamma$ de la derivada en $0$ de $x^\alpha$ es
-  $\delta^{\gamma\alpha}$ y por tanto la coordenada $\gamma$ de la derivada en $0$ de
-  $\lambda_\alpha x^\alpha$ es $\lambda_\alpha\delta^{\gamma\alpha}=\lambda_\gamma$ y como este
-  debe ser igual a $0$ en cada coordenada se tiene que $\lambda_\gamma=0\ \forall\ \gamma$.
-\end{proof}
-
-\begin{proposition}
-  Sea $\cartalocal$ y $\maps{
-  x^\alpha}{(-\epsilon, \epsilon)
-  \subset\R}{U\subset M}$ definido por $x^\alpha(t)=\varphi^{-1}(\varphi(p)+te^\alpha)$, las curvas en
-  $M$
-  definidas por las coordenadas canónicas $e^\alpha$, entonces, para toda curva $\gamma$ en $M$ con
-  $\gamma(0)=p$, existe una familia
-  $\{\lambda_\alpha\}\subset\R$, tal que
-  $\mathring{f}=\lambda_\alpha\mathring{x_p^\alpha}=0\so\lambda_\alpha$.
-\end{proposition}
-\begin{proof}
-  La derivada de $f$ en $0$ es un elemento de $\R^n$ con coordenadas $(f_\alpha)$, como hemos visto
-  anteriormente, las coordenadas de $\lambda_\alpha x^\alpha$ es $(\lambda_\alpha)$, por lo que
-  solo es necesario definir $\lambda_\alpha=f_\alpha$.
-\end{proof}
-
-Con estos tres resultados, hemos comprobado que $T_pM$ es un espacio vectorial de dimensión $n$
-y además hemos definido una base que usa las coordenadas canónicas de $\R^n$.
-Por eso dejamos de usar la notación de la clase de equivalencia para referirnos a un elemento del
-espacio tangente y lo denotaremos como vectores.
-
-Sin embargo, esta forma de caracterizar el espacio vectorial no es útil, y resulta más práctico
-obtener una descripción del espacio tangente y de una base canónica en función de las coordenadas
-locales.
-Esto es lo que vamos a ver más adelante.
-
+\input{bases-del-espacio-tangente}
 
 \section{Fibrado tangente}\label{sec:fibrado-tangente}
 \begin{definition}
   Sea $M$ una variedad, se llama \define{fibrado tangente}{Fibrado tangente} al
-  conjunto $TM=\{(p,v)\ \mid\ p\in M\ \land\ v\in T_pM\}$
+  conjunto $\bigcup_{p\in M}\{p\}\times T_pM$.
 \end{definition}
-
+\begin{notation}
+  Se escribe $TM$ al fibrado tangente de M.
+\end{notation}
 \begin{proposition}
   El fibrado tangente de una variedad $n$-dimensional es una variedad $2n$-dimensional.
 \end{proposition}
