@@ -6,11 +6,11 @@
   \begin{equation}
     \label{eq:derivada-curva}
     \left.\frac{d(\varphi\circ\gamma)
-    }{dt}\right|_{t=0}=((\varphi^\alpha\circ\gamma)^{'}(0))_\alpha.
+    }{dt}\right|_{t=0}=((\varphi^\alpha\circ\gamma)^{'}(0))_\alpha
   \end{equation}
 \end{definition}
 \begin{notation}
-  En un abuso de notación escribimos $\gamma^{'}(0)$ al vector tangente a $\gamma$ en $p$.
+  Se escribe $\gamma^{'}(0)$ a la derivada de $\gamma$ en $p$.
 \end{notation}
 
 Considerando una función real definida en $M$ vamos a definir el espacio tangente en un
@@ -18,33 +18,35 @@ punto $p$ usando la noción de derivada direccional del vector tangente (velocid
 $\gamma$ en el punto $p$.
 
 \begin{definition}
-  Sea $\cartalocal$ y $\phi$ una función diferenciable en un entorno de $p$, se llama
-  \define{derivada direccional}{Derivada direccional} de $f$ en la dirección $v\in\R^n$ a
+  Sea $\cartalocal$ y $\phi\in\cinfinity{p}$, se llama
+  \define{derivada direccional}{Derivada direccional} de $\phi$ en la dirección $v\in\R^n$ a
   \begin{equation}
-    D_vf=\label{eq:derivada-direccional}
-    \left.\frac{d(f\circ\gamma)}{dt}\right|_{t=0}
+    \label{eq:derivada-direccional}
+    \left.\frac{d(\phi\circ\gamma)}{dt}\right|_{t=0}
   \end{equation}
   donde $\gamma$ es una curva centrada en $p$ con $\gamma^{'}(0)=v$.
 \end{definition}
-
-Al desarrollar la expresión \ref{eq:derivada-direccional} como
-$f\circ\gamma=f\circ\varphi^{-1}\circ\varphi\circ\gamma$, tenemos por un lado
-$\maps{f\circ\varphi^{-1}}{\R^n}{\R}$
+\begin{notation}
+  Se escribe $D_v(\phi)$ a la derivada direccional de $\phi$ en la dirección $v$.
+\end{notation}
+Al desarrollar la expresión~\ref{eq:derivada-direccional} como
+$\phi\circ\gamma=\phi\circ\varphi^{-1}\circ\varphi\circ\gamma$, tenemos por un lado
+$\maps{\phi\circ\varphi^{-1}}{\R^n}{\R}$
 y por otro
 $\maps{\varphi\circ\gamma}{\R}{\R^n}$, $(\varphi\circ\gamma)(t)=
 (x^\alpha=\varphi^\alpha\circ\gamma)_{\alpha}$,
-por la regla de la cadena \ref{th:regla-cadena} se tiene
-\begin{multline}\label{eq:desarrollo-derivada-direccional}
-  \left.\frac{d(f\circ\gamma)}{dt}\right|_{t=0}=
-  \left.\frac{d(f\circ\varphi^{-1}\circ\varphi\circ\gamma)}{d\varphi^\alpha}\right|_{t=0}=
-  \left.\frac{\partial(f\circ\varphi^{-1})}{\partial x^\alpha}\right|_{\varphi(p)}\left.\frac{d
-  x^\alpha  }{dt}\right|_{t=0}=\\
-  =\left.\frac{\partial(f\circ\varphi^{-1})}{\partial x^\alpha}\right|_{\varphi(p)}\left.
-  (\varphi^\alpha\circ\gamma)^{'}(0)=\left.\frac{\partial(f\circ\varphi^{-1})}{\partial x^\alpha}\right|_{\varphi(p)}\left.
-  v_\alpha.
-\end{multline}
+por la regla de la cadena~\ref{th:regla-cadena} se tiene
+\begin{multline*}
+  \left.\frac{d(\phi\circ\gamma)}{dt}\right|_{t=0}=
+  \left.\frac{d(\phi\circ\varphi^{-1}\circ\varphi\circ\gamma)}{dt}\right|_{t=0}=
+  \left.\frac{\partial(\phi\circ\varphi^{-1})}{\partial x^\alpha}\right|_{\varphi(p)}
+  \left.\frac{d(\varphi\circ\gamma)}{dt}\right|_{t=0}\by{\ref{def:Derivada de una curva}}\\
+  =\left.\frac{\partial(\phi\circ\varphi^{-1})}{\partial x^\alpha}\right|_{\varphi(p)}
+  \gamma^{'}(0)\by{\ref{def:Derivada parcial de una función}}
+  \left.\frac{\partial\phi}{\partial x^\alpha}(p) v_\alpha.
+\end{multline*}
 
-Como se ha comprobado, la definición de \ref{def:Derivada direccional} no depende de $\gamma$
+Como se ha comprobado, la definición de~\ref{def:Derivada direccional} no depende de $\gamma$
 sino sólo de $v$ y por tanto está bien definida y se puede hacer la siguiente construcción.
 
 Sea $\cartalocal$ y $\gamma_1$ y $\gamma_2$ dos curvas centradas en $p$, se define la relación
@@ -55,7 +57,7 @@ $\gamma_1\sim\gamma_2$ cuando $\gamma_1^{'}(0)=\gamma_2^{'}(0)$.
   La relación anterior es una relación de equivalencia.
 \end{exercise}
 
-Escribimos $\mathring{\gamma}$ a la clase de equivalencia de $\gamma$ en el conjunto cociente
+se escribe $\mathring{\gamma}$ a la clase de equivalencia de $\gamma$ en el conjunto cociente
 $\cinfinity{p}/\sim$.
 
 \begin{definition}
@@ -65,21 +67,11 @@ $\cinfinity{p}/\sim$.
   función
   \begin{equation}
     \label{eq:vector-tangente-curva}
-    \begin{alignat*}{1}
-      \mapsdef{\mathring{\gamma}}{\cinfinity{p}}{\R}{f}{\left.\frac{d(f\circ\gamma)}{dt}\right|_{t=0}}.
-    \end{alignat*}
+    \mapsdef{\mathring{\gamma}}{\cinfinity{p}}{\R}{f}{\left.\frac{d(f\circ\gamma)}{dt}\right|_{t=0}}.
   \end{equation}
   Se llama \define{espacio tangente de $p$ en $M$}{Espacio tangente de una variedad}, $T_pM$ al
   conjunto de todas los vectores tangentes a todas las curvas centradas en $p$.
 \end{definition}
-\begin{notation}
-  x
-\end{notation}
-\begin{equation}
-  \begin{alignat*}{1}
-    \mapsdef{\mathring{\gamma}}{\cinfinity{p}}{\R}{f}{\left.\frac{d(f\circ\gamma)}{dt}\right|_{t=0}}.
-  \end{alignat*}
-\end{equation}
 
 \begin{exercise}
   Comprobar que con las operaciones $\mathring{\gamma_p}+\mathring{\gamma_p^\prime}=
@@ -92,11 +84,9 @@ podemos definir una aplicación entre espacios tangentes a ambas variedades de f
 más que considerar la composición de aplicaciones de la siguiente manera:
 \begin{equation}
   \label{eq:diferencial-aplicacion}
-  \begin{alignat*}{1}
-    \mapsdef{d_pf}{Tp(M)}{T_{\varphi(p)}(N)}{\mathring{\gamma_p}}{\mathring{(f\circ\gamma)
-    }_{\varphi
-    (p)}}
-  \end{alignat*}
+  \mapsdef{d_pf}{Tp(M)}{T_{\varphi(p)}(N)}{\mathring{\gamma_p}}{\mathring{(f\circ\gamma)
+  }_{\varphi
+  (p)}}
 \end{equation}
 
 \begin{exercise}

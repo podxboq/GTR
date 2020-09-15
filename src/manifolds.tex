@@ -1,136 +1,65 @@
 \section{Aplicaciones diferenciables}\label{sec:aplicaciones-diferenciables}
 
 \begin{definition}
-  Sea $\cartalocal$, una función $\maps{f}{M}{\R}$ se dice
-  \define{diferenciable en p}{función diferenciable} si la función $f\circ\varphi^{-1}$ es
-  diferenciable en $\varphi(p)$.
-  La función se llama diferenciable si lo es en todos los puntos del dominio.
+  Sea $\cartalocal$, se llama \define{coordenadas locales}{coordenadas-locales} de la carta, a las aplicaciones
+  $\maps{\varphi^\alpha}{U}{\R}$ definido por $\varphi^\alpha=\pi^\alpha\circ\varphi$ donde $\pi^\alpha$ es la
+  proyección canónica de $\R^n$ en $\R$.
 \end{definition}
 
-\begin{notation}
-  Llamamos $\cinfinity{M}$ al conjunto de todas las funciones diferenciables de $M$ y
-  $\cinfinity{p}$ al conjunto de todas las funciones diferenciables en $p$.
-\end{notation}
-
 \begin{definition}
-  Sean $(M, p, U, \varphi)$ y $(N, q, V, \phi)$ dos cartas locales, una aplicación
-  $\maps{f}{M}{N}$ con $f(p)=q$ se dice
+  Sean $\doscartalocal$, una aplicación
+  $\maps{\phi}{M}{N}$ con $\phi(p)=q$ se dice
   \define{diferenciable en p}{aplicación diferenciable} si la aplicación
-  $\phi\circ f\circ\varphi^{-1}$ es diferenciable en $\varphi(p)$.
+  $\psi\circ \phi\circ\varphi^{-1}$ es diferenciable en $\varphi(p)$.
   La aplicación se llama diferenciable si lo es en todos los puntos del dominio.
 \end{definition}
 
 \begin{notation}
-  Llamamos $\cinfinity{M, N}$ al conjunto de todas las aplicaciones diferenciables de $M$ en $N$ y
-  $\cinfinity{p, q}$ al conjunto de todas las aplicaciones diferenciables en $p$.
+  \
+  \begin{itemize}
+    \item Se llama $\cinfinity{M, N}$ al conjunto de todas las aplicaciones de $M$ en $N$ diferenciables.
+    \item Se llama $\cinfinity{p, N}$ al conjunto de todas las aplicaciones de $M$ en $N$ diferenciables en $p$.
+    \item Si $N=\R$, se llama $\cinfinity{M}=\cinfinity{M,\R}$.
+    \item Si $N=\R$, se llama $\cinfinity{p}=\cinfinity{p,\R}$.
+  \end{itemize}
 \end{notation}
 
 \begin{definition}
-  Sea $\cartalocal$, llamamos \define{coordenadas locales}{coordenadas-locales} de la carta, a las
-  aplicaciones $\maps{\varphi^\alpha}{U}{\R}$ definido por $\varphi^\alpha(q)=\pi^\alpha(\varphi
-  (q))$
-  donde $\pi^\alpha$ es la proyección canónica de $\R^n$ en $\R$.
+  Sean $\doscartalocal$ y $\phi\in\cinfinity{p, N}$, se define la
+  \define{derivada direccional}{Derivada parcial de una función} de $\phi$ con respecto a $p$ en la dirección $e^\alpha$
+  por
+  \begin{equation}
+    \label{eq:parcial-funcion-punto}
+    \frac{\partial f}{\partial e^\alpha}(p)=\left.\frac{\partial (\psi\circ\phi\circ\varphi^{-1})}{\partial
+    e^\alpha}\right|_{\varphi(p)}
+  \end{equation}
+  Donde $(e^\alpha)_\alpha$ son las coordenadas canónicas de $\R^n$.
 \end{definition}
 
-
-\section{Espacio tangente}\label{sec:espacio-tangente}
 \begin{definition}
-  Sea $\cartalocal$, diremos que $\gamma$ es una \define{curva centrada en
-  $p$}{Curva centrada} si $\exists\ \epsilon\in\R \ \mid \maps{\gamma}{(-\epsilon,\epsilon)}{U}\land
-  \gamma(0)=p$.
-  Se llama \define{derivada de $\gamma$ en $p$} al vector
+  Sean $\doscartalocal$, se define el
+  \define{operador derivada direccional}{Operador derivada direccional de una función} con
+  respecto a $p$ en la dirección $e^\alpha$ por
   \begin{equation}
-    \label{eq:derivada-curva}
-    \left.\frac{d(\varphi\circ\gamma)
-    }{dt}\right|_{t=0}=((\varphi^\alpha\circ\gamma)^{'}(0))_\alpha.
+    \begin{alignat*}{1}
+      \label{eq:operador-parcial-funcion-punto}
+      \mapsdef{\left.\frac{\partial}{\partial e^\alpha}\right|_p}{\cinfinity{p}}{\R}{f}{\frac{\partial f}{\partial
+      e^\alpha}(p)}
+    \end{alignat*}
   \end{equation}
 \end{definition}
 \begin{notation}
-  En un abuso de notación escribimos $\gamma^{'}(0)$ al vector tangente a $\gamma$ en $p$.
+  \
+  \begin{itemize}
+    \item Se escribe $\partial^{x^\alpha}_p$ al operador derivada direccional con respecto a p en la dirección
+    $e^\alpha$.
+    \item Cuando no sea preciso indicar el punto $p$, por $\partial^{x^\alpha}$.
+    \item Cuando tampoco sea preciso indicar las coordenadas, por $\partial^\alpha$.
+  \end{itemize}
 \end{notation}
 
-Considerando una función real definida en $M$ vamos a definir el espacio tangente en un
-punto $p$ usando la noción de derivada direccional del vector tangente (velocidad) de una curva
-$\gamma$ en el punto $p$.
-
-\begin{definition}
-  Sea $\cartalocal$ y $\phi$ una función diferenciable en un entorno de $p$, llamamos
-  \define{derivada direccional}{Derivada direccional} de $f$ en la dirección $v\in\R^n$ a
-  \begin{equation}
-    \label{eq:derivada-direccional}
-    \left.\frac{d(f\circ\gamma)}{dt}\right|_{t=0}
-  \end{equation}
-  donde $\gamma$ es una curva centrada en $p$ con $\gamma^{'}(0)=v$.
-\end{definition}
-
-Al desarrollar la expresión \ref{eq:derivada-direccional} como
-$f\circ\gamma=f\circ\varphi^{-1}\circ\varphi\circ\gamma$, tenemos por un lado
-$\maps{f\circ\varphi^{-1}}{\R^n}{\R}$
-y por otro
-$\maps{\varphi\circ\gamma}{\R}{\R^n}$, $(\varphi\circ\gamma)(t)=
-(x^\alpha=\varphi^\alpha\circ\gamma)_{\alpha}$,
-por la regla de la cadena \ref{th:regla-cadena} se tiene
-\begin{multline*}
-  \left.\frac{d(f\circ\gamma)}{dt}\right|_{t=0}=
-  \left.\frac{d(f\circ\varphi^{-1}\circ\varphi\circ\gamma)}{d\varphi^\alpha}\right|_{t=0}=
-  \left.\frac{\partial(f\circ\varphi^{-1})}{\partial x^\alpha}\right|_{\varphi(p)}
-  \left.\frac{dx^\alpha}{dt}\right|_{t=0}=\\
-  =\left.\frac{\partial(f\circ\varphi^{-1})}{\partial x^\alpha}\right|_{\varphi(p)}
-  (\varphi^\alpha\circ\gamma)^{'}(0)=
-  \left.\frac{\partial(f\circ\varphi^{-1})}{\partial x^\alpha}\right|_{\varphi(p)}v_\alpha.
-\end{multline*}
-
-Como se ha comprobado, la definición de \ref{def:Derivada direccional} no depende de $\gamma$
-sino sólo de $v$ y por tanto está bien definida y se puede hacer la siguiente construcción.
-
-Sea $\cartalocal$ y $\gamma_1$ y $\gamma_2$ dos curvas centradas en $p$, se define la relación
-$\gamma_1\sim\gamma_2$ cuando $\gamma_1^{'}(0)=\gamma_2^{'}(0)$.
-
-\begin{exercise}
-  \label{ex:relacion-equivalencia}
-  La relación anterior es una relación de equivalencia.
-\end{exercise}
-
-Escribimos $\mathring{\gamma}$ a la clase de equivalencia de $\gamma$ en el conjunto cociente
-$\cinfinity{p}/\sim$.
-
-\begin{definition}
-  Sea $\cartalocal$, $\gamma$ una función diferenciable y $\sim$ la relación de equivalencia
-  descrita en~\ref{ex:relacion-equivalencia}.
-  Se llama \define{vector tangente a la curva $\gamma$ en p}{Vector tangente a la curva} a la
-  función
-  \begin{equation}
-    \label{eq:vector-tangente-curva}
-      \mapsdef{\mathring{\gamma}}{\cinfinity{p}}{\R}{f}{\left.\frac{d(f\circ\gamma)}{dt}\right|_{t=0}}.
-  \end{equation}
-  Se llama \define{espacio tangente de $p$ en $M$}{Espacio tangente de una variedad}, $T_pM$ al
-  conjunto de todas los vectores tangentes a todas las curvas centradas en $p$.
-\end{definition}
-
-\begin{exercise}
-  Comprobar que con las operaciones $\mathring{\gamma_p}+\mathring{\gamma_p^\prime}=
-  (\mathring{\gamma+\gamma^\prime})_p$ y $r\mathring{\gamma_p}=(\mathring{r\gamma})_p$, el espacio
-  tangente tiene estructura de espacio vectorial.
-\end{exercise}
-
-Dados dos variedades diferenciables $M$ y $N$ y una aplicación diferenciable $\maps{f}{M}{N}$,
-podemos definir una aplicación entre espacios tangentes a ambas variedades de forma natural, sin
-más que considerar la composición de aplicaciones de la siguiente manera:
-\begin{equation}
-  \label{eq:diferencial-aplicacion}
-    \mapsdef{d_pf}{Tp(M)}{T_{\varphi(p)}(N)}{\mathring{\gamma_p}}{\mathring{(f\circ\gamma)
-    }_{\varphi
-    (p)}}
-\end{equation}
-
-\begin{exercise}
-  Comprobar que $d_pf$ está bien definido y que si $f$ es un difeomorfismo, entonces $d_pf$ es
-  un isomorfismo de espacios vectoriales y su inversa es $(d_pf)^{-1}=d_{f(p)}f^{-1}$.
-\end{exercise}
-
-Como caso especial, si $N=\R$, entonces $\maps{d_pf}{T_pM}{\R}$, es decir $d_p f$ es un
-elemento del dual del espacio tangente, $d_p f\in T_pM^*$
-
+\section{Espacio tangente}\label{sec:espacio-tangente}
+\input{espacio-tangente1}
 
 \section{Bases del espacio tangente}\label{sec:bases-del-espacio-tangente}
 De forma natural tenemos una base del espacio tangente, usando las curvas definidas por las
@@ -208,7 +137,7 @@ Esto es lo que vamos a ver más adelante.
 
 \section{Fibrado tangente}\label{sec:fibrado-tangente}
 \begin{definition}
-  Sea $M$ una variedad, llamamos \define{fibrado tangente}{Fibrado tangente} al
+  Sea $M$ una variedad, se llama \define{fibrado tangente}{Fibrado tangente} al
   conjunto $TM=\{(p,v)\ \mid\ p\in M\ \land\ v\in T_pM\}$
 \end{definition}
 
@@ -234,57 +163,28 @@ $M$ el espacio tangente es $T_pM=\pi^{-1}(p)$, vamos a generalizar este concepto
 
 \section{Campo de vectores}\label{sec:campo-de-vectores}
 \begin{definition}
-  Llamamos \define{campo de vectores}{Campo de vectores} $X$ en $M$ al subconjunto de $T(M)$ formado por
+  se llama \define{campo de vectores}{Campo de vectores} $X$ en $M$ al subconjunto de $T(M)$ formado por
   $X=\cup_{p\in M}(p,v)$.
 \end{definition}
 
 \begin{definition}
-  Sea $X$ un campo de vectores sobre $M$ y $f\in\cinfinity{M}$, llamamos \define{derivada de Lie de
+  Sea $X$ un campo de vectores sobre $M$ y $f\in\cinfinity{M}$, se llama \define{derivada de Lie de
   f en X}{Derivada de Lie sobre una función} a:
   \begin{equation}
     \label{eq:derivada-lie-funcion-campo}
-      \mapsdef{\mathscr{L}_X f}{M}{\R}{p}{d_p f(X(p))}
+    \mapsdef{\mathscr{L}_X f}{M}{\R}{p}{d_p f(X(p))}
   \end{equation}
 \end{definition}
 
 
 \section{Espacio tangente como derivaciones}\label{sec:espacio-tangente-como-derivaciones}
-\begin{definition}
-  Sea $\cartalocal$ con coordenadas locales $(x^\alpha)$, sea $f\in\cinfinity{p}$, definimos la
-  \define{derivada parcial}{Derivada parcial de una función} de $f$ con respecto a $x^\alpha$ en
-  el punto $p$ por
-  \begin{equation}
-    \label{eq:parcial-funcion-punto}
-    \frac{\partial f}{\partial x^\alpha}(p)=\frac{\partial (f\circ\varphi^{-1})}{\partial
-    e^\alpha}(\varphi(p)).
-  \end{equation}
-  Donde $(e^\alpha)$ son las coordenadas canónicas de $\R^n$.
-\end{definition}
 
-\begin{definition}
-  Sea $\cartalocal$ con coordenadas locales $(x^\alpha)$, definimos el
-  \define{operador derivada parcial}{Operador derivada parcial de una función} con
-  respecto a $x^\alpha$ en
-  el punto $p$ al operador
-  \begin{equation}
-    \label{eq:operador-parcial-funcion-punto}
-      \mapsdef{\left.\frac{\partial}{\partial x^\alpha}\right|_p}{\cinfinity{p}}{\R}{f}{\frac{\partial f}{\partial x^\alpha}(p)}
-  \end{equation}
-\end{definition}
-
-\begin{notation}
-  Denotamos al operador derivada parcial con respecto a $x^\alpha$ en $p$:
-  \begin{itemize}
-    \item Cuando no sea preciso indicar el punto $p$, por $\partial_{x^\alpha}$.
-    \item Cuando tampoco sea preciso indicar las coordenadas, por $\partial^\alpha$ o $\partial_\alpha$.
-  \end{itemize}
-\end{notation}
 
 \section{Diferencial de una función}\label{sec:diferencial-de-una-funcion}
 \begin{definition}
   Sea $\cartalocal$ y $\mathring{\gamma_p}$ un elemento del espacio tangente en $p$, dada una
   función
-  $f\in\cinfinity{M}$, definimos la \define{función diferencial de $f$ sobre
+  $f\in\cinfinity{M}$, se define la \define{función diferencial de $f$ sobre
   $\mathring{\gamma_p}$}{diferencial de función en un punto} por
   \begin{equation}
     \label{eq:diferencial-funcion-punto}
