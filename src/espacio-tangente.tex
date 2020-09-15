@@ -43,7 +43,7 @@ por la regla de la cadena~\ref{th:regla-cadena} se tiene
   \left.\frac{d(\varphi\circ\gamma)}{dt}\right|_{t=0}\by{\ref{def:Derivada de una curva}}\\
   =\left.\frac{\partial(\phi\circ\varphi^{-1})}{\partial x^\alpha}\right|_{\varphi(p)}
   \gamma^{'}(0)\by{\ref{def:Derivada parcial de una función}}
-  \left.\frac{\partial\phi}{\partial x^\alpha}(p) v_\alpha.
+  \frac{\partial\phi}{\partial x^\alpha}(p) v_\alpha.
 \end{multline}
 
 Como se ha comprobado, la definición de~\ref{def:Derivada direccional} no depende de $\gamma$
@@ -68,9 +68,9 @@ $\cinfinity{p}/\sim$.
   función
   \begin{equation}
     \label{eq:vector-tangente-curva}
-    \begin{alignat*}{1}
+    \begin{alignedat}{1}
       \mapsdef{\mathring{\gamma}}{\cinfinity{p}}{\R}{f}{\left.\frac{d(f\circ\gamma)}{dt}\right|_{t=0}}
-    \end{alignat*}
+    \end{alignedat}
   \end{equation}
 \end{definition}
 \begin{definition}
@@ -93,11 +93,11 @@ podemos definir una aplicación entre espacios tangentes a ambas variedades de f
 más que considerar la composición de aplicaciones de la siguiente manera:
 \begin{equation}
   \label{eq:diferencial-aplicacion}
-  \begin{alignat*}{1}
+  \begin{alignedat}{1}
     \mapsdef{d_pf}{Tp(M)}{T_{\varphi(p)}(N)}{\mathring{\gamma_p}}{\mathring{(f\circ\gamma)
     }_{\varphi
     (p)}}
-  \end{alignat*}
+  \end{alignedat}
 \end{equation}
 
 \begin{exercise}

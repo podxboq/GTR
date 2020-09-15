@@ -41,11 +41,11 @@
   \define{operador derivada direccional}{Operador derivada direccional de una función} con
   respecto a $p$ en la dirección $e^\alpha$ por
   \begin{equation}
-    \begin{alignat*}{1}
+    \begin{alignedat}{1}
       \label{eq:operador-parcial-funcion-punto}
-      \mapsdef{\left.\frac{\partial}{\partial e^\alpha}\right|_p}{\cinfinity{p}}{\R}{f}{\frac{\partial f}{\partial
-      e^\alpha}(p)}
-    \end{alignat*}
+      \mapsdef{\left.\frac{\partial}{\partial e^\alpha}\right|_p}{\cinfinity{p}}{\R}{\phi}{\frac{\partial
+      \phi}{\partial e^\alpha}(p)}
+    \end{alignedat}
   \end{equation}
 \end{definition}
 \begin{notation}
@@ -58,19 +58,35 @@
   \end{itemize}
 \end{notation}
 
+
 \section{Espacio tangente}\label{sec:espacio-tangente}
 \input{espacio-tangente}
+
 
 \section{Bases del espacio tangente}\label{sec:bases-del-espacio-tangente}
 \input{bases-del-espacio-tangente}
 
+
 \section{Fibrado tangente}\label{sec:fibrado-tangente}
+\begin{definition}
+  Sea $M$ una variedad, se llama \define{s-haz fibrado}{def:p-haz-fibrado} en $M$ al par $(E, \pi)$ donde $\forall
+  p\in M\ \exists U\subset M$ abierto y $\maps{\psi}{\pi^{-1}(U)}{U\times\R^s}$ tal que los siguiente diagrama es
+  conmutativo
+  \[
+    \begin{tikzcd}
+      \pi^{-1}(U)\arrow[r]\arrow[d, hook] & U \\
+      E\arrow[r, red] & U
+      %%    \pi^{-1}(U)\arrow[r, "\psi"]\arrow[d, hook] & U\times\R^s\arrow[d, "pr_1"]\arrow[r, "pr_2" "\simeq"] & \R^s\\
+      %%  E\arrow[r, "\pi" red] & U
+    \end{tikzcd}
+  \]
+\end{definition}
 \begin{definition}
   Sea $M$ una variedad, se llama \define{fibrado tangente}{Fibrado tangente} al
   conjunto $\bigcup_{p\in M}\{p\}\times T_pM$.
 \end{definition}
 \begin{notation}
-  Se escribe $TM$ al fibrado tangente de M.
+  Se escribe $TM$ al fibrado tangente de M\@.
 \end{notation}
 \begin{proposition}
   El fibrado tangente de una variedad $n$-dimensional es una variedad $2n$-dimensional.
@@ -103,7 +119,9 @@ $M$ el espacio tangente es $T_pM=\pi^{-1}(p)$, vamos a generalizar este concepto
   f en X}{Derivada de Lie sobre una función} a:
   \begin{equation}
     \label{eq:derivada-lie-funcion-campo}
-    \mapsdef{\mathscr{L}_X f}{M}{\R}{p}{d_p f(X(p))}
+    \begin{alignedat}{1}
+      \mapsdef{\mathscr{L}_X f}{M}{\R}{p}{d_p f(X(p))}
+    \end{alignedat}
   \end{equation}
 \end{definition}
 
