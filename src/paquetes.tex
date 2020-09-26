@@ -1,6 +1,8 @@
 \usepackage[spanish]{babel} % Spanish language/hyphenation
 
-\usepackage{tikz-cd} %Para mapas de aplicaciones
+%Para mapas de aplicaciones
+\usepackage{tikz}
+\usetikzlibrary{cd}
 
 \usepackage{enumitem} % Customize lists
 \setlist{nolistsep} % Reduce spacing between bullet points and numbered lists
@@ -68,14 +70,11 @@
 \newcounter{dummy}
 \numberwithin{dummy}{section}
 \newtheorem{theoremeT}[dummy]{Theorem}
-\newtheorem{problem}{Problem}[chapter]
-\newtheorem{exerciseT}{Exercise}[chapter]
-\newtheorem{exampleT}{Example}[chapter]
-\newtheorem{vocabulary}{Vocabulary}[chapter]
-\newtheorem{definitionT}{Definici\'on}[section]
-\newtheorem{corollaryT}[dummy]{Corollary}
-\newtheorem{proposition}[dummy]{Proposition}
-\newtheorem{notation}{Notaci\'on}[section]
+\newtheorem{exerciseT}[dummy]{Ejercicio}
+\newtheorem{exampleT}[dummy]{Example}
+\newtheorem{definitionT}[dummy]{Definición}
+\newtheorem{proposition}[dummy]{Resultado}
+\newtheorem{notation}[dummy]{Notación}
 \newtheorem*{remark}{OJO}
 
 
@@ -84,14 +83,9 @@
 % Theorem box
 \newmdenv[skipabove=7pt,
 skipbelow=7pt,
+linewidth=1pt,
 backgroundcolor=black!5,
-linecolor=ocre,
-innerleftmargin=5pt,
-innerrightmargin=5pt,
-innertopmargin=5pt,
-leftmargin=0cm,
-rightmargin=0cm,
-innerbottommargin=5pt]{tBox}
+linecolor=ocre]{tBox}
 
 % Exercise box
 \newmdenv[skipabove=7pt,
@@ -126,26 +120,7 @@ rightmargin=0cm,
 linewidth=4pt,
 innerbottommargin=0pt]{dBox}
 
-% Corollary box
-\newmdenv[skipabove=7pt,
-skipbelow=7pt,
-rightline=false,
-leftline=true,
-topline=false,
-bottomline=false,
-linecolor=gray,
-backgroundcolor=black!5,
-innerleftmargin=5pt,
-innerrightmargin=5pt,
-innertopmargin=5pt,
-leftmargin=0cm,
-rightmargin=0cm,
-linewidth=4pt,
-innerbottommargin=5pt]{cBox}
-
 % Creates an environment for each type of theorem and assigns it a theorem text style from the "Theorem Styles" section above and a colored box from above
 \newenvironment{theorem}{\begin{tBox}\begin{theoremeT}}{\end{theoremeT}\end{tBox}}
-\newenvironment{exercise}{\begin{eBox}\begin{exerciseT}}{\hfill{\color{ocre}\tiny\ensuremath{\blacksquare}}\end{exerciseT}\end{eBox}}
-\newenvironment{definition}{\begin{dBox}\begin{definitionT}}{\end{definitionT}\end{dBox}}
-\newenvironment{example}{\begin{exampleT}}{\hfill{\tiny\ensuremath{\blacksquare}}\end{exampleT}}
-\newenvironment{corollary}{\begin{cBox}\begin{corollaryT}}{\end{corollaryT}\end{cBox}}
+\newenvironment{definition}{\begin{eBox}\begin{definitionT}}{\hfill{\color{ocre}\tiny\ensuremath{\blacksquare}}\end{definitionT}\end{eBox}}
+\newenvironment{exercise}{\begin{dBox}\begin{exerciseT}}{\end{exerciseT}\end{dBox}}
