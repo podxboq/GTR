@@ -1,0 +1,82 @@
+\begin{definition}
+  Sea $M$ una variedad, se llama \define{s-fibrado vectorial}{s-fibrado-vectorial} en $M$ al par $(E, \pi)$ donde
+  \begin{enumerate}
+    \item $\maps{\pi}{E}{M}$ es sobreyectiva.
+    \item $\forall p\in M\ \pi^{-1}(p)$ es un espacio vectorial.
+    \item $\forall p\in M\ \exists U\subset M$ abierto y $\maps{\psi}{\pi^{-1}(U)}{U\times\R^s}$ tal que los siguientes diagramas son conmutativos:
+  \end{enumerate}
+  \[
+    \begin{tikzcd}
+      \pi^{-1}(U)\arrow{r}{\psi}\arrow[hook]{d} & U\times\R^s\arrow{d}{pr_1}\\
+      E\arrow{r}{\pi} & U
+    \end{tikzcd}
+    \begin{tikzcd}
+      \pi^{-1}(p)\arrow{r}{\psi}\arrow{dr}{\simeq} & U\times\R^s\arrow{d}{pr_2}\\
+       & \R^s
+    \end{tikzcd}
+  \]
+\end{definition}
+\begin{notation}
+  Se escribe $E_p=\pi^{-1}(p)$.
+\end{notation}
+
+\begin{definition}
+Se llama \define{fibrado lineal canónico}{fibrado-lineal-canonico} al 1-fibrado vectorial $(E=M\times\R,\pi)$ donde
+$\pi$
+es la proyección canónica de $E$ en $M$.
+\end{definition}
+
+\begin{definition}
+  Sea $M$ una variedad, se llama \define{fibrado tangente}{fibrado-tangente} al conjunto $\bigcup_{p\in M}\{p\}\times T_pM$.
+  Se llama \define{fibrado cotangente}{fibrado-cotangente} al conjunto $\bigcup_{p\in M}\{p\}\times T^*_pM$.
+\end{definition}
+\begin{notation}
+  Se escribe $TM$ al fibrado tangente de M. Se escribe $T^* M$ al fibrado cotangente de M\@.
+\end{notation}
+
+\begin{exercise}
+  El fibrado tangente y el fibrado cotangente de una variedad $n$-dimensional son variedades $2n$-dimensionales.
+\end{exercise}
+
+\begin{proposition}
+El fibrado tangente de una variedad $n$-dimensional es un $n$-fibrado tangente de $M$.
+\end{proposition}
+\begin{proof}
+  Como los elementos de $TM$ son de la forma $(p, \mathring{\gamma})$ con $p\in M \land\mathring{\gamma}\in T_p M$,
+  vamos a definir la aplicación $\maps{\pi}{TM}{M}$ por $\pi(p, \mathring{\gamma})=p$.
+
+  Las dos primeras condiciones a cumplir por~\ref{def:s-fibrado-vectorial} son inmediatas pues $\forall\ p\in M\
+  E_p=T_p M$, es decir, está definido y es un espacio vectorial.
+
+  Para la tercera condición, dado $p\in M$, consideramos una carta local $(U, \varphi)$ y $\psi$ la aplicación:
+  \[
+    \begin{alignedat}{1}
+    \mapsdef{\psi}{\pi^{-1}(U)}{U\times\R^n}{(p, \mathring{\gamma})}{(p, \gamma^{'}(0))}
+    \end{alignedat}
+  \]
+  Como todas las curvas centradas en $p$ que pertenece a la clase de equivalencia de $\mathring{\gamma}$ cumplen que
+  son iguales en su derivada en 0, $\psi$ está bien definido.
+
+  El primer diagrama es conmutativo pues $(pr_1\circ\psi)(p, \mathring{\gamma})=pr_1(p,
+\gamma^{'}(0))=p=\pi(p, \mathring{\gamma})\so pr_1\circ\psi=\pi$.
+
+  En cuanto al segundo diagrama $\phi=\maps{\left.(pr_2\circ\psi)\right|_{E_p}}{E_p}{\R^n}$ definido por $\phi(p,
+  \mathring{\gamma})=\gamma^{'}(0)$ es claramente un aplicación homomorfa sobreyectiva de espacios vectoriales, para
+  demostrar que también es inyectiva, consideremos dos vectores $\mathring{\gamma_1},\mathring{\gamma_2}\in T_p M$
+  cuya imagen por $\phi$ es la misma, es decir, que $\gamma_1^{'}(0)=\gamma_2^{'}(0)$, por la relación de
+  equivalencia~\ref{ex:relacion-equivalencia} resulta que $\mathring{\gamma_1}=\mathring{\gamma_2}$.
+  Por lo tanto $\phi$ es un isomorfismo.
+\end{proof}
+
+\begin{exercise}
+  Demostrar que $T^* M$ es un $n$-fibrado tangente de $M$.
+\end{exercise}
+
+\begin{definition}
+  Sea $(E,\pi)$ un $s$-fibrado vectorial sobre la variedad $M$, se llama \define{sección de M en
+  E}{sección-fibrado-tangente} a la
+  aplicación $\maps{\mathcal{S}}{M}{E}\ \mid\ \pi\circ\mathcal{S}=\operatorname{Id}$.
+\end{definition}
+\begin{notation}
+  Se escribe $\Gamma(M,E)$ al conjunto de todas las secciones de $M$ en $E$.
+\end{notation}

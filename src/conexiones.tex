@@ -1,0 +1,61 @@
+Una sección de un $s$-fibrado vectorial generaliza la noción de función sobre una variedad, en el sentido de
+que cualquier
+función $\maps{f}{M}{\R^n}$ se puede ver como una sección del $n$-fibrado vectorial trivial $M\times\R^n$.
+
+¿Cómo podemos generalizar el concepto de diferenciación en secciones?, para que además se una extensión natural del
+concepto de diferenciación sobre funciones.
+No hay una respuesta única.
+
+Para el caso conocido, se tiene una función $\maps{f}{\R^n}{\R^m}$, $x\in\R^n$ y $v\in T_x \R^n=\R^n$, la diferencial
+de $f$ en la dirección de $v$ se calcula por $df_v(x)=\lim_{t\to 0}{\frac {f(x+tv)-f(x)}{t}}$.
+
+Cuando se toma una sección $\mathcal{S}\in\Gamma(M, E)$, $p\in M$ y $\mathring{\gamma}\in T_p M$, no tiene sentido la
+expresión $p+t\mathring{\gamma}$, aunque sí se puede hablar del cambio de \mathcal{S} a lo largo de la curva $\gamma$
+y por tanto considerar $d\mathcal{S}_{\mathring{\gamma}}(p)=\lim_{t\to 0}\frac{\mathcal{S}(\gamma (t))-\mathcal{S}
+(\gamma (0))}{t}$.
+
+Sin embargo, la definición anterior aún no tiene sentido, porque $\mathcal{S}(\mathring{\gamma}(t))\in
+E_{\mathring{\gamma}(t)}$ y $\mathcal{S}(\mathring{\gamma}(0))\in E_p$ que son dos espacios vectoriales distintos y
+por tanto no puedes ser restados.
+
+Este problema admite 3 formas distintas de solución:
+\begin{itemize}
+  \item \textbf{Transporte paralelo}.
+  Aunque distintos, $E_{\gamma(t)}\cong E_p$, por tanto $\exists\ \maps{\phi_t}{E_{\gamma(t)
+  }}{E_p}$ y de esta manera la expresión $\phi_t(\mathcal{S}(\gamma (t)))-\mathcal{S}(\gamma (0))$ tiene sentido.
+  \[
+    d\mathcal{S}_{\mathring{\gamma}}(p)=\lim_{t\to 0}\frac{\phi_t(\mathcal{S}(\gamma (t)))-\mathcal{S}
+    (\gamma (0))}{t}
+  \]
+
+  \item \textbf{Ehresmann connection}.
+  Use the notion of differential of a map of smooth manifolds.
+  A section $s\in \Gamma (E)$ is by definition a smooth map $s:M\to E$ such
+  that $\pi \circ s\operatorname{Id}$.
+  This has a differential $ds:TM\to TE$, with the property that $ds(X)\in \Gamma (TE)$
+ for a vector field $X\in \Gamma (TM)$.
+  However, one would like instead for $ds(X)$ to be a section of $E$ itself.
+
+  In fact, since the tangent space to a vector space is isomorphic to the space itself, the vertical bundle
+  $V\subset TE$ of all tangent spaces to the fibres of $E$ is naturally isomorphic to a copy of $E$
+  itself, or more precisely the pullback of $E$ along the projection $TE\to E$.
+  If one chooses a projection $\maps{\nu}{TE}{V}$ from $TE$ to this vertical subbundle
+  $V$ which is compatible with the linear structure of the fibres, composing with this projection would land
+  $ds(X)$ back in $E$.
+
+
+  \item \textbf{Derivada covariante}.
+  Definir de forma axiomática que propiedades debe cumplir una derivación para secciones.
+\end{itemize}
+
+\begin{definition}
+  Sea $(E, \pi)$ un $s$-fibrado vectorial sobre $M$, se llama conexión en $E$ a cualquier operador $\R$-lineal
+  $\nabla$ sobre $\Gamma(M, E)$ con valores en $\Gamma(M, T^* M\otimes E)$ que cumpla la condición $\nabla(f\mathcal{S})=df\otimes \mathcal{S}+f\nabla(\mathcal{S})$\label{def:conexion-condicion} donde $f\in\cinfinity{M}$ y
+  $\mathcal{S}\in\Gamma(M, E)$.
+\end{definition}
+
+\begin{example}
+Si consideramos el fibrado lineal canónico~(\ref{def:fibrado-lineal-canonico}), se tiene que $\Gamma(M, E)
+\cong\cinfinity{M}$ y la condición~\ref{def:conexion-condicion} se convierte en $\nabla(fg)=df\otimes g+f\nabla(g)$
+para todo $f,g\in\cinfinity{M}$, tenemos así que la derivada exterior es una conexión sobre $E$.
+\end{example}

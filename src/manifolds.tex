@@ -63,80 +63,43 @@
 \input{espacio-tangente}
 
 
-\section{Bases del espacio tangente}\label{sec:bases-del-espacio-tangente}
-\input{bases-del-espacio-tangente}
+\section{Bases del espacio tangente}\label{sec:bases-espacio-tangente}
+\input{bases-espacio-tangente}
+
+\section{Bases del dual del espacio tangente}\label{sec:bases-dual-espacio-tangente}
+\input{bases-dual-espacio-tangente}
 
 
 \section{Fibrado tangente}\label{sec:fibrado-tangente}
+\input{fibrado-tangente}
+
+\section{El pullback}\label{sec:pullback}
+Sea $\maps{\phi}{M}{N}$ una aplicación diferenciable entre dos variedades diferenciables.
+
+\section{Campo de vectores y covectores}\label{sec:campo-vectores-covectores}
 \begin{definition}
-  Sea $M$ una variedad, se llama \define{s-haz fibrado}{def:p-haz-fibrado} en $M$ al par $(E, \pi)$ donde $\forall
-  p\in M\ \exists U\subset M$ abierto y $\maps{\psi}{\pi^{-1}(U)}{U\times\R^s}$ tal que los siguiente diagrama es
-  conmutativo
-  \[
-    \begin{tikzcd}
-      \pi^{-1}(U)\arrow[r]\arrow[d, hook] & U \\
-      E\arrow[r, red] & U
-      %%    \pi^{-1}(U)\arrow[r, "\psi"]\arrow[d, hook] & U\times\R^s\arrow[d, "pr_1"]\arrow[r, "pr_2" "\simeq"] & \R^s\\
-      %%  E\arrow[r, "\pi" red] & U
-    \end{tikzcd}
-  \]
+  Se llama \define{campo de vectores}{campo-vectores} en $M$ a una sección de $M$ en $TM$.
+  Se llama \define{campo de covectores}{campo-covectores} en $M$ a una sección de $M$ en $T^* M$.
 \end{definition}
-\begin{definition}
-  Sea $M$ una variedad, se llama \define{fibrado tangente}{Fibrado tangente} al
-  conjunto $\bigcup_{p\in M}\{p\}\times T_pM$.
-\end{definition}
+
 \begin{notation}
-  Se escribe $TM$ al fibrado tangente de M\@.
-\end{notation}
-\begin{proposition}
-  El fibrado tangente de una variedad $n$-dimensional es una variedad $2n$-dimensional.
-\end{proposition}
-
-Si consideramos la proyección canónica de $\maps{\pi}{T(M)}{M}$, tenemos que para cada punto $p$ de
-$M$ el espacio tangente es $T_pM=\pi^{-1}(p)$, vamos a generalizar este concepto.
-
-\begin{definition}
-  Un \define{paquete de vectores}{Paquete de vectores} de rango $m$ sobre una variedad $M$
-  n-dimensional es una variedad $E$ junto a una aplicación diferenciable de $\maps{\pi}{E}{M}$ tal
-  que para cada punto $p$ de $M$, $E_p=\pi^{-1}(p)$ es un espacio vectorial, además existe $U$ un
-  entorno de $p$ en $M$ y un difeomorfismo $\maps{\phi}{\pi^{-1}(U)}{U\times\R^m}$ con la condición
-  de que:
+  \
   \begin{itemize}
-    \item $pr_1\circ\phi=\pi$.
-    \item $\forall\ p\in M, pr_2\circ\phi\mid_{E_p}$ es un isomorfismo lineal.
+    \item Se escribe $\Gamma(TM) = \Gamma(M, TM)$.
+    \item Se escribe $\Gamma(T^*M) = \Gamma(M, T^*M)$.
   \end{itemize}
-\end{definition}
+\end{notation}
 
-
-\section{Campo de vectores}\label{sec:campo-de-vectores}
-\begin{definition}
-  se llama \define{campo de vectores}{Campo de vectores} $X$ en $M$ al subconjunto de $T(M)$ formado por
-  $X=\cup_{p\in M}(p,v)$.
-\end{definition}
+\section{Espacio tangente como derivaciones}\label{sec:espacio-tangente-como-derivaciones}
 
 \begin{definition}
-  Sea $X$ un campo de vectores sobre $M$ y $f\in\cinfinity{M}$, se llama \define{derivada de Lie de
+  Sea $X$ un campo de vectores sobre $M$ y $\phi\in\cinfinity{M}$, se llama \define{derivada de Lie de
   f en X}{Derivada de Lie sobre una función} a:
   \begin{equation}
     \label{eq:derivada-lie-funcion-campo}
     \begin{alignedat}{1}
-      \mapsdef{\mathscr{L}_X f}{M}{\R}{p}{d_p f(X(p))}
+      \mapsdef{\mathscr{L}_X \phi}{M}{\R}{p}{d_p \phi(X(p))}
     \end{alignedat}
   \end{equation}
 \end{definition}
 
-
-\section{Espacio tangente como derivaciones}\label{sec:espacio-tangente-como-derivaciones}
-
-
-\section{Diferencial de una función}\label{sec:diferencial-de-una-funcion}
-\begin{definition}
-  Sea $\cartalocal$ y $\mathring{\gamma_p}$ un elemento del espacio tangente en $p$, dada una
-  función
-  $f\in\cinfinity{M}$, se define la \define{función diferencial de $f$ sobre
-  $\mathring{\gamma_p}$}{diferencial de función en un punto} por
-  \begin{equation}
-    \label{eq:diferencial-funcion-punto}
-    d_{\mathring{\gamma_p}}(f)=\frac{d}{dt}(f\circ\gamma)(t)\mid_{t=0}.
-  \end{equation}
-\end{definition}
