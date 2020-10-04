@@ -1,0 +1,59 @@
+Este libro quiere presentar matemáticamente los conceptos necesarios para el desarrollo de la Teoría General de la
+Relatividad (GTR) de Einstein.
+
+Recoger y unificar la terminología usada de forma diferente por diversos autores, ha sido el trabajo más importante
+de este libro con respecto a otros libros sobre este tema.
+
+Presentamos conceptos en geometría diferencial, variedades diferenciales, cálculo tensorial, etc.
+
+Este documento puede ser usado libremente en las condiciones que establece la licencia GNU Free Documentation License
+(www.gnu.org/copyleft/fdl.html).
+
+Documento escrito en \LaTeX, con IntelliJ Idea como IDE y el plugin TeXiFy IDEA
+de Hannah-Sten en un ordenador GNU/Linux (Manjaro).
+
+Iniciado durante la pandemia del 2020.
+
+\section{Notaci\'on}\label{ch:notacion}
+\begin{itemize}
+  \item Diremos que $V$ es un e-vectorial para indicar que es un espacio vectorial
+  de dimensión finita y con un producto escalar $\pescalar{}{}$ sobre un cuerpo $K$.
+  \item Si $V$ es un espacio vectorial, llamamos $V^*$ a su espacio dual.
+  \item Diremos que una función de $\R^n$ en $\R^m$ es $(n,m)$-suave si se puede diferencial indefinidamente.
+  \item Diremos que $M$ es una variedad diferenciable de dimensión $n$ con una métrica.
+  \item Se llama a $\cartalocal$ si $M$ es un variedad diferenciable, $p\in U$ con $U$ abierto en $M$ y $\maps{\varphi}{U}{\R^n}$ es un homeomorfismo.
+  \item Usaremos la función delta de kronecker con los índices en sus variantes
+  $\delta_{\alpha\beta}=\delta_\alpha^\beta=\delta^{\alpha\beta}$.
+  \item Dada una matriz $A$ describiremos a sus entradas con los índices en sus variantes
+  $A=(A_{\alpha\beta})_{\alpha\beta}=(A_\alpha^\beta)_\alpha^\beta=(A^{\alpha\beta})^{\alpha\beta}$.
+  \item Si $V$ es un espacio vectorial, denotaremos
+  $V^{\otimes r}=V\otimes\overbrace{\cdots}^\text{r\ veces}\otimes V$.
+\end{itemize}
+
+\section{\'Indices}\label{sec:indices}
+Principalmente para simplificar la notación al trabajar con índices, vamos
+a introducir algunos conceptos y establecer una notación que haga más cómodo
+trabajar con variables multi-indexadas.
+
+\begin{notation}
+  Denotaremos por:
+  \begin{itemize}
+    \item $I_n$ al conjunto de los naturales menores o iguales a $n$.
+    \item $I_n^m$ al producto cartesiano $m$-veces de $I_n$.
+    \item $P_n^m=\{(i_1,\cdots,i_m)\in I_n^m\ \mid \ i_k\neq 0\ \forall\ \indexdots{k}{1}{m}\}$
+    \item $H_{kn}^m(l)=\{(i_1,\cdots,i_m)\in I_n^m\ \mid \ i_k=l\}$
+  \end{itemize}
+\end{notation}
+
+\begin{notation}
+  Si $\sigma=(1,\ldots,n)$, con la expresión $(x^\sigma)_\sigma$, estaremos escribiendo la $n$-tupla $(x^1,\ldots,
+  x^n)$.
+  Sin embargo con la expresión $x^\sigma$, estaremos escribiendo $x^{1,\ldots,n}$.
+\end{notation}
+
+\subsection{Criterio de índices}\label{subsec:criterio-de-indices}
+
+Emplearemos continuamente el \textbf{convenio de sumas de Einstein}\index{convenio de sumas de Einstein} según el cual
+índices repetidos arriba y abajo en una expresión están sumado en todos sus posibles valores,
+así la expresión $y=\sum_{\alpha=1}^3 c_\alpha x^\alpha=c_1 x^1 + c_2 x^2 + c_3 x^3$
+se simplifica por la convención a $y = c_\alpha x^\alpha$.
