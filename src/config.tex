@@ -1,22 +1,13 @@
-\usepackage[spanish]{babel} % Spanish language/hyphenation
-
 %Para mapas de aplicaciones
-\usepackage{tikz}
 \usetikzlibrary{cd}
 
-\usepackage{enumitem} % Customize lists
 \setlist{nolistsep} % Reduce spacing between bullet points and numbered lists
 
-\usepackage{booktabs} % Required for nicer horizontal rules in tables
-
-\usepackage{xcolor} % Required for specifying colors by name
 \definecolor{ocre}{RGB}{243,102,25} % Define the orange color used for highlighting throughout the book
 
 %----------------------------------------------------------------------------------------
 %	MARGINS
 %----------------------------------------------------------------------------------------
-
-\usepackage{geometry} % Required for adjusting page dimensions and margins
 
 \geometry{
 	paper=a4paper, % Paper size, change to letterpaper for US letter size
@@ -34,33 +25,17 @@
 %	FONTS
 %----------------------------------------------------------------------------------------
 
-\usepackage{avant} % Use the Avantgarde font for headings
-%\usepackage{times} % Use the Times font for headings
-\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Sym­bol, Chancery and Com­puter Modern fonts
-
-\usepackage{microtype} % Slightly tweak font spacing for aesthetics
-\usepackage[utf8]{inputenc} % Required for including letters with accents
-\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
-\usepackage{lmodern}
-
-\usepackage{calc} % For simpler calculation - used for spacing the index letter headings correctly
-\usepackage{makeidx} % Required to make an index
 \makeindex % Tells LaTeX to create the files required for indexing
 
 %----------------------------------------------------------------------------------------
 %	MAIN TABLE OF CONTENTS
 %----------------------------------------------------------------------------------------
 
-\usepackage{titletoc} % Required for manipulating the table of contents
-
 \contentsmargin{0cm} % Removes the default margin
 
 %----------------------------------------------------------------------------------------
 %	THEOREM STYLES
 %----------------------------------------------------------------------------------------
-
-\usepackage{amsmath,amsfonts,amssymb,amsthm,mathrsfs}
-
 \renewcommand{\qedsymbol}{$\blacksquare$}
 
 % Defines the theorem text style for each type of theorem to one of the three styles above
@@ -74,8 +49,6 @@
 \newtheorem{notation}[dummy]{Notación}
 \newtheorem*{remark}{OJO}
 \numberwithin{equation}{dummy}
-
-\RequirePackage[framemethod=default]{mdframed} % Required for creating the theorem, definition, exercise and corollary boxes
 
 % Theorem box
 \newmdenv[skipabove=7pt,

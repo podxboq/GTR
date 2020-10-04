@@ -1,12 +1,29 @@
 \documentclass[11pt,fleqn]{book}
-\usepackage{amsmath}
+\usepackage[spanish]{babel} % Spanish language/hyphenation
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathrsfs}
+\usepackage{avant} % Use the Avantgarde font for headings
+\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Sym­bol, Chancery and Com­puter Modern fonts
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{lmodern}
+\usepackage{calc} % For simpler calculation - used for spacing the index letter headings correctly
+\usepackage{tikz}
+\usepackage{enumitem} % Customize lists
+\usepackage{booktabs} % Required for nicer horizontal rules in tables
+\usepackage{xcolor} % Required for specifying colors by name
+\usepackage{geometry} % Required for adjusting page dimensions and margins
+\usepackage{titletoc} % Required for manipulating the table of contents
+\usepackage{makeidx} % Required to make an index
+\RequirePackage[framemethod=default]{mdframed} % Required for creating the theorem, definition, exercise and corollary boxes
 
-\input{paquetes.tex}
+\input{config.tex}
 
 \input{personalizacion.tex}
 
 \begin{document}
-
+\chapter{La chapa}
+\input{intro}
 \chapter{Notaci\'on}\label{ch:notacion}
 \input{notacion}
 \section{\'Indices}\label{sec:indices}
