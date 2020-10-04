@@ -33,7 +33,7 @@ Este problema admite 3 formas distintas de solución:
   A section $s\in \Gamma (E)$ is by definition a smooth map $s:M\to E$ such
   that $\pi \circ s\operatorname{Id}$.
   This has a differential $ds:TM\to TE$, with the property that $ds(X)\in \Gamma (TE)$
- for a vector field $X\in \Gamma (TM)$.
+  for a vector field $X\in \Gamma (TM)$.
   However, one would like instead for $ds(X)$ to be a section of $E$ itself.
 
   In fact, since the tangent space to a vector space is isomorphic to the space itself, the vertical bundle
@@ -50,12 +50,55 @@ Este problema admite 3 formas distintas de solución:
 
 \begin{definition}
   Sea $(E, \pi)$ un $s$-fibrado vectorial sobre $M$, se llama conexión en $E$ a cualquier operador $\R$-lineal
-  $\nabla$ sobre $\Gamma(M, E)$ con valores en $\Gamma(M, T^* M\otimes E)$ que cumpla la condición $\nabla(f\mathcal{S})=df\otimes \mathcal{S}+f\nabla(\mathcal{S})$\label{def:conexion-condicion} donde $f\in\cinfinity{M}$ y
+  $\nabla$ sobre $\Gamma(M, E)$ con valores en $\Gamma(M, E\otimes T^* M)$ que cumpla la condición $\nabla(f\mathcal{S})
+  =\mathcal{S}\otimes df+f\nabla(\mathcal{S})$\label{def:conexion-condicion} donde $f\in\cinfinity{M}$ y
   $\mathcal{S}\in\Gamma(M, E)$.
 \end{definition}
 
-\begin{example}
-Si consideramos el fibrado lineal canónico~(\ref{def:fibrado-lineal-canonico}), se tiene que $\Gamma(M, E)
-\cong\cinfinity{M}$ y la condición~\ref{def:conexion-condicion} se convierte en $\nabla(fg)=df\otimes g+f\nabla(g)$
+Para el fibrado lineal canónico~(\ref{def:fibrado-lineal-canonico}), se tiene que $\Gamma(M, E)
+\cong\cinfinity{M}$ y la condición~\ref{def:conexion-condicion} se convierte en $\nabla(fg)=g\otimes df+f\nabla(g)$
 para todo $f,g\in\cinfinity{M}$, tenemos así que la derivada exterior es una conexión sobre $E$.
-\end{example}
+
+
+\section{Conexiones en el fibrado tangente}
+
+Para el fibrado tangente, las conexiones son aplicaciones de $TM$ en $TM\otimes T^*M$, se fija un punto $p\in
+M$ y para cada vector de la base local $\{\partial^\alpha\}$ de $T_p M$ la imagen se expresa con respecto a la
+base local $\{\partial^\alpha\otimes d_\beta\}$ de $T_pM\otimes T_p^*M$.
+
+\begin{definition}
+  Sea $\mathcal{S}$ una conexión en un fibrado tangente, se llama \define{símbolos de Christoffel de la
+  conexión en p}{simbolos-christoffel-conexion} a las coordenadas en la base local de $T_pM\otimes T_p^*M$ de la imagen
+  de la base local de $T_pM$.
+\end{definition}
+\begin{notation}
+  Se escribe $(\Gamma_p)_\beta^{\nu\alpha}$ a los símbolos de Christoffel de la conexión en p para la imagen de la
+  sección local $\mathring{\partial^\nu}$.
+\end{notation}
+
+Por~\ref{eq:seccion-coordenadas-locales} cada campo vectorial $\mathcal{S}$ se
+puede poner en coordenadas locales por $\mathcal{S}=f_\alpha\mathring{\partial}^\alpha$ donde $\maps{f}{M}{\R}$, así
+que, por la condición~\ref{def:conexion-condicion} tenemos que
+\begin{equation*}
+  \begin{split}
+    \nabla(\mathcal{S}) &=\nabla(f_\alpha
+    \mathring{\partial}^\alpha)=\partial^\alpha\otimes df_\alpha+f_\alpha\nabla(\mathring{\partial}^\alpha)=
+    \partial^\alpha\otimes df_\alpha+f_\alpha\Gamma_\nu^{\alpha\beta}\partial^\nu\otimes d_\beta=\\
+    & = \partial^\nu(f_\alpha)\partial^\alpha\otimes d_\nu+f_\alpha\Gamma_\nu^{\alpha\beta}
+    \partial^\nu\otimes d_\nu=(\partial^\beta(f_\nu)+f_\alpha\Gamma_\nu^{\alpha\beta})
+    \partial^\nu\otimes d_\nu
+  \end{split}
+\end{equation*}
+
+Resumiendo y reordenando índices para dejar la expresión más sencilla de recordar tenemos el siguiente resultado.
+\begin{proposition}
+  Para toda conexión $\nabla$ sobre $TM$ y todo campo vectorial $\mathcal{S}=f_\alpha\mathring{\partial}^\alpha$
+  sobre $M$ se tiene
+  \begin{equation}
+    \label{eq:conexion-coordenadas}
+    \nabla(\mathcal{S}) = (\partial^\alpha(f_\beta)+f_\nu\Gamma_\beta^{\nu\alpha})\partial^\beta\otimes d_\alpha
+  \end{equation}
+\end{proposition}
+
+Sea $\nabla$ una conexión en $E$ y $\maps{\gamma}{I}{M}$ una curva, la restricción de la conexión a la curva es una
+aplicación $\maps{\nabla_\gamma}{I}{M}$ definida por $t\mapsto\nabla$

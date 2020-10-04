@@ -20,12 +20,12 @@
 
 \geometry{
 	paper=a4paper, % Paper size, change to letterpaper for US letter size
-	top=3cm, % Top margin
-	bottom=3cm, % Bottom margin
-	left=3cm, % Left margin
-	right=3cm, % Right margin
+	top=1.5cm, % Top margin
+	bottom=1.5cm, % Bottom margin
+	left=1cm, % Left margin
+	right=1cm, % Right margin
 	headheight=14pt, % Header height
-	footskip=1.4cm, % Space from the bottom margin to the baseline of the footer
+	footskip=20pt, % Space from the bottom margin to the baseline of the footer
 	headsep=10pt, % Space from the top margin to the baseline of the header
 	%showframe, % Uncomment to show how the type block is set on the page
 }
@@ -61,9 +61,6 @@
 
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathrsfs}
 
-\newcommand{\intoo}[2]{\mathopen{]}#1\,;#2\mathclose{[}}
-\newcommand{\ud}{\mathop{\mathrm{{}d}}\mathopen{}}
-\newcommand{\intff}[2]{\mathopen{[}#1\,;#2\mathclose{]}}
 \renewcommand{\qedsymbol}{$\blacksquare$}
 
 % Defines the theorem text style for each type of theorem to one of the three styles above
@@ -76,7 +73,7 @@
 \newtheorem{proposition}[dummy]{Resultado}
 \newtheorem{notation}[dummy]{Notación}
 \newtheorem*{remark}{OJO}
-
+\numberwithin{equation}{dummy}
 
 \RequirePackage[framemethod=default]{mdframed} % Required for creating the theorem, definition, exercise and corollary boxes
 

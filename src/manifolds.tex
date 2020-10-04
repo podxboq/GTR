@@ -90,6 +90,32 @@ Sea $\maps{\phi}{M}{N}$ una aplicación diferenciable entre dos variedades difer
   \end{itemize}
 \end{notation}
 
+Se puede considerar $\forall\ p\in M$, su base local $\{\partial_p^\alpha\}_\alpha$ de $T_p M$, y fijado un índice
+se puede definir el campo vectorial que a cada punto $p$ le asocia el vector $\partial_p^\alpha$. el problema es que
+esta asignación depende de la carta local elegida en cada punto, para poder dar una definición consistente vamos a
+definir una relación de equivalencia.
+
+\begin{exercise}
+  Definir relación a través del jacobiano.
+\end{exercise}
+
+\begin{definition}
+  Se llama \define{campo de vectores local en la dirección $\alpha$}{campo-vectores-local} al campo de
+  vectores que a cada punto $p$ le asigna la clase de equivalencia ? $\mathring{\partial}_p^\alpha$.
+\end{definition}
+\begin{notation}
+  Se escribe $\mathring{\partial}^\alpha$ al campo de vectores local en la dirección $\alpha$.
+\end{notation}
+
+Si consideramos una sección $\mathcal{S}\in\Gamma(TM)$, a cada punto $p\in M$ le corresponde un vector que en
+coordenadas de la base local se expresa por $\mathcal{S}(p)=v_{p\alpha}\partial_p^\alpha$ y por tanto se puede definir
+las funciones $\maps{f_\alpha}{M}{\R}$ por $p\mapsto v_{p\alpha}$ dando la siguiente igualdad
+\begin{equation}\label{eq:seccion-coordenadas-locales}
+\mathcal{S}(p)=v_{p\alpha}\partial_p^\alpha=f_\alpha(p)\mathring{\partial}^\alpha(p)=(f_\alpha\mathring{\partial}^\alpha)(p)
+  \so
+\mathcal{S}=f_\alpha\mathring{\partial}^\alpha
+\end{equation}
+
 \section{Espacio tangente como derivaciones}\label{sec:espacio-tangente-como-derivaciones}
 
 \begin{definition}
