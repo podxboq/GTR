@@ -17,6 +17,7 @@
 \usepackage{makeidx} % Required to make an index
 \RequirePackage[framemethod=default]{mdframed} % Required for creating the theorem, definition, exercise and corollary boxes
 \usepackage{glossaries}
+\usepackage{url}
 
 \input{config.tex}
 \input{personalizacion.tex}
@@ -24,21 +25,40 @@
 \makeglossaries
 
 \begin{document}
-\printglossaries
 
-\chapter{La chapa}\label{ch:la-chapa}
-\input{intro}
-\chapter{Álgebra lineal}\label{ch:algebra-lineal}
-\section{Base dual}\label{sec:base-dual}\index{Base dual}
-\input{base-dual}
-\chapter{Tensores}\label{ch:tensores}
-\input{tensores}
-\chapter{An\'alisis}\label{ch:analisis}
-\section{Gradiente}\label{sec:gradiente}
-\input{analisis}
-\chapter{Geometría diferencial}\label{ch:geometria-diferencial}
-\input{manifolds}
-\chapter{Conexiones}\label{ch:conexiones}
-\input{conexiones}
 
+  \printglossaries
+
+
+  \chapter{La chapa}\label{ch:la-chapa}
+  \input{intro}
+
+
+  \chapter{Álgebra lineal}\label{ch:algebra-lineal}
+
+
+  \section{Base dual}\label{sec:base-dual}\index{Base dual}
+  \input{base-dual}
+
+
+  \chapter{Tensores}\label{ch:tensores}
+  \input{tensores}
+
+
+  \chapter{An\'alisis}\label{ch:analisis}
+
+
+  \section{Gradiente}\label{sec:gradiente}
+  \input{analisis}
+
+
+  \chapter{Geometría diferencial}\label{ch:geometria-diferencial}
+  \input{manifolds}
+
+
+  \chapter{Conexiones}\label{ch:conexiones}
+  \input{conexiones}
+
+  \bibliography{wiki}
+  \bibliographystyle{plain}
 \end{document}
