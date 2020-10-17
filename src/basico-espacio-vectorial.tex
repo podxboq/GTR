@@ -1,0 +1,47 @@
+\section{Espacio vectorial}\label{subsec:espacio-vectorial}
+No necesitamos amplios conocimientos en espacios vectoriales y de forma implícita estaremos trabajando con espacios
+vectoriales sobre $\R$, de dimensión finita y con un producto escalar definido, para una definición genérica de
+espacio vectorial se puede consultar la wikipedia~\cite{wiki:espacio-vectorial}.
+
+A lo largo del texto, cuando digamos que \glossarydef{espacio-vectorial}{$V$}{Espacio vectorial} es un espacio
+vectorial, estamos diciendo que $V$ es un espacio vectorial sobre $\R$, de dimensión finita $n$ y con un producto
+escalar definido.
+Cuando sea importante indicar la dimensión del espacio vectorial lo denotaremos por
+\glossarydef{espacio-vectorial-dimensional}{$V^n$}{Espacio vectorial de dimensión n}.
+
+Una base del espacio vectorial $V$ lo denotamos por $\{v_\alpha\}$ sin indicar el valor que toma el índice $\alpha$,
+pues daremos por entendido que toma todos los valores desde $1$ hasta la dimensión de $V$.
+
+Todas las aplicaciones entre espacios vectoriales o entre el espacio vectorial y $\R$ son lineales.
+
+\section{Espacio dual}\label{sec:espacio-dual}\index{Espacio dual}
+La noción de espacio dual \glossarydef{dual}{$V^*$}{Espacio dual de $V$}\cite{wiki:espacio-dual}, el conjunto de las aplicaciones lineales de $V$ sobre $\R$, es
+sencillo y no merece la pena dedicarle mucho detalle, pero por la importancia que tiene en el desarrollo teórico de
+la GTR vamos a recordar unas igualdades sencillas.
+
+\begin{proposition}
+  \label{res:coordenadas_duales}
+  Sea $V$ un espacio vectorial con $\{e^\alpha\}$ una base de $V$ y $\{e_\alpha\}$ su base dual.
+  $\forall v\in V\coma \forall f\in V^*$ se cumple que:
+  \begin{itemize}
+    \item $v=e_\alpha(v)e^\alpha$.
+    \item $f=f(e^\alpha)e_\alpha$.
+    \item $f(v)=e_\alpha(v)f(e^\alpha)$.
+  \end{itemize}
+\end{proposition}
+
+\subsection{Dual del cambio de base}\label{subsec:dual-del-cambio-de-base}
+Sea $V$ un espacio vectorial con $\{e^\alpha\}$ y $\{e'^\alpha\}$ bases de $V$ y $A$ la matriz cambio de base.
+Sea $\{f_\alpha\}$ y $\{f'_\alpha\}$ sus bases duales y $B$ la matriz cambio de base, entonces:
+\[
+  \delta_\alpha^\beta=f_\alpha(e^\beta)=B_\alpha^\mu f'_\mu(e^\beta)=B_\alpha^\mu A^\beta_\nu f'_\mu(e'^\nu)=B_\alpha^\mu A^\beta_\nu\delta^\nu_\mu=B_\alpha^\mu A^\beta_\mu=(BA)^\beta_\alpha.
+\]
+De forma análoga vemos que $\delta^\beta_\alpha=(AB)^\beta_\alpha$, y por tanto que $BA=AB=I_n$, se obtiene así el
+siguiente resultado.
+
+\begin{proposition}
+  \label{res:dual_cambio_base}
+  Sea $V$ un espacio vectorial con $\{e^\alpha\}$ y $\{e'^\alpha\}$ bases de $V$ y $A$ la matriz cambio de base.
+  La matriz cambio de base de las bases duales $\{f_\alpha\}$ en $\{f'_\alpha\}$ es $A^{-1}$.
+
+\end{proposition}

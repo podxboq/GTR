@@ -1,0 +1,48 @@
+\section{Variedad diferenciable}\label{sec:variedad-diferenciable}
+Para consultar los conceptos básicos de variedad diferencial podemos consultar la
+wikipedia~\cite{wiki:variedad-diferenciable}.
+
+Llamamos una variedad diferencial a una variedad topológica, de Hausdorff, de dimensión finita y con un atlas
+contable, además si $(U\coma\varphi)$ y $(V\coma\phi)$ son dos cartas sobre $p$, la aplicación
+$\maps{\varphi\circ\phi^{-1}}{\phi(U\cap V)}{\varphi(U\cap V)}$ es un difeomorfismo infinitamente diferenciable, es
+decir $\varphi\circ\phi^{-1}\in$\glossarydef{c-infinito-diferenciable}{$\cinfinity{\R^n}$}{Aplicaciones infinito
+diferenciables de $\R^n$}.
+
+Para simplificar el desarrollo del texto, diremos que tenemos $\cartalocal$, para indicar que $\mathcal{M}$ es una
+variedad diferenciable de dimensión $n$, que $p$ es un punto de
+\glossarydef{variedad-diferencial}{$\mathcal{M}$}{Variedad diferencial} y $(U\coma\varphi)$ una carta en $p$.
+
+Todas las aplicaciones entre variedades diferenciables son difeomorfismo.
+
+\begin{definition}
+  Sea $\cartalocal$, diremos que $\gamma$ es una \define{curva centrada en
+  $p$}{Curva centrada}\label{curva-centrada} si $\exists\ \epsilon\in\R \ \mid \maps{\gamma}{(-\epsilon\coma\epsilon)}{U}$ y
+  $\gamma(0)=p$.
+\end{definition}
+
+\begin{definition}
+  Sea $\cartalocal$, se llama \define{coordenadas locales}{coordenadas-locales} de la carta, a las aplicaciones
+  $\maps{\varphi^\alpha}{U}{\R}$ definido por $\varphi^\alpha=\pi^\alpha\circ\varphi$ donde $\pi^\alpha$ es la
+  proyección canónica de $\R^n$ en $\R$.
+\end{definition}
+
+\begin{definition}
+  Sean $\doscartaslocales$, una aplicación
+  $\maps{\phi}{M}{N}$ con $\phi(p)=q$ se dice
+  \define{diferenciable en p}{aplicación diferenciable} si la aplicación
+  $\psi\circ \phi\circ\varphi^{-1}$ es diferenciable en $\varphi(p)$.
+  La aplicación se llama diferenciable si lo es en todos los puntos del dominio.
+\end{definition}
+
+\begin{notation}
+  \
+  \begin{itemize}
+    \item Se llama \glossarydef{c-infinity-m-n}{$\cinfinity{M, N}$}{conjunto de las aplicaciones diferenciables de
+    $M$ en $N$} al conjunto de todas las aplicaciones de $M$ en $N$ diferenciables.
+    \item Se llama \glossarydef{c-infinity-p-n}{$\cinfinity{p, N}$}{conjunto de las aplicaciones diferenciables en
+    $p$ de $M$ en $N$} al conjunto de todas las aplicaciones de $M$ en $N$ diferenciables en $p$.
+    \item Si $N=\R$, se llama \glossarydef{c-infinity-m-R}{$\cinfinity{M}$}{$\cinfinity{M, \R}$} $=\cinfinity{M,\R}$.
+    \item Si $N=\R$, se llama \glossarydef{c-infinity-p-R}{$\cinfinity{p}$}{$\cinfinity{p, \R}$} $=\cinfinity{p,\R}$.
+  \end{itemize}
+\end{notation}
+
