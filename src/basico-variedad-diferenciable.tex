@@ -1,30 +1,71 @@
 \section{Variedad diferenciable}\label{sec:variedad-diferenciable}
-Para consultar los conceptos básicos de variedad diferencial podemos consultar la
-wikipedia~\cite{wiki:variedad-diferenciable}.
+Vamos a repasar todos los conceptos que necesitamos y esto nos servirá para fijar la notación que vamos a usar.
 
-Llamamos una variedad diferencial a una variedad topológica, de Hausdorff, de dimensión finita y con un atlas
-contable, además si $(U\coma\varphi)$ y $(V\coma\phi)$ son dos cartas sobre $p$, la aplicación
-$\maps{\varphi\circ\phi^{-1}}{\phi(U\cap V)}{\varphi(U\cap V)}$ es un difeomorfismo infinitamente diferenciable, es
-decir $\varphi\circ\phi^{-1}\in$\glossarydef{c-infinito-diferenciable}{$\cinfinity{\R^n}$}{Aplicaciones infinito
-diferenciables de $\R^n$}.
+\begin{definition}
+  Sea $\mathcal{M}$ un conjunto.
+  Una \define{carta n-dimensional}{carta-n-dimensional} (o simplemente carta) sobre $\mathcal{M}$ es un par $
+  (U\coma\varphi)$ donde $U$ es un
+  abierto de
+  $\mathcal{M}$ y $\maps{\varphi}{U}{\R^n}$ es un homeomorfismo.
+  Al conjunto $U$ se le denomina \define{entorno coordenado}{entorno-coordenado}.
+\end{definition}
 
-Para simplificar el desarrollo del texto, diremos que tenemos $\cartalocal$, para indicar que $\mathcal{M}$ es una
-variedad diferenciable de dimensión $n$, que $p$ es un punto de
-\glossarydef{variedad-diferencial}{$\mathcal{M}$}{Variedad diferencial} y $(U\coma\varphi)$ una carta en $p$.
+Vamos a definir sobre $\mathcal{M}$ algunos conceptos trasladados del espacio Euclídeo $\R^n$, restringiendo su
+alcance al entorno coordenado y apoyándonos siempre sobre como se proyecta en $\R^n$ a través de las cartas.
+Las coordenadas del espacio Euclídeo las denotaremos por $(u^\alpha)$ y por $\{e_\alpha\}$ la base canónica de $\R^n$,
+$\pi^\alpha$ es la proyección canónica de la $\alpha$-ésima coordenada de $\R^n$ en $\R$ y $i^\alpha$ es la inclusión
+canónica de la $\alpha$-ésima coordenada de $\R$ en $\R^n$.
 
-Todas las aplicaciones entre variedades diferenciables son difeomorfismo.
+\begin{definition}
+Llamamos \define{$\alpha$-ésima función coordenada}{alpha-esima-funcion-coordenada} a
+$\varphi^\alpha=\pi^\alpha\circ\varphi\in\cinfinity{p}$.
+\end{definition}
+
+Sobre un punto $p\in\mathcal{M}$ podemos definir muchas cartas distintas, para que las definiciones siguientes no
+dependan de la elección de la carta, tenemos que imponer un criterio igualdad topológica.
+
+\begin{definition}
+Sea $\mathcal{M}$ un conjunto y $(U\coma\varphi)$ y $(V\coma\phi)$ dos cartas sobre $p\in\mathcal{M}$.
+Diremos que son \define{cartas compatibles}{cartas-compatibles}, si $U\cap V=\emptyset$ o los conjuntos $\varphi
+(U\cap V)$ y $\phi(U\cap V)$ son abiertos en $\R^n$ y las aplicaciones $\varphi\circ\phi^{-1}$ y
+$\phi\circ\varphi^{-1}$ son difeomorfismo de clase $\mathscr{C}^\infty$.
+  A las aplicaciones $\varphi\circ\phi^{-1}$ y $\phi\circ\varphi^{-1}$ se les llaman \define{aplicaciones cambio de
+coordenadas}{aplicacion-cambio-coordenadas}.
+\end{definition}
+
+Si un conjunto está contenido en una única carta, dicho conjunto es difeomorfo al espacio euclídeo y su estudio no
+ofrecería ninguna novedad, las estructuras interesantes son por tanto, aquellas que no pueden ser cubiertas por una
+única carta, y por tanto necesitan al menos dos cartas para que todos sus puntos estén en algún entorno coordenado.
+
+\begin{definition}
+Sea $\mathcal{M}$ un conjunto, llamamos \define{atlas diferenciable n-dimensional}{atlas} (o simplemente atlas) a una
+familia contable de cartas compatibles donde la unión de los entornos coordenados cubre a $\mathcal{M}$.
+\end{definition}
+
+En algunos textos, se diferencia entre atlas y atlas maximal, pero no es necesario ya que la estructura que dota al
+conjunto un atlas es la misma que un atlas maximal, así que nos quedamos con la siguiente definición de variedad
+diferenciable.
+
+\begin{definition}
+  Una \define{variedad diferenciable n-dimensional}{variedad-diferenciable} es un par $(\mathcal{M}\coma\mathcal{A})$
+  donde \glossarydef{variedad-diferencial}{$\mathcal{M}$}{Variedad diferencial} es un conjunto y $\mathcal{A}$ es un atlas diferenciable n-dimensional.
+\end{definition}
+Para simplificar el desarrollo del texto, diremos que tenemos \glossarydef{carta-local}{$\cartalocal$}{Carta local},
+para indicar que $\mathcal{M}$ es una variedad diferenciable de dimensión $n$, que $p$ es un punto de
+$\mathcal{M}$ y que $(U\coma\varphi)$ es una carta con $p\in
+U$.
 
 \begin{definition}
   Sea $\cartalocal$, diremos que $\gamma$ es una \define{curva centrada en
-  $p$}{Curva centrada}\label{curva-centrada} si $\exists\ \epsilon\in\R \ \mid \maps{\gamma}{(-\epsilon\coma\epsilon)}{U}$ y
+  $p$}{Curva centrada}\label{curva-centrada} si $\exists\ \epsilon\in\R \ \mid \maps{\gamma}{(-\epsilon\coma\epsilon)
+  }{\varphi(U)}$ y
   $\gamma(0)=p$.
 \end{definition}
 
-\begin{definition}
-  Sea $\cartalocal$, se llama \define{coordenadas locales}{coordenadas-locales} de la carta, a las aplicaciones
-  $\maps{\varphi^\alpha}{U}{\R}$ definido por $\varphi^\alpha=\pi^\alpha\circ\varphi$ donde $\pi^\alpha$ es la
-  proyección canónica de $\R^n$ en $\R$.
-\end{definition}
+\section{Aplicaciones diferenciables}
+Vamos a extender todos los conceptos del cálculo diferencial en $\R^n$ a una variedad diferenciable, dicha extensión
+de conceptos inicialmente lo haremos de forma local, es decir, fijado un punto, pues tendremos que apoyarnos siempre
+en la existencia de una carta y por tanto de las coordenadas locales en dicho punto.
 
 \begin{definition}
   Sean $\doscartaslocales$, una aplicación
@@ -44,5 +85,45 @@ Todas las aplicaciones entre variedades diferenciables son difeomorfismo.
     \item Si $N=\R$, se llama \glossarydef{c-infinity-m-R}{$\cinfinity{M}$}{$\cinfinity{M, \R}$} $=\cinfinity{M,\R}$.
     \item Si $N=\R$, se llama \glossarydef{c-infinity-p-R}{$\cinfinity{p}$}{$\cinfinity{p, \R}$} $=\cinfinity{p,\R}$.
   \end{itemize}
+\end{notation}
+
+\begin{definition}
+  Sea $\cartalocal$ y $\gamma$ una curva centrada en $p$, llamamos \define{derivada de $\gamma$ en $p$}{Derivada de una
+  curva} a
+  \begin{equation*}
+    \gamma^{'}(p)=\left.\frac{d(\varphi\circ\gamma)
+    }{dt}\right|_{t=0}=((\varphi^\alpha\circ\gamma)^{'}(0))_\alpha
+  \end{equation*}
+\end{definition}
+
+El concepto de derivada de una curva en un punto es muy importante, pues la vamos a usar para definir el espacio
+vectorial tangente en un punto, concepto crucial para el desarrollo de este libro.
+
+\begin{definition}
+  Sean $\doscartaslocales$ y $\phi\in\cinfinity{p, N}$ con $\phi(p)=q$, definimos la
+  \define{derivada parcial}{Derivada parcial de una función} de $\phi$ con respecto la coordenada local
+  $\varphi^\alpha$ en $p$ por
+  \begin{equation*}
+    \label{eq:parcial-funcion-punto}
+    \frac{\partial\phi}{\partial \varphi^\alpha}(p)=\left.\frac{\partial (\psi\circ\phi\circ\varphi^{-1})}{\partial
+    u^\alpha}(\varphi(p))
+  \end{equation*}
+\end{definition}
+
+\begin{definition}
+  Sean $\doscartaslocales$, se define el
+  \define{operador derivada parcial}{Operador derivada parcial de una función} con
+  respecto a la coordenada local $\varphi^\alpha$ en $p$ por
+  \begin{equation*}
+    \begin{alignedat}{1}
+      \mapsdef{\partial^\alpha_p}{\cinfinity{p\coma N}}{\R^m}{\phi}{\frac{\partial
+      \phi}{\partial\varphi^\alpha}(p)}
+    \end{alignedat}
+  \end{equation*}
+\end{definition}
+
+\begin{notation}
+Cuando no sea preciso indicar el punto $p$, denotamos el operador derivada parcial con respecto a la coordenada
+$\varphi^\alpha$ en $p$ por $\partial^\alpha$.
 \end{notation}
 

@@ -1,40 +1,5 @@
 \section{Aplicaciones diferenciables}\label{sec:aplicaciones-diferenciables}
 
-\begin{definition}
-  Sean $\doscartaslocales$ y $\phi\in\cinfinity{p, N}$, se define la
-  \define{derivada direccional}{Derivada parcial de una función} de $\phi$ con respecto a $p$ en la dirección $e^\alpha$
-  por
-  \begin{equation}
-    \label{eq:parcial-funcion-punto}
-    \frac{\partial f}{\partial e^\alpha}(p)=\left.\frac{\partial (\psi\circ\phi\circ\varphi^{-1})}{\partial
-    e^\alpha}\right|_{\varphi(p)}
-  \end{equation}
-  Donde $(e^\alpha)_\alpha$ son las coordenadas canónicas de $\R^n$.
-\end{definition}
-
-\begin{definition}
-  Sean $\doscartaslocales$, se define el
-  \define{operador derivada direccional}{Operador derivada direccional de una función} con
-  respecto a $p$ en la dirección $e^\alpha$ por
-  \begin{equation}
-    \begin{alignedat}{1}
-      \label{eq:operador-parcial-funcion-punto}
-      \mapsdef{\left.\frac{\partial}{\partial e^\alpha}\right|_p}{\cinfinity{p}}{\R}{\phi}{\frac{\partial
-      \phi}{\partial e^\alpha}(p)}
-    \end{alignedat}
-  \end{equation}
-\end{definition}
-\begin{notation}
-  \
-  \begin{itemize}
-    \item Se escribe $\partial^{x^\alpha}_p$ al operador derivada direccional con respecto a p en la dirección
-    $e^\alpha$.
-    \item Cuando no sea preciso indicar el punto $p$, por $\partial^{x^\alpha}$.
-    \item Cuando tampoco sea preciso indicar las coordenadas, por $\partial^\alpha$.
-  \end{itemize}
-\end{notation}
-
-
 \section{Espacio tangente}\label{sec:espacio-tangente}
 \input{espacio-tangente}
 
