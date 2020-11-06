@@ -1,74 +1,56 @@
-Considerando una función real definida en $M$ vamos a definir el espacio tangente en un
-punto $p$ usando la noción de derivada direccional del vector tangente (velocidad) de una curva
-$\gamma$ en el punto $p$.
+Recordemos que dada una función $f\in\cinfinity{\R^n\coma\R^m}$, le podemos asociar a cada punto $x\in\R^n$ la
+derivada de la función en $x$ que denotamos por $Df_x$.
+La estructura afín de $\R^n$ permite interpretar un vector $v\in\R^n$ como un vector tangente a $x$ asociando a cada
+función real $g\in\cinfinity{\R^n}$ la derivada direccional $D_{v}g_x=Dg_x(v)$.
+De este modo podemos interpretar cada vector tangente como una aplicación que asocia a cada función real de clase
+$\cinfinity$ un valor real.
+
+De forma análoga vamos a definir un vector tangente a un punto $p$ de una variedad diferenciable, es decir, que un
+vector tangente será una aplicación que a cada función $\cinfinity{p}$ le aplica un número real y que además cumpla
+con las propiedades que caracterizan a las derivaciones en $\R^n$, a saber, la linearidad y la regla de Leibniz.
+
+\section{Espacio tangente}\label{sec:espacio-tangente}
 
 \begin{definition}
-  Sea $\cartalocal$ y $\phi\in\cinfinity{p}$, se llama
-  \define{derivada direccional}{Derivada direccional} de $\phi$ en la dirección $v\in\R^n$ a
-  \begin{equation}
-    \label{eq:derivada-direccional}
-    \left.\frac{d(\phi\circ\gamma)}{dt}\right|_{t=0}
-  \end{equation}
-  donde $\gamma$ es una curva centrada en $p$ con $\gamma^{'}(0)=v$.
+  Sea $\cartalocal$ y $\maps{\mathrm{v}}{\cinfinity{p}}{\R}$, diremos que $\mathrm{v}$ es un \define{vector tangente en
+  $p$}{Vector tangente en p}, si es $\R$-lineal y cumple la regla de Leibniz.
+  Llamamos \glossarydef{espacio-tangente}{$T_p\mathcal{M}$}{Espacio tangente de p en $\mathcal{M}$}
+  \define{espacio tangente de
+  $p$ en $\mathcal{M}$}{def:espacio-tangente}, al conjunto de todos los vectores tangentes en $p$.
 \end{definition}
-\begin{notation}
-  Se escribe $D_v(\phi)$ a la derivada direccional de $\phi$ en la dirección $v$.
-\end{notation}
-Al desarrollar la expresión~\ref{eq:derivada-direccional} como
-$\phi\circ\gamma=\phi\circ\varphi^{-1}\circ\varphi\circ\gamma$, tenemos por un lado
-$\maps{\phi\circ\varphi^{-1}}{\R^n}{\R}$
-y por otro
-$\maps{\varphi\circ\gamma}{\R}{\R^n}$, $(\varphi\circ\gamma)(t)=
-(x^\alpha=\varphi^\alpha\circ\gamma)_{\alpha}$,
-por la regla de la cadena~\ref{th:regla-cadena} se tiene
-\begin{multline}\label{eq:desarrollo-vector-tangente}
-  \left.\frac{d(\phi\circ\gamma)}{dt}\right|_{t=0}=
-  \left.\frac{d(\phi\circ\varphi^{-1}\circ\varphi\circ\gamma)}{dt}\right|_{t=0}=
-  \left.\frac{\partial(\phi\circ\varphi^{-1})}{\partial x^\alpha}\right|_{\varphi(p)}
-  \left.\frac{d(\varphi\circ\gamma)}{dt}\right|_{t=0}\by{\ref{def:Derivada de una curva}}\\
-  =\left.\frac{\partial(\phi\circ\varphi^{-1})}{\partial x^\alpha}\right|_{\varphi(p)}
-  \gamma^{'}(0)\by{\ref{def:Derivada parcial de una función}}
-  \frac{\partial\phi}{\partial x^\alpha}(p) v_\alpha.
+
+Por definición, y por lo comentado en~\ref{propiedad-derivada-parcial}, los operadores $\partial^\alpha$ derivada
+parcial con respecto a la coordenada $\varphi^\alpha$ son vectores tangentes en $p$, es más, dada cualquier curva
+$\gamma$ centrada en $p$ sobre $\mathcal{M}$ tiene asociado un vector tangente de forma natural, pues a cada función
+$f\in\cinfinity{p}$ tenemos según~\ref{eq:derivada-parcial-curva} $\gamma^{'}(f)$ haciendo que podamos definir la
+aplicación $\maps{\gamma^{'}}{\cinfinity{p}}{\R}$ que es $\R$-lineal y cumple la regla de Leibniz y por tanto por
+definición $\gamma^{'}$ es un vector tangente en $p$.
+
+Por otra parte fijado $\alpha$, y tomando $\epsilon\in\R\tq (-\epsilon, \epsilon)\subset\varphi^{-1}(U)$, podemos
+definir la siguiente curva centrada en $p$, $\gamma_\alpha(t)=\varphi^{-1}(\varphi(p)+te^\alpha)$, vamos a calcular cual
+es el vector tangente a $\gamma_\alpha$ en $p$.
+Dado $f\in\cinfinity{p}$
+
+\begin{multline}
+\gamma_\alpha^{'}(f)\by{\ref{eq:derivada-parcial-curva}}
+  \frac{d(f\circ\gamma_\alpha)}{dt}(0)=
+  \frac{d(f\circ\varphi^{-1}\circ\varphi\circ\gamma_\alpha)}{dt}(0)=\\
+  =\frac{\partial(f\circ\varphi^{-1})}{\partial u^\beta}(\varphi(p))
+  \frac{d u^\beta(\varphi\circ\gamma_\alpha)}{dt}(0)\by{\ref{def:Derivada parcial de una función}}
+  \frac{\partial f}{\partial \varphi^\beta}(p)\delta^{\alpha\beta}
+=\partial^\alpha(f)
 \end{multline}
 
-Como se ha comprobado, la definición de~\ref{def:Derivada direccional} no depende de $\gamma$
-sino sólo de $v$ y por tanto está bien definida y se puede hacer la siguiente construcción.
+Acabamos de ver, que $\partial^\alpha$ es un vector tangente a una curva en $p$, exactamente de la $\alpha$-ésima
+curva local.
+Ahora vamos a ver como se expresa cualquier vector.
 
-Sea $\cartalocal$ y $\gamma_1$ y $\gamma_2$ dos curvas centradas en $p$, se define la relación
-$\gamma_1\sim\gamma_2$ cuando $\gamma_1^{'}(0)=\gamma_2^{'}(0)$.
-
-\begin{exercise}
-  \label{ex:relacion-equivalencia}
-  La relación anterior es una relación de equivalencia.
-\end{exercise}
-\begin{notation}
-Se escribe $\mathring{\gamma}$ a la clase de equivalencia de $\gamma$ en el conjunto cociente
-$\cinfinity{p}/\sim$.
-\end{notation}
-
-\begin{definition}
-  Sea $\cartalocal$, $\gamma$ una curva centrada en p y $\sim$ la relación de equivalencia
-  descrita en~\ref{ex:relacion-equivalencia}.
-  Se llama \define{vector tangente a la curva $\gamma$ en p}{Vector tangente a la curva} a la
-  función
-  \begin{equation}
-    \label{eq:vector-tangente-curva}
-    \begin{alignedat}{1}
-      \mapsdef{\mathring{\gamma}}{\cinfinity{p}}{\R}{f}{\left.\frac{d(f\circ\gamma)}{dt}\right|_{t=0}}
-    \end{alignedat}
-  \end{equation}
-\end{definition}
-\begin{definition}
-  Se llama \define{espacio tangente de $p$ en $M$}{def:espacio-tangente-variedad}, al
-  conjunto de todos los vectores tangentes a todas las curvas centradas en $p$.
-\end{definition}
-\begin{notation}
-  Se escribe \glossarydef{tangente-punto}{$T_pM$}{Espacio tangente de p en M} al espacio tangente
-  de p en M.
-\end{notation}
-
-\begin{exercise}
-  Comprobar que con las operaciones $\mathring{\gamma}+\mathring{\gamma^\prime}=
-  (\mathring{\gamma+\gamma^\prime})$ y $r\mathring{\gamma}=(\mathring{r\gamma})$, el espacio
-  tangente tiene estructura de espacio vectorial.
-\end{exercise}
+\begin{multline}\label{eq:imagen-vector-funcion}
+  \gamma^{'}(f)\by{\ref{eq:derivada-parcial-curva}}
+  \frac{d(f\circ\gamma)}{dt}(0)=
+  \frac{d(f\circ\varphi^{-1}\circ\varphi\circ\gamma)}{dt}(0)=\\
+  =\frac{\partial(f\circ\varphi^{-1})}{\partial u^\beta}(\varphi(p))
+  \frac{d u^\beta(\varphi\circ\gamma)}{dt}(0)\by{\ref{def:Derivada parcial de una función}}
+  \frac{d(\varphi^\beta\circ\gamma)}{dt}(0)\frac{\partial f}{\partial \varphi^\beta}(p)
+  =(\frac{d(\varphi^\beta\circ\gamma)}{dt}(0)\partial^\beta)(f)
+\end{multline}

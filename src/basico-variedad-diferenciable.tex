@@ -79,25 +79,28 @@ en la existencia de una carta y por tanto de las coordenadas locales en dicho pu
   \
   \begin{itemize}
     \item Se llama \glossarydef{c-infinity-m-n}{$\cinfinity{M, N}$}{conjunto de las aplicaciones diferenciables de
-    $M$ en $N$} al conjunto de todas las aplicaciones de $M$ en $N$ diferenciables.
+    $\mathcal{M}$ en $N$} al conjunto de todas las aplicaciones de $\mathcal{M}$ en $N$ diferenciables.
     \item Se llama \glossarydef{c-infinity-p-n}{$\cinfinity{p, N}$}{conjunto de las aplicaciones diferenciables en
-    $p$ de $M$ en $N$} al conjunto de todas las aplicaciones de $M$ en $N$ diferenciables en $p$.
+    $p$ de $\mathcal{M}$ en $N$} al conjunto de todas las aplicaciones de $\mathcal{M}$ en $N$ diferenciables en $p$.
     \item Si $N=\R$, se llama \glossarydef{c-infinity-m-R}{$\cinfinity{M}$}{$\cinfinity{M, \R}$} $=\cinfinity{M,\R}$.
     \item Si $N=\R$, se llama \glossarydef{c-infinity-p-R}{$\cinfinity{p}$}{$\cinfinity{p, \R}$} $=\cinfinity{p,\R}$.
   \end{itemize}
 \end{notation}
 
+\subsection{Diferencial}\label{subsec:diferencial}
+
 \begin{definition}
-  Sea $\cartalocal$ y $\gamma$ una curva centrada en $p$, llamamos \define{derivada de $\gamma$ en $p$}{Derivada de una
-  curva} a
-  \begin{equation*}
-    \gamma^{'}(p)=\left.\frac{d(\varphi\circ\gamma)
-    }{dt}\right|_{t=0}=((\varphi^\alpha\circ\gamma)^{'}(0))_\alpha
-  \end{equation*}
+  Sean $\doscartaslocales$ y $\phi\in\cinfinity{p, N}$ con $\phi(p)=q$, definimos la
+  \define{diferencial de $\phi$ en $p$}{diferencial-punto} por
+  \begin{equation}
+    \label{eq:diferencial-funcion-punto}
+    d\phi(p)=d(\psi\circ\phi\circ\varphi^{-1})(\varphi(p))
+  \end{equation}
 \end{definition}
 
-El concepto de derivada de una curva en un punto es muy importante, pues la vamos a usar para definir el espacio
-vectorial tangente en un punto, concepto crucial para el desarrollo de este libro.
+\subsection{Derivada parcial}\label{subsec:derivada-parcial}
+Como sabemos, una aplicación es diferenciable si admite derivadas parciales en cada una de sus coordenadas, por eso
+vamos a definir el concepto de derivada parcial para aplicaciones entre variedades diferenciables.
 
 \begin{definition}
   Sean $\doscartaslocales$ y $\phi\in\cinfinity{p, N}$ con $\phi(p)=q$, definimos la
@@ -105,7 +108,7 @@ vectorial tangente en un punto, concepto crucial para el desarrollo de este libr
   $\varphi^\alpha$ en $p$ por
   \begin{equation*}
     \label{eq:parcial-funcion-punto}
-    \frac{\partial\phi}{\partial \varphi^\alpha}(p)=\left.\frac{\partial (\psi\circ\phi\circ\varphi^{-1})}{\partial
+    \frac{\partial\phi}{\partial \varphi^\alpha}(p)=\frac{\partial(\psi\circ\phi\circ\varphi^{-1})}{\partial
     u^\alpha}(\varphi(p))
   \end{equation*}
 \end{definition}
@@ -127,3 +130,31 @@ Cuando no sea preciso indicar el punto $p$, denotamos el operador derivada parci
 $\varphi^\alpha$ en $p$ por $\partial^\alpha$.
 \end{notation}
 
+Es fácil comprobar que el operador derivada parcial con respecto a la coordenada $\varphi^\alpha$ en $p$ cumple las
+siguientes propiedades
+\begin{itemize}\label{propiedad-derivada-parcial}
+  \item \textbf{$\R$-lineal}: $\forall\ r,s\in\R$ y $\forall f,g\in\cinfinity{p}$ se cumple que $\partial^\alpha(rf+sg)
+  =r\partial^\alpha(f)+s\partial^\alpha(g)$.
+  \item \textbf{Regla de Leibniz}: $\forall f,g\in\cinfinity{p}$ se cumple que $\partial^\alpha(fg)=\partial^\alpha
+  (f)g+f\partial^\alpha(g)$.
+\end{itemize}
+
+Como caso especial, vamos a calcular las derivadas parciales de las funciones coordenadas, como
+$\forall\varphi^\beta\in\cinfinity{p}$, por definición tenemos
+\begin{equation}\label{eq:derivada-parcial-coordenada-local}
+  \frac{\partial\varphi^\beta}{\partial\varphi^\alpha}(p)=\frac{\partial (\varphi^\beta\circ\varphi^{-1})
+  }{\partial u^\alpha}(\varphi(p))=\frac{\partial (\pi^\beta\circ\varphi\circ\varphi^{-1})
+  }{\partial u^\alpha}(\varphi(p))=\frac{\partial\pi^\beta}{\partial u^\alpha}(\varphi(p))=\delta^{\alpha\beta}
+\end{equation}
+
+Para el caso especial de curvas $\phi=\gamma$ donde $\mathcal{M}=\R$, $\varphi=\text{Id}$ y donde la única función
+coordenada se identifica con el parámetro, $\varphi^\alpha(t)=\varphi^1(t)=\text{Id}(t)=t$, la definición de derivada
+parcial obtiene la siguiente forma
+\begin{equation}\label{eq:derivada-parcial-curva}
+\frac{\partial\gamma}{\partial t}(0)=\frac{d(\psi\circ\gamma)}{dt}(0)
+\end{equation}
+
+\begin{notation}
+  Denotamos por $\gamma^{'}(\psi)$ a la diferencial de una curva con
+  respecto a las coordenadas locales definidas por $\psi$.
+\end{notation}

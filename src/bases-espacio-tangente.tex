@@ -1,84 +1,41 @@
-De forma natural tenemos una base del espacio tangente, usando las curvas definidas por las
-coordenadas canónicas de $\R^n$, es decir, que si consideramos $\cartalocal$ y $\maps{x^\alpha}{(-\epsilon, \epsilon)\subset\R}{U\subset M}$ definido por $x^\alpha(t)=\varphi^{-1}(\varphi(p)+te^\alpha)$, las curvas en $M$
-definidas por las coordenadas canónicas $e^\alpha$,
-vamos a comprobar que $\{\mathring{x^\alpha}\}$ es una base de $T_pM$.
+\section{Base del espacio tangente}\label{sec:base-espacio-tangente}
+
+Es una ejercicio fácil, comprobar que \gls{espacio-tangente} es un espacio vectorial, y sin entrar en mucho
+detalle, vamos a ver que dicho espacio tiene la misma dimensión que la variedad diferencial y que ${\partial^\alpha}$ es una base.
 
 \begin{proposition}
-  Sea $\cartalocal$ y $\maps{x^\alpha}{(-\epsilon, \epsilon)\subset\R}{U\subset M}$ definido por $x^\alpha(t)=\varphi^{-1}(\varphi(p)+te^\alpha)$, las
-  curvas en
-  $M$
-  definidas por las coordenadas canónicas $e^\alpha$, entonces
-  $\mathring{x^\alpha}=\mathring{x^\beta}\so\alpha=\beta$.
+  Sea $\cartalocal$ y ${\gamma^\alpha}$ las $\alpha$-ésimas curvas locales, entonces, para toda curva $\gamma$
+  centrada en $p$, existe una familia $\{\lambda_\alpha\}\subset\R$, tal que $\gamma=\lambda_\alpha\gamma^\alpha$.
 \end{proposition}
-\begin{proof}
-  Que $\mathring{x^\alpha}=\mathring{x^\beta}$ significa que
-  $x^\alpha\sim x^\beta$, es decir, que las derivadas de
-  $\varphi\circ x^\alpha$ y $\varphi\circ x^\beta$ en 0 son iguales.
-  Las coordenadas de estas funciones en $\R^n$ se expresan como:
-  \begin{equation*}
-    (\pi^\gamma\circ\varphi\circ x^\alpha)(t)=\pi^\gamma(\varphi(\varphi^{-1}(\varphi(p)
-    +te^\alpha)))=\pi^\gamma(\varphi(p)
-    +te^\alpha)=\varphi^\gamma(p)+\delta^{\gamma\alpha} t
-  \end{equation*}
-  Por lo tanto, las coordenadas de la derivada de $\varphi\circ x^\alpha$ es
-  $(\pi^\gamma\circ\varphi\circ x^\alpha)^\prime(t)=\delta^{\gamma\alpha}$ y de la igualdad dada
-  por la relación de equivalencia, tenemos que
-  $\delta^{\gamma\alpha}=\delta^{\gamma\alpha}\so\alpha=\beta$.
-\end{proof}
 
 \begin{proposition}
-  Sea $\cartalocal$ y $\maps{x^\alpha}{(-\epsilon, \epsilon)\subset\R}{U\subset M}$ definido por $x^\alpha(t)=\varphi^{-1}(\varphi(p)+te^\alpha)$, las curvas en
-  $M$
-  definidas por las coordenadas canónicas $e^\alpha$, entonces, toda familia de
-  $\{\lambda_\alpha\}\subset\R$, tal que
-  $\lambda_\alpha\mathring{x^\alpha}=0\so\lambda_\alpha=0\ \forall\ \alpha$.
+  Sea $\cartalocal$ y ${\gamma^\alpha}$ las $\alpha$-ésimas curvas locales, si existen dos familias
+  $\{\lambda_\alpha\}$ y $\{\nu_\alpha\}\subset\R\tq$
+  $\lambda_\alpha\gamma^\alpha=\nu_\beta\gamma^\beta\so\lambda_\alpha=\nu_\alpha$.
 \end{proposition}
-\begin{proof}
-  Como hemos visto anteriormente, la coordenada $\gamma$ de la derivada en $0$ de $x^\alpha$ es
-  $\delta^{\gamma\alpha}$ y por tanto la coordenada $\gamma$ de la derivada en $0$ de
-  $\lambda_\alpha x^\alpha$ es $\lambda_\alpha\delta^{\gamma\alpha}=\lambda_\gamma$ y como este
-  debe ser igual a $0$ en cada coordenada se tiene que $\lambda_\gamma=0\ \forall\ \gamma$.
-\end{proof}
 
-\begin{proposition}
-  Sea $\cartalocal$ y $\maps{x^\alpha}{(-\epsilon, \epsilon)\subset\R}{U\subset M}$ definido por $x^\alpha(t)=\varphi^{-1}(\varphi(p)+te^\alpha)$, las curvas en
-  $M$
-  definidas por las coordenadas canónicas $e^\alpha$, entonces, para toda curva $\gamma$ en $M$ con
-  $\gamma(0)=p$, existe una familia
-  $\{\lambda_\alpha\}\subset\R$, tal que
-  $\mathring{f}=\lambda_\alpha\mathring{x^\alpha}$.
-\end{proposition}
-\begin{proof}
-  La derivada de $f$ en $0$ es un elemento de $\R^n$ con coordenadas $(f_\alpha)$, como hemos visto
-  anteriormente, las coordenadas de $\lambda_\alpha x^\alpha$ es $(\lambda_\alpha)$, por lo que
-  solo es necesario definir $\lambda_\alpha=f_\alpha$.
-\end{proof}
-
-Con estos tres resultados, se ha comprobado que $T_pM$ es un espacio vectorial de dimensión $n$
-y además se ha definido una base que usa las coordenadas canónicas de $\R^n$, ahora se va calcular una expresión para
-identificar quien es $\mathring{x^\alpha}$.
-
-Sea $\phi\in\cinfinity{p}$, por el desarrollo realizado en~\ref{eq:desarrollo-vector-tangente} y para este caso
-que $v_\alpha=(x^\alpha)^{'}(0)=1$,
-\[
-  \mathring{x^\alpha}(\phi)=\left.\frac{d(\phi\circ x^\alpha)
-  }{dt}\right|_{t=0}=\frac{\partial\phi}{\partial x^\alpha}v_\alpha=\frac{\partial}{\partial x^\alpha}(\phi)
-  \so\mathring{x^\alpha}=\frac{\partial}{\partial x^\alpha}
-\]
 \begin{definition}
-  Sea $\cartalocal$, la base de $T_p M$ formada por la clase de equivalencia de las curvas
-  $x^\alpha(t)=\varphi^{-1}(\varphi(p)+te^\alpha)$ se llama \define{base local}{def:base-local-espacio-tangente} de
-  $T_p M$.
-  Las curvas $x^\alpha$ se llaman \define{curvas locales}{curvas-locales} de M\@.
+  Sea $\cartalocal$, llamamos \define{base local de \gls{espacio-tangente}}{base-local-espacio-tangente} a la base
+  formada por las derivadas parciales con respecto a las coordenadas locales.
 \end{definition}
-\begin{notation}
-  \
-  \begin{itemize}
-    \item A partir de este momento dejamos de usar la notación $\mathring{x^\alpha}$ para los elementos del espacio
-    tangente.
-    \item Se escribe $\frac{\partial}{\partial x^\alpha}$ a los elementos de la base local.
-    \item Se escribe $\partial^\alpha=\frac{\partial}{\partial x^\alpha}$ cuando no sea necesario expresar las coordenadas
-    $x^\alpha$.
-  \end{itemize}
 
+Como hemos visto en~\ref{eq:imagen-vector-funcion} ya sabemos como se expresa la imagen de un vector de
+\gls{espacio-tangente} para cualquier función, por lo tanto las coordenadas de $\gamma^{'}\in$\gls{espacio-tangente}
+con respecto a la base local es
+\begin{equation}\label{eq:vector-tangente-coordenadas-locales}
+\gamma^{'}\by{\ref{eq:imagen-vector-funcion}}
+\frac{d(\varphi^\alpha\circ\gamma)}{dt}(0)\partial^\alpha
+\end{equation}
+
+Hemos visto que cada sistema de coordenadas local en p proporciona una base del espacio tangente, por lo que tenemos
+que conocer como se relacionan dos bases diferentes, para ello, lo que tenemos que conocer es cual es la matriz de
+cambio de coordenadas.
+
+\begin{proposition}
+  Dadas dos bases de \gls{espacio-tangente} asociadas a dos sistemas de coordenadas, la matriz del cambio de base no es
+  má́s que la matriz Jacobiana de la aplicación cambio de coordenadas.
+\end{proposition}
+
+\begin{notation}
+  Denotaremos por $\gamma^{'}$ a un vector genérico del espacio tangente.
 \end{notation}

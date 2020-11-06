@@ -1,45 +1,27 @@
-Por~\ref{sec:base-dual} el dual de la base local de $T_p M$ es una base de $T^*_p M$, además se cumple la igualdad $
-(\partial^\alpha)^*(\partial^\beta)=\delta^{\alpha\beta}$.
+\section{Base del dual del espacio tangente}\label{sec:base-dual-espacio-tangente}
 
-\begin{definition}
-  Sea $\cartalocal$ y $\mathring{\gamma}\in T_p M$, sea $\phi\in\cinfinity{M}$, se define \define{diferencial
-  de $\phi$ sobre $\mathring{\gamma}$}{diferencial de función en un punto} por
-  \begin{equation}
-    \label{eq:diferencial-funcion-punto}
-    \left.\frac{d}{dt}(\phi\circ\gamma)\right|_{t=0}
-  \end{equation}
-\end{definition}
+Ahora vamos a ver como es el espacio dual del espacio tangente, ya sabemos por~\ref{sec:espacio-dual} que el dual de
+una base de \gls{espacio-tangente} es una base de \glossarydef{espacio-tangente-dual}{$T^*_p\mathcal{M}$}{Dual del
+espacio tangente} y que dado $\gamma^{'}\in$\gls{espacio-tangente} por~\ref{res:coordenadas_duales} se cumple que $\gamma^{'} = (\partial^\alpha)^*(\gamma^{'})
+\partial^\alpha$ y por~\ref{eq:vector-tangente-coordenadas-locales} tenemos que $(\partial^\alpha)^*(\gamma^{'})=\frac{d
+(\varphi^\alpha\circ\gamma)}{dt}(0)$, por esta igualdad, está justificada la siguiente notación.
+
 \begin{notation}
-  \
-  \begin{itemize}
-    \item Se escribe $d_{\phi}(\mathring{\gamma})$ la diferencial de $\phi$ sobre $\mathring{\gamma}$.
-    \item Si $\phi=\varphi^\alpha$ se escribe $d_\alpha(\mathring{\gamma})=d_{\varphi^\alpha}(\mathring{\gamma})$.
-  \end{itemize}
+  Llamamos \glossarydef{diferencial-local}{$d_\alpha$}{Dual de $\partial^\alpha$}$= (\partial^\alpha)^*$.
 \end{notation}
 
-Sea $\cartalocal$, $\varphi^\alpha$ una coordenada local y $x^\beta$ una curva local, si calculamos $d_{\alpha}
-(\partial^\beta)$ se tiene que:
-\[
-  d_{\alpha}(\partial^\beta)=\left.\frac{d}{dt}(\varphi^\alpha\circ x^\beta)\right|_{t=0}=
-  (\varphi^\alpha(\varphi^{-1}(\varphi(p)+te^\beta)))^{'}(0)=(\varphi^\alpha(p)
-  +t\delta^{\alpha\beta})^{'}(0)=\delta^{\alpha\beta}
-\]
-
-Por lo tanto se tiene la siguiente igualdad $(\partial^\alpha)^*=d_\alpha$.
-
 \begin{definition}
-  Sea $\cartalocal$, la base formada por las diferenciales sobre
-  las coordenadas locales se llama \define{base local}{def:base-local-dual-espacio-tangente} de
-  $T^*_p M$.
+  Sea $\cartalocal$, la base $\{d_\alpha\}$ formada por las duales de la base local de \gls{espacio-tangente} se llama
+  \define{base local}{def:base-local-dual-espacio-tangente} de $T^*_p\mathcal{M}$.
 \end{definition}
 
-Dados dos variedades diferenciables $M$ y $N$ y una aplicación diferenciable $\maps{\phi}{M}{N}$,
+Dados dos variedades diferenciables $\mathcal{M}$ y $N$ y una aplicación diferenciable $\maps{\phi}{M}{N}$,
 podemos definir una aplicación entre espacios tangentes a ambas variedades de forma natural, sin
 más que considerar la composición de aplicaciones de la siguiente manera:
 \begin{equation}
   \label{eq:diferencial-aplicacion}
   \begin{alignedat}{1}
-    \mapsdef{d_p\phi}{T_pM}{T_{\phi(p)}N}{\mathring{\gamma}}{\mathring{\phi\circ\gamma}}
+    \mapsdef{d_p\phi}{T_pM}{T_{\phi(p)}N}{\gamma^{'}}{\phi\circ\gamma^{'}}
   \end{alignedat}
 \end{equation}
 
