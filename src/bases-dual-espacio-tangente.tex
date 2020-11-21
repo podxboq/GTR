@@ -15,18 +15,40 @@ espacio tangente} y que dado $\gamma^{'}\in$\gls{espacio-tangente} por~\ref{res:
   \define{base local}{def:base-local-dual-espacio-tangente} de $T^*_p\mathcal{M}$.
 \end{definition}
 
-Dados dos variedades diferenciables $\mathcal{M}$ y $N$ y una aplicación diferenciable $\maps{\phi}{M}{N}$,
-podemos definir una aplicación entre espacios tangentes a ambas variedades de forma natural, sin
-más que considerar la composición de aplicaciones de la siguiente manera:
+Así, por~\ref{sec:espacio-dual} todos los vectores $\gamma^{'}\in T_p\mathcal{M}$ y $\omega\in T_p^*\mathcal{M}$ tiene
+la siguiente expresión en sus respectivas bases locales:
 \begin{equation}
-  \label{eq:diferencial-aplicacion}
-  \begin{alignedat}{1}
-    \mapsdef{d_p\phi}{T_pM}{T_{\phi(p)}N}{\gamma^{'}}{\phi\circ\gamma^{'}}
-  \end{alignedat}
+  \label{eq:vectores-tangentes-duales-coordenadas-locales}
+  \omega = \omega(\partial^\alpha)d_{\alpha}\\
+  \gamma^{'}=d_{\alpha}(\gamma^{'})\partial^{\alpha}
 \end{equation}
 
+Si $\omega=(\gamma^{'})^*$, como las coordenadas en sus respectivas bases son las mismas, entonces obtenemos la
+siguiente igualdad
+\begin{equation}
+  \label{eq:vector-tangente-coordenadas-locales-iguales}
+  \omega(\partial^\alpha)=d_{\alpha}(\gamma^{'})
+\end{equation}
+
+
+\section{La diferencial de una aplicación}\label{subsec:diferencial-aplicacion}
+Sea $\doscartaslocales$, $\gamma$ una curva centrada en $p$ y $\maps{\phi}{U}{V}$ una aplicación
+diferenciable con $\phi(p)=q$.
+Como $\phi\circ\gamma$ es una curva centrada en $q$, tenemos que $(\phi\circ\gamma)^{'}(0)\in T_q\mathcal{N}$ y por
+tanto podemos definir una aplicación entre espacios tangentes a ambas variedades de forma natural, sin
+más que considerar dicha composición de aplicaciones de la siguiente manera:
+\begin{definition}
+  Sea $\maps{\phi}{\mathcal{M}}{\mathcal{N}}$ una aplicación diferenciable, definimos \define{diferencial de $\phi$
+  en $p$}{diferencial-punto} a la aplicación
+  \begin{equation*}
+    \begin{alignedat}{1}
+      \mapsdef{d_p\phi}{T_p\mathcal{M}}{T_q\mathcal{N}}{\gamma^{'}}{(\phi\circ\gamma)^{'}}
+    \end{alignedat}
+  \end{equation*}
+\end{definition}
+
 \begin{exercise}
-  Comprobar que $d_p\phi$ está bien definido.
+  Comprobar que $d_p\phi$ está bien definida.
   Si $\phi$ es un difeomorfismo, entonces $d_p\phi$ es
   un isomorfismo de espacios vectoriales y su inversa es $(d_p\phi)^{-1}=d_{\phi(p)}\phi^{-1}$.
 \end{exercise}

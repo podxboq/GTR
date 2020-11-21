@@ -1,21 +1,21 @@
 Una sección de un $s$-fibrado vectorial generaliza la noción de función sobre una variedad, en el sentido de
 que cualquier
-función $\maps{f}{M}{\R^n}$ se puede ver como una sección del $n$-fibrado vectorial trivial $M\times\R^n$.
+función $\maps{f}{\mathcal{M}}{\R^n}$ se puede ver como una sección del $n$-fibrado vectorial trivial $M\times\R^n$.
 
-¿Cómo podemos generalizar el concepto de diferenciación en secciones?, para que además se una extensión natural del
+¿Cómo podemos generalizar el concepto de diferenciación en secciones?, para que además sea una extensión natural del
 concepto de diferenciación sobre funciones.
 No hay una respuesta única.
 
 Para el caso conocido, se tiene una función $\maps{f}{\R^n}{\R^m}$, $x\in\R^n$ y $v\in T_x \R^n=\R^n$, la diferencial
 de $f$ en la dirección de $v$ se calcula por $df_v(x)=\lim_{t\to 0}{\frac {f(x+tv)-f(x)}{t}}$.
 
-Cuando se toma una sección $\mathcal{S}\in\Gamma(M, E)$, $p\in M$ y $\mathring{\gamma}\in T_p M$, no tiene sentido la
-expresión $p+t\mathring{\gamma}$, aunque sí se puede hablar del cambio de $\mathcal{S}$ a lo largo de la curva $\gamma$
-y por tanto considerar $d\mathcal{S}_{\mathring{\gamma}}(p)=\lim_{t\to 0}\frac{\mathcal{S}(\gamma (t))-\mathcal{S}
+Cuando se toma una sección $\mathcal{S}\in\Gamma(\mathcal{M}, E)$, $p\in\mathcal{M}$ y $\gamma^{'}\in T_p \mathcal{M}$, no tiene sentido la
+expresión $p+t\gamma^{'}$, aunque sí se puede hablar del cambio de $\mathcal{S}$ a lo largo de la curva $\gamma$
+y por tanto considerar $d\mathcal{S}_{\gamma^{'}}(p)=\lim_{t\to 0}\frac{\mathcal{S}(\gamma (t))-\mathcal{S}
 (\gamma (0))}{t}$.
 
-Sin embargo, la definición anterior aún no tiene sentido, porque $\mathcal{S}(\mathring{\gamma}(t))\in
-E_{\mathring{\gamma}(t)}$ y $\mathcal{S}(\mathring{\gamma}(0))\in E_p$ que son dos espacios vectoriales distintos y
+Sin embargo, la definición anterior aún no tiene sentido, porque $\mathcal{S}(\gamma^{'}(t))\in
+E_{\gamma^{'}(t)}$ y $\mathcal{S}(\gamma^{'}(0))\in E_p$ que son dos espacios vectoriales distintos y
 por tanto no puedes ser restados.
 
 Este problema admite 3 formas distintas de solución:
@@ -24,7 +24,7 @@ Este problema admite 3 formas distintas de solución:
   Aunque distintos, $E_{\gamma(t)}\cong E_p$, por tanto $\exists\ \maps{\phi_t}{E_{\gamma(t)
   }}{E_p}$ y de esta manera la expresión $\phi_t(\mathcal{S}(\gamma (t)))-\mathcal{S}(\gamma (0))$ tiene sentido.
   \[
-    d\mathcal{S}_{\mathring{\gamma}}(p)=\lim_{t\to 0}\frac{\phi_t(\mathcal{S}(\gamma (t)))-\mathcal{S}
+    d\mathcal{S}_{\gamma^{'}}(p)=\lim_{t\to 0}\frac{\phi_t(\mathcal{S}(\gamma (t)))-\mathcal{S}
     (\gamma (0))}{t}
   \]
 
@@ -32,8 +32,8 @@ Este problema admite 3 formas distintas de solución:
   Use the notion of differential of a map of smooth manifolds.
   A section $s\in \Gamma (E)$ is by definition a smooth map $s:M\to E$ such
   that $\pi \circ s\operatorname{Id}$.
-  This has a differential $ds:TM\to TE$, with the property that $ds(X)\in \Gamma (TE)$
-  for a vector field $X\in \Gamma (TM)$.
+  This has a differential $ds:T\mathcal{M}\to TE$, with the property that $ds(X)\in \Gamma (TE)$
+  for a vector field $X\in \Gamma (T\mathcal{M})$.
   However, one would like instead for $ds(X)$ to be a section of $E$ itself.
 
   In fact, since the tangent space to a vector space is isomorphic to the space itself, the vertical bundle
@@ -49,40 +49,36 @@ Este problema admite 3 formas distintas de solución:
 \end{itemize}
 
 \begin{definition}
-  Sea $(E, \pi)$ un $s$-fibrado vectorial sobre $\mathcal{M}$, se llama conexión en $E$ a cualquier operador $\R$-lineal
-  $\nabla$ sobre $\Gamma(M, E)$ con valores en $\Gamma(M, E\otimes T^* M)$ que cumpla la condición $\nabla(f\mathcal{S})
-  =\mathcal{S}\otimes df+f\nabla(\mathcal{S})$\label{def:conexion-condicion} donde $f\in\cinfinity{M}$ y
-  $\mathcal{S}\in\Gamma(M, E)$.
+  Sea $(E, \pi)$ un $s$-fibrado vectorial sobre $\mathcal{\mathcal{M}}$, se llama conexión en $E$ a cualquier operador $\R$-lineal
+  $\nabla$ sobre $\Gamma(\mathcal{M}, E)$ con valores en $\Gamma(\mathcal{M}, E\otimes T^* \mathcal{M})$ que cumpla la condición $\nabla(f\mathcal{S})
+  =\mathcal{S}\otimes df+f\nabla(\mathcal{S})$\label{def:conexion-condicion} donde $f\in\cinfinity{\mathcal{M}}$ y
+  $\mathcal{S}\in\Gamma(\mathcal{M}, E)$.
 \end{definition}
 
-Para el fibrado lineal canónico~(\ref{def:fibrado-lineal-canonico}), se tiene que $\Gamma(M, E)
-\cong\cinfinity{M}$ y la condición~\ref{def:conexion-condicion} se convierte en $\nabla(fg)=g\otimes df+f\nabla(g)$
-para todo $f,g\in\cinfinity{M}$, tenemos así que la derivada exterior es una conexión sobre $E$.
+Para el fibrado lineal canónico~(\ref{def:fibrado-lineal-canonico}), se tiene que $\Gamma(\mathcal{M}, E)
+\cong\cinfinity{\mathcal{M}}$ y la condición~\ref{def:conexion-condicion} se convierte en $\nabla(fg)=g\otimes df+f\nabla(g)$
+para todo $f,g\in\cinfinity{\mathcal{M}}$, tenemos así que la derivada exterior es una conexión sobre $E$.
 
 
-\section{Conexiones en el fibrado tangente}
+\section{Conexiones en el fibrado tangente}\label{sec:conexiones-en-el-fibrado-tangente}
 
-Para el fibrado tangente, las conexiones son aplicaciones de $TM$ en $TM\otimes T^*M$, se fija un punto $p\in
-M$ y para cada vector de la base local $\{\partial^\alpha\}$ de $T_p M$ la imagen se expresa con respecto a la
-base local $\{\partial^\alpha\otimes d_\beta\}$ de $T_pM\otimes T_p^*M$.
+Para el fibrado tangente, las conexiones son aplicaciones de $T\mathcal{M}$ en $T\mathcal{M}\otimes T^*\mathcal{M}$, se fija un punto $p\in
+\mathcal{M}$ y para cada vector de la base local $\{\partial^\alpha\}$ de $T_p \mathcal{M}$ la imagen se expresa con respecto a la
+base local $\{\partial^\alpha\otimes d_\beta\}$ de $T_p\mathcal{M}\otimes T_p^*\mathcal{M}$.
 
 \begin{definition}
-  Sea $\mathcal{S}$ una conexión en un fibrado tangente, se llama \define{símbolos de Christoffel de la
-  conexión en p}{simbolos-christoffel-conexion} a las coordenadas en la base local de $T_pM\otimes T_p^*M$ de la imagen
-  de la base local de $T_pM$.
+  Sea $\mathcal{S}$ una conexión en un fibrado tangente, llamamos $(\Gamma_p)_\beta^{\nu\alpha}$, \define{símbolos de
+  Christoffel de la
+  conexión en p}{simbolos-christoffel-conexion} a las coordenadas en la base local de $T_p\mathcal{M}\otimes T_p^*\mathcal{M}$ de la imagen
+  de la base local de $T_p\mathcal{M}$.
 \end{definition}
-\begin{notation}
-  Se escribe $(\Gamma_p)_\beta^{\nu\alpha}$ a los símbolos de Christoffel de la conexión en p para la imagen de la
-  sección local $\mathring{\partial^\nu}$.
-\end{notation}
 
-Por~\ref{eq:seccion-coordenadas-locales} cada campo vectorial $\mathcal{S}$ se
-puede poner en coordenadas locales por $\mathcal{S}=f_\alpha\mathring{\partial}^\alpha$ donde $\maps{f}{M}{\R}$, así
-que, por la condición~\ref{def:conexion-condicion} tenemos que
+Como localmente cada campo vectorial $\mathcal{S}$ se
+puede poner en coordenadas locales por $\mathcal{S}(p)=f_\alpha(p)\partial^\alpha$, por la condición~\ref{def:conexion-condicion} tenemos que
 \begin{equation*}
   \begin{split}
     \nabla(\mathcal{S}) &=\nabla(f_\alpha
-    \mathring{\partial}^\alpha)=\partial^\alpha\otimes df_\alpha+f_\alpha\nabla(\mathring{\partial}^\alpha)=
+    \partial^\alpha)=\partial^\alpha\otimes df_\alpha+f_\alpha\nabla(\partial^\alpha)=
     \partial^\alpha\otimes df_\alpha+f_\alpha\Gamma_\nu^{\alpha\beta}\partial^\nu\otimes d_\beta=\\
     & = \partial^\nu(f_\alpha)\partial^\alpha\otimes d_\nu+f_\alpha\Gamma_\nu^{\alpha\beta}
     \partial^\nu\otimes d_\nu=(\partial^\beta(f_\nu)+f_\alpha\Gamma_\nu^{\alpha\beta})
@@ -92,14 +88,17 @@ que, por la condición~\ref{def:conexion-condicion} tenemos que
 
 Resumiendo y reordenando índices para dejar la expresión más sencilla de recordar tenemos el siguiente resultado.
 \begin{proposition}
-  Para toda conexión $\nabla$ sobre $TM$ y todo campo vectorial $\mathcal{S}=f_\alpha\mathring{\partial}^\alpha$
-  sobre $\mathcal{M}$ se tiene
+  Para toda conexión $\nabla$ sobre $T\mathcal{M}$ y todo campo vectorial $\mathcal{S}=f_\alpha\partial^\alpha$
+  sobre $\mathcal{\mathcal{M}}$ se tiene
   \begin{equation}
     \label{eq:conexion-coordenadas}
     \nabla(\mathcal{S}) = (\partial^\alpha(f_\beta)+f_\nu\Gamma_\beta^{\nu\alpha})\partial^\beta\otimes d_\alpha
   \end{equation}
 \end{proposition}
 
-Sea $\nabla$ una conexión en $E$ y $\maps{\gamma}{I}{M}$ una curva, la restricción de la conexión a la curva es una
-aplicación $\maps{\nabla_\gamma}{I}{M}$ definida por $t\mapsto\nabla$
+\section{Flujo}\label{sec:flujo}
+\begin{definition}
+  Sea $X$ un campo vectorial sobre $\mathcal{M}$.
+  Una curva $\gamma$ es una \define{curva integral de X}{curva-integral} si en cada punto el vector tangente está en $X$, es decir, que $\gamma^{'}(t)=X(\gamma(t))$.
+\end{definition}
 

@@ -8,54 +8,49 @@
 \section{Fibrado tangente}\label{sec:fibrado-tangente}
 \input{fibrado-tangente}
 
-\section{El pullback}\label{sec:pullback}
-Sea $\maps{\phi}{M}{N}$ una aplicación diferenciable entre dos variedades diferenciables.
-
-\section{Campo de vectores y covectores}\label{sec:campo-vectores-covectores}
+\section{Campo de vectores}\label{sec:campo-vectores}
 \begin{definition}
-  Se llama \define{campo de vectores}{campo-vectores} en $\mathcal{M}$ a una sección de $\mathcal{M}$ en $TM$.
-  Se llama \define{campo de covectores}{campo-covectores} en $\mathcal{M}$ a una sección de $\mathcal{M}$ en $T^* M$.
+  Llamamos \define{campo de vectores}{campo-vectores} en $\mathcal{M}$ a una sección de $\mathcal{M}$ en $T\mathcal{M}$.
+  Llamamos \define{campo de vectores duales}{campo-covectores} en $\mathcal{M}$ a una sección de $\mathcal{M}$ en $T^*
+  \mathcal{M}$.
 \end{definition}
 
 \begin{notation}
   \
   \begin{itemize}
-    \item Se escribe $\Gamma(TM) = \Gamma(M, TM)$.
-    \item Se escribe $\Gamma(T^*M) = \Gamma(M, T^*M)$.
+    \item Escribimos $\Gamma(T\mathcal{M}) = \Gamma(\mathcal{M}\coma T\mathcal{M})$.
+    \item Escribimos $\Gamma(T^*\mathcal{M}) = \Gamma(\mathcal{M}\coma T^*\mathcal{M})$.
   \end{itemize}
 \end{notation}
 
-Se puede considerar $\forall\ p\in M$, su base local $\{\partial_p^\alpha\}_\alpha$ de $T_p M$, y fijado un índice
-se puede definir el campo vectorial que a cada punto $p$ le asocia el vector $\partial_p^\alpha$. el problema es que
-esta asignación depende de la carta local elegida en cada punto, para poder dar una definición consistente vamos a
-definir una relación de equivalencia.
+Sea $\cartalocal$ y $X$ un campo de vectores en $\mathcal{M}$, la restricción de $X$ a $U$
+nos permite expresar con respecto a la base local en cada punto de $q\in U$ $X(q)
+=X_{\alpha}(q)\partial^\alpha$, donde $\maps{X_\alpha}{U}{\R}$ son diferenciables, esta expresión nos permite ver el
+campo de vectores localmente como una aplicación entre las funciones diferenciables en $U$ y las funciones en $U$ con
+la asignación $f\mapsto X(f)(p)\mapsto f_\alpha(p)\partial^\alpha(f)$.
 
-\begin{exercise}
-  Definir relación a través del jacobiano.
-\end{exercise}
+La construcción anterior no tiene su imagen en $\cinfinity{U}$ pero es fácil comprobar que $X$ es diferenciable si y
+sólo si $X(f)$ también es diferenciable, y por tanto, localmente un campo de vectores se puede ver como un
+endomorfismo de las aplicaciones diferenciables de $U$, teniendo sentido la siguiente definición.
 
 \begin{definition}
-  Se llama \define{campo de vectores local en la dirección $\alpha$}{campo-vectores-local} al campo de
-  vectores que a cada punto $p$ le asigna la clase de equivalencia ? $\mathring{\partial}_p^\alpha$.
+  Sea $\cartalocal$ y $X\coma Y$ dos campos de vectores en $\mathcal{M}$, definimos el \define{corchete de
+  Lie}{corchete-lie} al nuevo campo de vectores definido por $[X\coma Y](f)=X(Y(f))-Y(X(f))$, donde $f\in\cinfinity{U}$.
 \end{definition}
-\begin{notation}
-  Se escribe $\mathring{\partial}^\alpha$ al campo de vectores local en la dirección $\alpha$.
-\end{notation}
 
-Si consideramos una sección $\mathcal{S}\in\Gamma(TM)$, a cada punto $p\in M$ le corresponde un vector que en
-coordenadas de la base local se expresa por $\mathcal{S}(p)=v_{p\alpha}\partial_p^\alpha$ y por tanto se puede definir
-las funciones $\maps{f_\alpha}{M}{\R}$ por $p\mapsto v_{p\alpha}$ dando la siguiente igualdad
-\begin{equation}\label{eq:seccion-coordenadas-locales}
-\mathcal{S}(p)=v_{p\alpha}\partial_p^\alpha=f_\alpha(p)\mathring{\partial}^\alpha(p)=(f_\alpha\mathring{\partial}^\alpha)(p)
-  \so
-\mathcal{S}=f_\alpha\mathring{\partial}^\alpha
-\end{equation}
-
+Aquí daremos por probado que el corchete de Lie es un campo vectorial, que está bien definido y que cumple las
+siguientes propiedades:
+\begin{itemize}
+  \item \textbf{Anticonmutativo}: $\lie{X}{Y}=-\lie{Y}{X}$.
+  \item \textbf{Lineal}: $\lie{aX+bY}{Z}=a\lie{X}{Z}+b\lie{Y}{Z}$.
+  \item \textbf{Identidad de Jacobi}: $\lie{\lie{X}{Y}}{Z}+\lie{\lie{Y}{Z}}{X}+\lie{\lie{Z}{X}}{Y}=0$.
+  \item $\lie{fX}{gY}=fg\lie{X}{Y}+fX(g)Y-gY(f)X$.
+\end{itemize}
 \section{Espacio tangente como derivaciones}\label{sec:espacio-tangente-como-derivaciones}
 
 \begin{definition}
   Sea $X$ un campo de vectores sobre $\mathcal{M}$ y $\phi\in\cinfinity{M}$, se llama \define{derivada de Lie de
-  f en X}{Derivada de Lie sobre una función} a:
+  $\phi$ en X}{Derivada de Lie sobre una función} a:
   \begin{equation}
     \label{eq:derivada-lie-funcion-campo}
     \begin{alignedat}{1}
@@ -64,3 +59,10 @@ las funciones $\maps{f_\alpha}{M}{\R}$ por $p\mapsto v_{p\alpha}$ dando la sigui
   \end{equation}
 \end{definition}
 
+\begin{proposition}
+  $\mathscr{L}$ es un isomorfismo entre las derivaciones de $\mathcal{M}$ y $\Gamma(T\mathcal{M})$.
+\end{proposition}
+
+\begin{proposition}
+  $\lie{\mathscr{L}_X}{\mathscr{L}_Y}=\mathscr{L}_{\lie{X}{Y}}$.
+\end{proposition}

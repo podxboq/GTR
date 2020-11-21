@@ -2,12 +2,11 @@
   Sea $\mathcal{M}$ una variedad diferenciable, se llama \define{s-fibrado vectorial}{s-fibrado-vectorial} en $\mathcal{M}$ al
   par $(E\coma \pi)$ donde
   \begin{enumerate}
-    \item $\maps{\pi}{E}{M}$ es sobreyectiva.
-    \item $\forall p\in M\ \pi^{-1}(p)$ es un espacio vectorial.
-    \item $\forall p\in M\ \exists U\subset M$ abierto y $\maps{\psi}{\pi^{-1}(U)}{U\times\R^s}$ tal que los siguientes diagramas son conmutativos:
+    \item $\maps{\pi}{E}{\mathcal{M}}$ es sobreyectiva.
+    \item $\forall p\in \mathcal{M}\coma\pi^{-1}(p)$ es un espacio vectorial.
+    \item $\forall p\in \mathcal{M}\coma\exists\ U\subset \mathcal{M}$ abierto y $\maps{\psi}{\pi^{-1}(U)}{U\times\R^s}$
+    tal que los siguientes diagramas son conmutativos:
   \end{enumerate}
-
-
   \[
     \begin{tikzcd}
       \pi^{-1}(U)\arrow{r}{\psi}\arrow[hook]{d} & U\times\R^s\arrow{d}{pr_1}\\
@@ -20,67 +19,44 @@
   \]
 \end{definition}
 \begin{notation}
-  Se escribe $E_p=\pi^{-1}(p)$.
+  Se escribe \glossarydef{p-fibrado}{$E_p$}{Fibrado en p}$=\pi^{-1}(p)$.
 \end{notation}
 
 \begin{definition}
-Se llama \define{fibrado lineal canónico}{fibrado-lineal-canonico} al 1-fibrado vectorial $(E=M\times\R,\pi)$ donde
+Se llama \define{fibrado lineal canónico}{fibrado-lineal-canonico} al 1-fibrado vectorial $
+(E=\mathcal{M}\times\R\coma\pi)$ donde
 $\pi$
 es la proyección canónica de $E$ en $\mathcal{M}$.
 \end{definition}
 
 \begin{definition}
-  Sea $\mathcal{M}$ una variedad, se llama \define{fibrado tangente}{fibrado-tangente} al conjunto $\bigcup_{p\in M}\{p\}\times T_pM$.
-  Se llama \define{fibrado cotangente}{fibrado-cotangente} al conjunto $\bigcup_{p\in M}\{p\}\times T^*_pM$.
+  Sea $\mathcal{M}$ una variedad, se llama \define{fibrado tangente}{fibrado-tangente} al conjunto $\bigcup_{p\in \mathcal{M}}\{p\}\times T_p\mathcal{M}$.
+  Se llama \define{dual del fibrado tangente}{dual-fibrado-tangente} al conjunto $\bigcup_{p\in \mathcal{M}}\{p\}\times T^*_p\mathcal{M}$.
 \end{definition}
 \begin{notation}
-  Se escribe \glossarydef{fibrado-tangente}{$TM$}{fibrado tangente de M} al fibrado tangente de $\mathcal{M}$.
-  Se escribe \glossarydef{fibrado-dual}{$T^* M$}{fibrado dual de M} al fibrado dual de $\mathcal{M}$.
+  Se escribe \glossarydef{fibrado-tangente}{$T\mathcal{M}$}{Fibrado tangente de $\mathcal{M}$} al fibrado tangente de $\mathcal{M}$.
+  Se escribe \glossarydef{fibrado-dual}{$T^* \mathcal{M}$}{Dual del fibrado de $\mathcal{M}$} al dual del fibrado
+  tangente de $\mathcal{M}$.
 \end{notation}
 
 \begin{exercise}
-  El fibrado tangente y el fibrado cotangente de una variedad $n$-dimensional son variedades $2n$-dimensionales.
+  El fibrado tangente y el dual del fibrado tangente de una variedad $n$-dimensional son variedades
+  $2n$-dimensionales.
 \end{exercise}
 
 \begin{proposition}
 El fibrado tangente de una variedad $n$-dimensional es un $n$-fibrado tangente de $\mathcal{M}$.
 \end{proposition}
-\begin{proof}
-  Como los elementos de $TM$ son de la forma $(p, \mathring{\gamma})$ con $p\in M \land\mathring{\gamma}\in T_p M$,
-  vamos a definir la aplicación $\maps{\pi}{TM}{M}$ por $\pi(p, \mathring{\gamma})=p$.
-
-  Las dos primeras condiciones a cumplir por~\ref{def:s-fibrado-vectorial} son inmediatas pues $\forall\ p\in M\
-  E_p=T_p M$, es decir, está definido y es un espacio vectorial.
-
-  Para la tercera condición, dado $p\in M$, consideramos una carta local $(U, \varphi)$ y $\psi$ la aplicación:
-  \[
-    \begin{alignedat}{1}
-    \mapsdef{\psi}{\pi^{-1}(U)}{U\times\R^n}{(p, \mathring{\gamma})}{(p, \gamma^{'}(0))}
-    \end{alignedat}
-  \]
-  Como todas las curvas centradas en $p$ que pertenece a la clase de equivalencia de $\mathring{\gamma}$ cumplen que
-  son iguales en su derivada en 0, $\psi$ está bien definido.
-
-  El primer diagrama es conmutativo pues $(pr_1\circ\psi)(p, \mathring{\gamma})=pr_1(p,
-\gamma^{'}(0))=p=\pi(p, \mathring{\gamma})\so pr_1\circ\psi=\pi$.
-
-  En cuanto al segundo diagrama $\phi=\maps{\left.(pr_2\circ\psi)\right|_{E_p}}{E_p}{\R^n}$ definido por $\phi(p,
-  \mathring{\gamma})=\gamma^{'}(0)$ es claramente un aplicación homomorfa sobreyectiva de espacios vectoriales, para
-  demostrar que también es inyectiva, consideremos dos vectores $\mathring{\gamma_1},\mathring{\gamma_2}\in T_p M$
-  cuya imagen por $\phi$ es la misma, es decir, que $\gamma_1^{'}(0)=\gamma_2^{'}(0)$, por la relación de
-  equivalencia~\ref{ex:relacion-equivalencia} resulta que $\mathring{\gamma_1}=\mathring{\gamma_2}$.
-  Por lo tanto $\phi$ es un isomorfismo.
-\end{proof}
 
 \begin{exercise}
-  Demostrar que $T^* M$ es un $n$-fibrado tangente de $\mathcal{M}$.
+  Demostrar que $T^*\mathcal{M}$ es un $n$-fibrado tangente de $\mathcal{M}$.
 \end{exercise}
 
 \begin{definition}
-  Sea $(E,\pi)$ un $s$-fibrado vectorial sobre la variedad $\mathcal{M}$, se llama \define{sección de M en
+  Sea $(E\coma\pi)$ un $s$-fibrado vectorial sobre la variedad $\mathcal{M}$, se llama \define{sección de $\mathcal{M}$ en
   E}{sección-fibrado-tangente} a la
-  aplicación $\maps{\mathcal{S}}{M}{E}\ \mid\ \pi\circ\mathcal{S}=\operatorname{Id}$.
+  aplicación $\maps{\mathcal{S}}{\mathcal{M}}{E}\ \mid\ \pi\circ\mathcal{S}=\operatorname{Id}$.
 \end{definition}
 \begin{notation}
-  Se escribe $\Gamma(M,E)$ al conjunto de todas las secciones de $\mathcal{M}$ en $E$.
+  Se escribe $\Gamma(\mathcal{M},E)$ al conjunto de todas las secciones de $\mathcal{M}$ en $E$.
 \end{notation}
