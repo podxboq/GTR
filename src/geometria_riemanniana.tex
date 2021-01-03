@@ -1,0 +1,64 @@
+\begin{definition}
+	Sea $\mathcal{M}$ una variedad diferencial, una \define{métrica pseudo-riemanniana}{pseudometrica} sobre $\mathcal{M}$ es $\metrica$, un campo
+	$(2\coma 0)$-tensorial que en cada punto $p\in\mathcal{M}$ y para cada $\gamma\coma\gamma^{'}\in\ T_p\mathcal{M}$ satisface las siguientes propiedades:
+	\begin{enumerate}
+		\item $\metrica(p)(\gamma\coma \gamma^{'})=\metrica(p)(\gamma^{'}\coma \gamma)$.
+		\item Si $\metrica(p)(\gamma\coma \gamma^{'})=0\ \forall\ \gamma^{'}\so\gamma=0$.
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	Sea $\mathcal{M}$ una variedad diferencial, una \define{métrica riemanniana}{metrica} sobre $\mathcal{M}$ es $\metrica$, un campo
+	$(2\coma 0)$-tensorial que en cada punto $p\in\mathcal{M}$ y para cada $\gamma\coma\gamma^{'}\in\ T_p\mathcal{M}$ satisface las siguientes propiedades:
+	\begin{enumerate}
+		\item $\metrica(p)(\gamma\coma \gamma^{'})=\metrica(p)(\gamma^{'}\coma \gamma)$.
+		\item $\metrica(p)(\gamma\coma \gamma)\geq 0$, y la igualdad se da solamente cuando $\gamma = 0$.
+	\end{enumerate}
+\end{definition}
+
+A partir de este punto, siempre trabajaremos con variedades diferenciales dotados de una métrica riemanniana, que denotaremos por $\metrica$ y
+denotaremos por $\metrica_p=\metrica(p)$.
+
+Si fijamos un punto $p\in\mathcal{M}$ y $\gamma\in T_p\mathcal{M}$, podemos considerar la aplicación $\maps{\metrica_p^\gamma}{T_p\mathcal{M}}{\R}$ definido
+de forma natural por $\metrica_p^\gamma(\gamma^{'})=\metrica_p(\gamma\coma\gamma^{'})$, por lo cual tenemos que
+$\metrica_p^\gamma\in T^*_p\mathcal{M}$ y además obtenemos el siguiente resultado.
+\begin{proposition}\label{res:metrica-isomorfismo}
+La asignación $\gamma\mapsto\metrica_p^\gamma$ es un isomorfismo entre $T_p\mathcal{M}$ y $T_p^*\mathcal{M}$.
+\end{proposition}
+La inversa del isomorfismo asigna a cada $d\omega\in T^*\mathcal{M}$ un elemento $(\metrica_p)^{-1}_{d\omega}\in
+T\mathcal{M}$.
+
+\section{La métrica en coordenadas locales}\label{sec:metrica-coordenadas-locales}
+Sea $\cartalocal$ y $\metrica$ una métrica sobre $\mathcal{M}$, restringiendo la métrica a la carta local, el tensor tiene su expresión en coordenadas locales
+\begin{equation}
+	\label{eq:metrica-base-local}
+	\metrica_p = {\metrica_p}^{\mu\nu}d_{\mu}\otimes d_{\nu}=\metrica_p(\partial^\mu\coma\partial^\nu)d_{\mu}\otimes d_{\nu}
+\end{equation}
+
+Omitiremos la indicación del punto $p$ en la representación de la métrica local, podemos ver localmente la métrica como
+una matriz $G=(g^{\mu\nu})$, que es la matriz asociada al isomorfismo del
+resultado~\ref{res:metrica-isomorfismo}, y por tanto es una matriz invertible con $G^{-1}=(g_{\mu\nu})$.
+Tenemos para esta nueva visión matricial las igualdades
+\begin{equation}
+	\label{eq:metrica-matriz-isomorfismo}
+     \metrica^{\partial^\mu}=\metrica^{\mu\nu}d_{\nu}\text{ y }\metrica^{-1}_{d_\mu}=\metrica_{\mu\nu}\partial^{\nu}
+\end{equation}
+
+Como la matriz $G$ es simétrica, sus valores propios son reales, y para caracterizar la métrica, nos tenemos que
+fijar en el signo de los valores propios.
+
+\begin{definition}
+	Sea $G$ la matriz asociada a una métrica, llamamos \define{índice de la métrica}{indice-metrica} al
+	número de valores propios negativos de $G$.
+\end{definition}
+
+\begin{definition}
+	Sea $G$ la matriz asociada a una métrica. Diremos que la métrica es
+	\begin{enumerate}
+		\item \define{De Riemman}{metrica-riemman} si su índice es 0.
+		\item \define{De Lorentz}{metrica-lorentz} si su índice es 1.
+		\item \define{De Euclides}{metrica-euclides} si es de Riemman y la diagonal de $G$ es diag(1,\ldots,1).
+		\item \define{De Minkowski}{metrica-minkowski} si es de Lorentz y la diagonal de $G$ es diag(-1, 1,\ldots,1).
+	\end{enumerate}
+\end{definition}
+

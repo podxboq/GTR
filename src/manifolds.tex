@@ -8,61 +8,143 @@
 \section{Fibrado tangente}\label{sec:fibrado-tangente}
 \input{fibrado-tangente}
 
+
 \section{Campo de vectores}\label{sec:campo-vectores}
 \begin{definition}
-  Llamamos \define{campo de vectores}{campo-vectores} en $\mathcal{M}$ a una sección de $\mathcal{M}$ en $T\mathcal{M}$.
-  Llamamos \define{campo de vectores duales}{campo-covectores} en $\mathcal{M}$ a una sección de $\mathcal{M}$ en $T^*
-  \mathcal{M}$.
+	Llamamos \define{campo de vectores}{campo-vectores} en $\mathcal{M}$ a una sección de $\mathcal{M}$ en $T\mathcal{M}$.
+	Llamamos \define{campo de vectores duales}{campo-covectores} en $\mathcal{M}$ a una sección de $\mathcal{M}$ en $T^*
+	\mathcal{M}$.
 \end{definition}
 
 \begin{notation}
-  \
-  \begin{itemize}
-    \item Escribimos $\Gamma(T\mathcal{M}) = \Gamma(\mathcal{M}\coma T\mathcal{M})$.
-    \item Escribimos $\Gamma(T^*\mathcal{M}) = \Gamma(\mathcal{M}\coma T^*\mathcal{M})$.
-  \end{itemize}
+	\
+	\begin{itemize}
+		\item Escribimos $\Gamma(T\mathcal{M}) = \Gamma(\mathcal{M}\coma T\mathcal{M})$.
+		\item Escribimos $\Gamma(T^*\mathcal{M}) = \Gamma(\mathcal{M}\coma T^*\mathcal{M})$.
+	\end{itemize}
 \end{notation}
 
 Sea $\cartalocal$ y $X$ un campo de vectores en $\mathcal{M}$, la restricción de $X$ a $U$
-nos permite expresar con respecto a la base local en cada punto de $q\in U$ $X(q)
-=X_{\alpha}(q)\partial^\alpha$, donde $\maps{X_\alpha}{U}{\R}$ son diferenciables, esta expresión nos permite ver el
+nos permite expresar con respecto a la base local en cada punto de $q\in U$ $X(p)
+=X_{\alpha}(p)\partial^\alpha$, donde $\maps{X_\alpha}{U}{\R}$ son diferenciables, esta expresión nos permite ver el
 campo de vectores localmente como una aplicación entre las funciones diferenciables en $U$ y las funciones en $U$ con
-la asignación $f\mapsto X(f)(p)\mapsto f_\alpha(p)\partial^\alpha(f)$.
+la asignación:
+\begin{equation}
+	\label{eq:campo-vectores-homomorfismo}
+	\begin{alignedat}{2}
+		X\colon\cinfinity{U} & \longrightarrow & \cinfinity{U} \\
+		f & \longmapsto & X(f)\colon U & \longrightarrow\R \\
+		& & q &\longmapsto X_\alpha(p)\partial^\alpha(f)
+	\end{alignedat}
+\end{equation}
 
-La construcción anterior no tiene su imagen en $\cinfinity{U}$ pero es fácil comprobar que $X$ es diferenciable si y
-sólo si $X(f)$ también es diferenciable, y por tanto, localmente un campo de vectores se puede ver como un
-endomorfismo de las aplicaciones diferenciables de $U$, teniendo sentido la siguiente definición.
+Con la visión de $X$ como un endomorfismo, se puede comprobar que además, $X$ es una derivación en $\cinfinity{U}$.
+Se tiene además que toda derivación en $\cinfinity{U}$ es en realidad un campo de vectores y obtenemos por tanto el
+siguiente resultado.
+
+\begin{proposition}
+	\label{pro:campo-vectores-derivacion}
+	Sea $\mathcal{M}$ una variedad. $X$ es un campo de vectores sobre $\mathcal{M}$ si y sólo si es una derivación
+	sobre $\cinfinity{\mathcal{M}}$.
+\end{proposition}
+
+Con esta nueva visión de los campos de vectores, podemos considerar la composición de campos como si fueran funciones,
+si tenemos $X\coma Y$ dos campos sobre una variedad $\mathcal{M}$, consideramos $XY$ un nuevo campo definido por $XY
+(f)=X(Y(f))$.
+Sin embargo, como veremos más adelante, esta composición de campos vectoriales no es un campo vectorial.
+
+\begin{exercise}
+	Sea $X\coma Y$ dos campos de vectores sobre una variedad $\mathcal{M}$. Demostrar que $XY$ no es un campo vectorial.
+\end{exercise}
+\begin{proof}
+	Sean $f\coma g\in\cinfinity{M}$, se tienen las siguientes igualdades:
+	\begin{eqnarray*}
+		(XY)(fg) & = & X(Y(fg)) = X(Y(f)g+fY(g)) = X(Y(f)g)+X(fY(g))=\\
+		& = & X(Y(f))g+Y(f)X(g)+X(f)Y(g)+fX(Y(g)) = \\
+		& = & (XY)(f)g+f(XY)(g)+Y(f)X(g)+X(f)Y(g)
+	\end{eqnarray*}
+\end{proof}
+
+Como vemos en el desarrollo de la expresión $(XY)(fg)$, tenemos los términos extras $Y(f)X(g)+X(f)Y(g)$ que en
+general no es nulo.
+Sin embargo, si consideramos la expresión $(XY-YX)$, vemos que la expresión se desarrolla de la siguiente manera:
+\begin{eqnarray*}
+	(XY-YX)(fg) & = & (XY)(f)g+f(XY)(g)+Y(f)X(g)+X(f)Y(g) - \\
+	& - & (YX)(f)g-f(YX)(g)-X(f)Y(g)-Y(f)X(g) = \\
+	& = & (XY)(f)g+f(XY)(g) - (YX)(f)g-f(YX)(g) = (XY-YX)(f)g+ f(XY-YX)(g)
+\end{eqnarray*}
+
 
 \begin{definition}
-  Sea $\cartalocal$ y $X\coma Y$ dos campos de vectores en $\mathcal{M}$, definimos el \define{corchete de
-  Lie}{corchete-lie} al nuevo campo de vectores definido por $[X\coma Y](f)=X(Y(f))-Y(X(f))$, donde $f\in\cinfinity{U}$.
+	Sea $\cartalocal$ y $X\coma Y$ dos campos de vectores en $\mathcal{M}$, definimos el \define{corchete de
+	Lie}{corchete-lie} al nuevo campo de vectores definido por $[X\coma Y]=XY-YX$.
 \end{definition}
 
-Aquí daremos por probado que el corchete de Lie es un campo vectorial, que está bien definido y que cumple las
-siguientes propiedades:
+El corchete de Lie cumple las siguientes propiedades:
 \begin{itemize}
-  \item \textbf{Anticonmutativo}: $\lie{X}{Y}=-\lie{Y}{X}$.
-  \item \textbf{Lineal}: $\lie{aX+bY}{Z}=a\lie{X}{Z}+b\lie{Y}{Z}$.
-  \item \textbf{Identidad de Jacobi}: $\lie{\lie{X}{Y}}{Z}+\lie{\lie{Y}{Z}}{X}+\lie{\lie{Z}{X}}{Y}=0$.
-  \item $\lie{fX}{gY}=fg\lie{X}{Y}+fX(g)Y-gY(f)X$.
+	\item \textbf{Anticonmutativo}: $\lie{X}{Y}=-\lie{Y}{X}$.
+	\item \textbf{Lineal}: $\lie{aX+bY}{Z}=a\lie{X}{Z}+b\lie{Y}{Z}$.
+	\item \textbf{Identidad de Jacobi}: $\lie{\lie{X}{Y}}{Z}+\lie{\lie{Y}{Z}}{X}+\lie{\lie{Z}{X}}{Y}=0$.
+	\item $\lie{fX}{gY}=fg\lie{X}{Y}+fX(g)Y-gY(f)X$.
 \end{itemize}
-\section{Espacio tangente como derivaciones}\label{sec:espacio-tangente-como-derivaciones}
+
+Sea $\cartalocal$ y $X\coma Y$ dos campos de vectores sobre $\mathcal{M}$, sobre $U$ podemos expresar en coordenadas
+locales para cada punto $p\in U$ los campos por $X(p)=X_\alpha(p)\partial^\alpha$ y $Y(p)=Y_\alpha(p)\partial^\alpha$,
+nos preguntamos que expresión tiene el corchete de Lie.
+
+\begin{eqnarray*}
+[X\coma Y]
+	(p) & = & (XY-YX)(p) = X(Y(p))-Y(X(p))=X(Y_\alpha(p)\partial^\alpha)-Y(X_\alpha(p)
+	\partial^\alpha) = \\
+	& = & Y_\alpha(p)X(\partial^\alpha)-X_\alpha(p)Y(\partial^\alpha) = (X(Y_\alpha(p))-Y(X_\alpha(p)))\partial^\alpha
+\end{eqnarray*}
 
 \begin{definition}
-  Sea $X$ un campo de vectores sobre $\mathcal{M}$ y $\phi\in\cinfinity{M}$, se llama \define{derivada de Lie de
-  $\phi$ en X}{Derivada de Lie sobre una función} a:
-  \begin{equation}
-    \label{eq:derivada-lie-funcion-campo}
-    \begin{alignedat}{1}
-      \mapsdef{\mathscr{L}_X \phi}{M}{\R}{p}{d_p \phi(X(p))}
-    \end{alignedat}
-  \end{equation}
+	Sea $X$ un campo de vectores sobre $\mathcal{M}$ y $\phi\in\cinfinity{M}$, se llama \define{derivada de Lie de
+	$\phi$ en X}{Derivada de Lie sobre una función} a:
+	\begin{equation}
+		\label{eq:derivada-lie-funcion-campo}
+		\begin{alignedat}{1}
+			\mapsdef{\mathscr{L}_X \phi}{M}{\R}{p}{d_p \phi(X(p))}
+		\end{alignedat}
+	\end{equation}
 \end{definition}
 
 \begin{proposition}
-  $\mathscr{L}$ es un isomorfismo entre las derivaciones de $\mathcal{M}$ y $\Gamma(T\mathcal{M})$.
+	$\mathscr{L}$ es un isomorfismo entre las derivaciones de $\mathcal{M}$ y $\Gamma(T\mathcal{M})$.
 \end{proposition}
 
 \begin{proposition}
-  $\lie{\mathscr{L}_X}{\mathscr{L}_Y}=\mathscr{L}_{\lie{X}{Y}}$.
+	$\lie{\mathscr{L}_X}{\mathscr{L}_Y}=\mathscr{L}_{\lie{X}{Y}}$.
 \end{proposition}
+
+\begin{proposition}
+	$\lie{X}{Y}=\mathscr{L}_X Y$.
+\end{proposition}
+
+\section{Curvas integrales}\label{sec:curvas-integrales}
+\begin{definition}
+	Sea $X$ un campo vectorial sobre $\mathcal{M}$.
+	Una curva $\maps{\gamma}{I}{M}$ es una \define{curva integral de X}{curva-integral} si $\gamma^{'}(t)=X(\gamma
+	(t))\
+	\forall\
+	t\in I$.
+\end{definition}
+
+Por el teorema de Picard–Lindelöf, if $X$ es un campo vectorial diferenciable, existe para cada punto $p\in\mathcal{M}$ una
+única curva integral de $X$ centrada en $p$.
+
+\begin{notation}
+	Sea $X$ un campo vectorial sobre $\mathcal{M}$, denotaremos \glossarydef{curva-x-p}{$\gamma_X^p$}{Curva integral de X
+	centrada en p} a la única curva integral de $X$ centrada en $p$.
+\end{notation}
+
+\begin{definition}
+  Sea $X$ un campo vectorial sobre $\mathcal{M}$, llamaremos \define{flujo}{flujo} generado por $X$ a la aplicación
+  $\maps{\sigma}{\R\times\mathcal{M}}{\mathcal{M}}$ definido por $\sigma(t, p)=\gamma_X^p(t)$.
+\end{definition}
+
+Un flujo satisface la siguiente propiedad
+\begin{equation*}
+	\sigma(t, \sigma(s,p))=\sigma(t+s,p)
+\end{equation*}

@@ -67,7 +67,7 @@ Para el fibrado tangente, las conexiones son aplicaciones de $T\mathcal{M}$ en $
 base local $\{\partial^\alpha\otimes d_\beta\}$ de $T_p\mathcal{M}\otimes T_p^*\mathcal{M}$.
 
 \begin{definition}
-  Sea $\mathcal{S}$ una conexión en un fibrado tangente, llamamos $(\Gamma_p)_\beta^{\nu\alpha}$, \define{símbolos de
+  Para una conexión en un fibrado tangente, llamamos $(\Gamma_p)_\beta^{\nu\alpha}$, \define{símbolos de
   Christoffel de la
   conexión en p}{simbolos-christoffel-conexion} a las coordenadas en la base local de $T_p\mathcal{M}\otimes T_p^*\mathcal{M}$ de la imagen
   de la base local de $T_p\mathcal{M}$.
@@ -96,9 +96,31 @@ Resumiendo y reordenando índices para dejar la expresión más sencilla de reco
   \end{equation}
 \end{proposition}
 
-\section{Flujo}\label{sec:flujo}
+\section{Conexión afín}\label{sec:conexion-affin}
 \begin{definition}
-  Sea $X$ un campo vectorial sobre $\mathcal{M}$.
-  Una curva $\gamma$ es una \define{curva integral de X}{curva-integral} si en cada punto el vector tangente está en $X$, es decir, que $\gamma^{'}(t)=X(\gamma(t))$.
+  Una \define{conexión afín}{conexion-afin} es una aplicación $\maps{\nabla}{\Gamma(T\mathcal{M})\times\Gamma(T\mathcal{M})}{\Gamma(T\mathcal{M})}$
+  con imagen $(X\coma Y)\mapsto\nabla_X Y$ que satisface las siguientes condiciones:
+  \begin{equation}\label{eq:conexion-afin-condicion-1}
+    \nabla_X (Y+Z) = \nabla_X Y + \nabla_X Z
+  \end{equation}
+  \begin{equation}\label{eq:conexion-afin-condicion-2}
+    \nabla_{X+Y} Z = \nabla_X Z + \nabla_Y Z
+  \end{equation}
+  \begin{equation}\label{eq:conexion-afin-condicion-3}
+    \nabla_{fX} Y = f\nabla_X Y
+  \end{equation}
+  \begin{equation}\label{eq:conexion-afin-condicion-4}
+    \nabla_X (fY) = X[f] Y + f\nabla_X Y
+  \end{equation}
 \end{definition}
 
+
+\section{Transporte paralelo}\label{sec:transporte-paralelo}
+\begin{definition}
+  Sea $\cartalocal$, $\nabla$ una conexión sobre $T\mathcal{M}$, $\mathcal{S}$ un campo vectorial sobre
+  $\mathcal{\mathcal{M}}$ y $\gamma$ una curva centrada en $p$. Diremos que $\mathcal{S}$ es un \define{transporte paralelo}{transporte-paralelo} a lo
+  largo de $\gamma$ si
+  \begin{equation}
+    \nabla(\mathcal{S})
+  \end{equation}
+\end{definition}
