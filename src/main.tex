@@ -1,20 +1,25 @@
 \documentclass{tstextbook}
 
+\usepackage{glossaries}
+\usepackage{url}
+
+\input{personalizacion.tex}
+\makeglossaries
 \begin{document}
 
-    \tsbook{Book Title}
-    {Author Name}
-    {Cover Designer}
-    {2017}
-    {xxxxx}{xxx--xx--xxxx--xx--x}{0.0}
-    {Publisher}
-    {City}
+    \tsbook{Apuntes en teorías de cuerdas}
+    {Francisco Costa}
+    {podxboq}
+    {2021}
+    {xxxxx}{xxx--xx--xxxx--xx--x}{0.1}
+    {Autor independiente}
+    {Murcia}
 
-%---------------------------------------------------------------------------
-% Chapters
-%---------------------------------------------------------------------------
+    \printglossaries
 
-%---------------------------------------------------------------------------
+    \chapter{La chapa}\label{ch:la-chapa}
+    \input{intro}
+
     \chapter{First chapter}
 
     \begin{summary}
@@ -28,6 +33,7 @@
         \texttt{\textbackslash{}input\{\}} to include the chapter in the
         main document.
     \end{summary}
+
 
     \section{First section}
 
@@ -66,28 +72,29 @@
         table with four cases:
         \begin{center}
             \begin{tabular}{cccccccccc}
-                $\lnot$ & ($P$ & $\land$ & $Q$) & $\Leftrightarrow$ & $\lnot$ & $P$ & $\lor$ & $\lnot$ & $Q$ \\
+                $\lnot$ & ($P$ & $\land$ & $Q$) & $\Leftrightarrow$ & $\lnot$ & $P$  & $\lor$ & $\lnot$ & $Q$  \\
                 \midrule
-                & $\T$ && $\T$ &&& $\T$ &&& $\T$ \\
-                & $\T$ && $\F$ &&& $\T$ &&& $\F$ \\
-                & $\F$ && $\T$ &&& $\F$ &&& $\T$ \\
-                & $\F$ && $\F$ &&& $\F$ &&& $\F$
+                & $\T$ &         & $\T$ &                   &         & $\T$ &        &         & $\T$ \\
+                & $\T$ &         & $\F$ &                   &         & $\T$ &        &         & $\F$ \\
+                & $\F$ &         & $\T$ &                   &         & $\F$ &        &         & $\T$ \\
+                & $\F$ &         & $\F$ &                   &         & $\F$ &        &         & $\F$
             \end{tabular}
         \end{center}
         By definition of the logical operators, we compete the table to obtain
         \begin{center}
             \begin{tabular}{cccccccccc}
-                $\lnot$ & ($P$ & $\land$ & $Q$) & $\Leftrightarrow$ & $\lnot$ & $P$ & $\lor$ & $\lnot$ & $Q$ \\
+                $\lnot$ & ($P$ & $\land$ & $Q$) & $\Leftrightarrow$ & $\lnot$ & $P$  & $\lor$ & $\lnot$ & $Q$  \\
                 \midrule
-                $\F$ & $\T$ & $\T$ & $\T$ & $\TT$ & $\F$ & $\T$ & $\F$ & $\F$& $\T$ \\
-                $\T$ & $\T$ & $\F$ & $\F$ & $\TT$ & $\F$ & $\T$ & $\T$ & $\T$& $\F$ \\
-                $\T$ & $\F$ & $\F$ & $\T$ & $\TT$ & $\T$ & $\F$ & $\T$ & $\F$& $\T$ \\
-                $\T$ & $\F$ & $\F$ & $\F$ & $\TT$ & $\T$ & $\F$ & $\T$ & $\T$& $\F$
+                $\F$    & $\T$ & $\T$    & $\T$ & $\TT$             & $\F$    & $\T$ & $\F$   & $\F$    & $\T$ \\
+                $\T$    & $\T$ & $\F$    & $\F$ & $\TT$             & $\F$    & $\T$ & $\T$   & $\T$    & $\F$ \\
+                $\T$    & $\F$ & $\F$    & $\T$ & $\TT$             & $\T$    & $\F$ & $\T$   & $\F$    & $\T$ \\
+                $\T$    & $\F$ & $\F$    & $\F$ & $\TT$             & $\T$    & $\F$ & $\T$   & $\T$    & $\F$
             \end{tabular}
         \end{center}
         It follows that the statement we want to prove (the equivalence $\Leftrightarrow$)
         is always true (a \emph{tautology}), which proves the statement.
     \end{proof}
+
 
     \section{Second section}
 
@@ -126,22 +133,23 @@
         $x = 1.4142135623731$:
         \begin{displaymath}
             \begin{array}{rclcl}
-                x_0 &=& 1 \\
-                x_{1} &=& (x_{0} + 2 / x_{0}) / 2 &=& 1.5 \\
-                x_{2} &=& (x_{1} + 2 / x_{1}) / 2 &\approx& 1.4166666666667 \\
-                x_{3} &=& (x_{2} + 2 / x_{2}) / 2 &\approx& 1.4142156862745 \\
-                x_{4} &=& (x_{3} + 2 / x_{3}) / 2 &\approx& 1.4142135623747 \\
-                x_{5} &=& (x_{4} + 2 / x_{4}) / 2 &\approx& 1.4142135623731 \\
-                x_{6} &=& (x_{5} + 2 / x_{5}) / 2 &\approx& 1.4142135623731 \\
-                x_{7} &=& (x_{6} + 2 / x_{6}) / 2 &\approx& 1.4142135623731 \\
-                x_{8} &=& (x_{7} + 2 / x_{7}) / 2 &\approx& 1.4142135623731 \\
-                x_{9} &=& (x_{8} + 2 / x_{8}) / 2 &\approx& 1.4142135623731 \\
-                x_{10} &=& (x_{9} + 2 / x_{9}) / 2 &\approx& 1.4142135623731
+                x_0 & = & 1 \\
+                x_{1}  & = & (x_{0} + 2 / x_{0}) / 2 & =       & 1.5             \\
+                x_{2}  & = & (x_{1} + 2 / x_{1}) / 2 & \approx & 1.4166666666667 \\
+                x_{3}  & = & (x_{2} + 2 / x_{2}) / 2 & \approx & 1.4142156862745 \\
+                x_{4}  & = & (x_{3} + 2 / x_{3}) / 2 & \approx & 1.4142135623747 \\
+                x_{5}  & = & (x_{4} + 2 / x_{4}) / 2 & \approx & 1.4142135623731 \\
+                x_{6}  & = & (x_{5} + 2 / x_{5}) / 2 & \approx & 1.4142135623731 \\
+                x_{7}  & = & (x_{6} + 2 / x_{6}) / 2 & \approx & 1.4142135623731 \\
+                x_{8}  & = & (x_{7} + 2 / x_{7}) / 2 & \approx & 1.4142135623731 \\
+                x_{9}  & = & (x_{8} + 2 / x_{8}) / 2 & \approx & 1.4142135623731 \\
+                x_{10} & = & (x_{9} + 2 / x_{9}) / 2 & \approx & 1.4142135623731
             \end{array}
         \end{displaymath}
         We will later see that this iteration, or any other equivalent
         iteration, defines the real number $\sqrt{2}$.
     \end{example}
+
 
     \section{Third section}
 
@@ -232,33 +240,43 @@
     \end{programming}
 
 %---------------------------------------------------------------------------
+
+
     \chapter{Second chapter}
 
     \begin{summary}
         \blindtext
     \end{summary}
 
+
     \section{First section}
     \Blindtext
 
+
     \section{Second section}
     \Blindtext
+
 
     \section{Third section}
     \Blindtext
 
 %---------------------------------------------------------------------------
+
+
     \chapter{Third chapter}
 
     \begin{summary}
         \blindtext
     \end{summary}
 
+
     \section{First section}
     \Blindtext
 
+
     \section{Second section}
     \Blindtext
+
 
     \section{Third section}
     \Blindtext

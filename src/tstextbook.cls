@@ -10,7 +10,7 @@
 % version 2005/12/01 or later.
 %
 % This is a free LaTeX text book template from Typesetters.se.
-% See tstextbook.tex for an example of how to use this class.
+% See sample.tex for an example of how to use this class.
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{tstextbook}[2017/02/19 Free LaTeX text book template from Typesetters.se]
@@ -18,7 +18,7 @@
 
 % Language
 %--------------------------------------------------------------------------
-%\RequirePackage[swedish]{babel}
+\RequirePackage[spanish]{babel}
 \RequirePackage[utf8]{inputenc}
 
 % Geometry
@@ -28,7 +28,7 @@
 
 % Fonts
 %--------------------------------------------------------------------------
-\RequirePackage{kpfonts}
+%\RequirePackage{kpfonts}
 
 % Colors
 %--------------------------------------------------------------------------
@@ -242,6 +242,12 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover.jpg}}}
  colback=black!5,colframe=tsorange]}
 {\end{tcolorbox}}
 
+\newenvironment{boxresult}
+{\begin{tcolorbox}
+[enhanced jigsaw,breakable,pad at break*=1mm,
+ colback=black!5,colframe=tsyellow]}
+{\end{tcolorbox}}
+
 \newenvironment{boxdefinition}
 {\begin{tcolorbox}
 [enhanced jigsaw,breakable,pad at break*=1mm,
@@ -315,6 +321,10 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover.jpg}}}
 \newenvironment{theorem}
                {\begin{boxtheorem}\begin{envtheorem}}
                {\end{envtheorem}\end{boxtheorem}}
+
+\newenvironment{result}
+               {\begin{boxresult}\begin{envtheorem}}
+               {\end{envtheorem}\end{boxresult}}
 
 \newenvironment{corollary}
                {\begin{boxtheorem}\begin{envtheorem}}
