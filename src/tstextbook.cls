@@ -20,6 +20,7 @@
 %--------------------------------------------------------------------------
 \RequirePackage[spanish]{babel}
 \RequirePackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathrsfs}
 
 % Geometry
 %--------------------------------------------------------------------------
@@ -255,6 +256,13 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover.jpg}}}
  borderline west={1.5mm}{-2mm}{tsforestgreen}]}
 {\end{tcolorbox}}
 
+\newenvironment{boxnotation}
+{\begin{tcolorbox}
+[enhanced jigsaw,breakable,pad at break*=1mm,
+ colback=yellow!10!white,boxrule=0pt,frame hidden,
+ borderline west={1.5mm}{-2mm}{tsforestgreen}]}
+{\end{tcolorbox}}
+
 \newenvironment{boxexercise}
 {\begin{tcolorbox}
 [enhanced jigsaw,breakable,pad at break*=1mm,
@@ -295,6 +303,12 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover.jpg}}}
  \nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}
  \thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries\color{black} (#3)}}
 
+\newtheoremstyle{stylenotation}
+{0pt}{0pt}{\normalfont}{0pt}{\small\bf\sffamily\color{black}}{\;}{0.25em}
+{\small\sffamily\color{tsforestgreen}\thmname{#1}
+ \nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}
+ \thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries\color{black} (#3)}}
+
 \newtheoremstyle{styleexercise}
 {0pt}{0pt}{\normalfont}{0pt}{\small\bf\sffamily\color{black}}{\;}{0.25em}
 {\small\sffamily\color{black}\thmname{#1}
@@ -317,6 +331,10 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover.jpg}}}
 \newenvironment{definition}
                {\begin{boxdefinition}\begin{envdefinition}}
                {\end{envdefinition}\end{boxdefinition}}
+
+\newenvironment{notation}
+               {\begin{boxnotation}\begin{envdefinition}}
+               {\end{envdefinition}\end{boxnotation}}
 
 \newenvironment{theorem}
                {\begin{boxtheorem}\begin{envtheorem}}
@@ -365,8 +383,9 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover.jpg}}}
 
 % Bibliography
 %--------------------------------------------------------------------------
-\RequirePackage[backend=biber]{biblatex}
-\addbibresource{bibliography.bib}
+\RequirePackage[backend=bibtex]{biblatex}
+\addbibresource{wiki.bib}
+\addbibresource{books.bib}
 
 % Index
 %--------------------------------------------------------------------------

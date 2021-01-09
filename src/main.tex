@@ -1,11 +1,11 @@
 \documentclass{tstextbook}
 
-\usepackage{amsmath,amsfonts,amssymb,amsthm,mathrsfs}
 \usepackage{glossaries}
-\usepackage{url}
+\usepackage{tikz-cd}
 
 \input{personalizacion.tex}
 \makeglossaries
+
 \begin{document}
 
     \tsbook{Apuntes en teorías de cuerdas}
@@ -42,11 +42,8 @@
     \chapter{Geometría con métrica}\label{ch:geometría-metrica}
     \input{geometria_riemanniana.tex}
 
-    \bibliography{wiki}
-    \bibliography{books}
-    \bibliographystyle{plain}
-
     \addcontentsline{toc}{chapter}{\textcolor{tssteelblue}{Literature}}
+
     \printbibliography{}
     \printindex
 
