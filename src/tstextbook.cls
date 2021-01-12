@@ -80,17 +80,16 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover.jpg}}}
       \node[anchor=north west,inner sep=0pt] at (0,0)
            {\includegraphics[width=\paperwidth]{background}};
       % Chapter heading
-      \draw[anchor=west, inner sep=0pt] (-0.1cm,-1.5cm) node
+      \draw[anchor=west, inner sep=0pt] (0cm,-1.5cm) node
            [black,
             ultra thick,
             fill=tsorange!10,
             fill opacity=.6,
-            inner sep=10pt]
-           (0,0)
-           {\parbox[t][1.6cm][t]{\paperwidth}
-           {\huge\bfseries\sffamily\flushleft\thechapter. #1}};
+            inner sep=0pt]
+           {\parbox[t][][c]{\paperwidth}
+           {\;\huge\bfseries\sffamily\flushleft\thechapter. #1}};
       % Chapter contents
-      \draw[anchor=west,inner sep=0pt] (8.8cm,-7cm) node
+      \draw[anchor=west,inner sep=0pt] (8.8cm,-3cm) node
            [tssteelblue,
             ultra thick,
             fill=white,
@@ -101,7 +100,7 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover.jpg}}}
             rounded corners,
             inner sep=0pt]
            (0,0)
-           {\hspace{1cm}\parbox[t][7.1cm][t]{11cm}
+           {\hspace{1cm}\parbox[t][4cm][t]{11cm}
            {\vspace{-1cm}\huge\bfseries\sffamily\flushleft
             \textcolor{black}{\sffamily\minitoc}}};
     \end{tikzpicture}
@@ -157,12 +156,17 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover.jpg}}}
 {\addvspace{14pt}\large\sffamily\bfseries}
 {\color{tssteelblue}\contentslabel[\Large\thecontentslabel]{1.25cm}}{}
 {\color{tssteelblue}\normalsize\sffamily\bfseries
- \;\titlerule*[.5pc]{.}\;\thecontentspage}
+ \;\titlerule*[.5pc]{.}\;\mdseries\thecontentspage}
 
 \titlecontents{section}[0cm]
 {\addvspace{6pt}\sffamily\bfseries}
 {\contentslabel[\thecontentslabel]{1.25cm}}{}
-{\sffamily\hfill\color{black}\thecontentspage}[]
+{\;\titlerule*[.5pc]{.}\;\mdseries\thecontentspage}[]
+
+\titlecontents{subsection}[0cm]
+{\addvspace{6pt}}
+{\contentslabel[\thecontentslabel]{1.25cm}}{}
+{\;\titlerule*[.5pc]{.}\;\mdseries\thecontentspage}[]
 
 % Front matter
 %--------------------------------------------------------------------------
